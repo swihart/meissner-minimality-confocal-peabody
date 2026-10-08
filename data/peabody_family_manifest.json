@@ -1,0 +1,71 @@
+{
+  "classification": "GO_PEABODY_FAMILY_MINIMALITY_CERTIFIED",
+  "scope": "Meissner minimizes volume among width-one regular-tetrahedron confocal Peabodies.",
+  "central": {
+    "terminal_boxes": 590,
+    "local_boxes": 160,
+    "bulk_boxes": 430,
+    "bulk_slabs": 43,
+    "max_depth": 8,
+    "precision_dps": 80,
+    "weakest_local_phi_prime_lower": "0.0005415852980838714162751786042230447347062070754731527196047872757898790925520772704363184981274999502",
+    "weakest_bulk_phi_lower": "0.0000003289951660397968513639698874811370840941170600803751179702451061052973226292595790725980000105655858",
+    "certificate_bytes": 1199528
+  },
+  "tail": {
+    "terminal_boxes": 2000,
+    "precision_dps": 80,
+    "weakest_phi_lower": "0.00006054637532642796468010985596478515268311864507240162016232430791668749989006899772280296903555279539",
+    "tail_range": "199/200<=e<1"
+  },
+  "combined_terminal_boxes": 2590,
+  "source_files": {
+    "task_instruction": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/central_campaign_instruction.txt",
+      "bytes": 16137,
+      "sha256": "742a5fd777f46d5b54efd06ee73eb3e473e48420178f8a295fdfc76bf831662a"
+    },
+    "tail_gate_zip": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/confocal_peabody_tail_first_gate_2026-09-30.zip",
+      "bytes": 575690,
+      "sha256": "f628b84bcee4398faab0399903b0b2590c5c31b8694a58faeeebe8e61b80b3fc"
+    },
+    "v4_checkpoint_zip": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/confocal_peabody_v4_validated_checkpoint_2026-09-30.zip",
+      "bytes": 69460,
+      "sha256": "cda5d925002dfbb8ae1200fbce7b7a95876e588c14aa650b354357793eccb9e9"
+    },
+    "exact_additivity_note": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/peabody_exact_additivity_note.md",
+      "bytes": 13890,
+      "sha256": "ef3ef867a24a30ac6274629c8c9b31e6c922d2c014ca69f459a2a655d1d188bd"
+    },
+    "exact_pair_formula": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/peabody_exact_pair_formula.py",
+      "bytes": 15581,
+      "sha256": "f142d394b75de96ad8752ce956f09c3d25f773ed85f4f04c04cf037007153557"
+    },
+    "phi_monotonicity_wl": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/peabody_phi_monotonicity.wl",
+      "bytes": 19541,
+      "sha256": "afa452e582454a41d83f1ceedb1fe8c0ae719cd32593450a3c83b7d1c06c18b6"
+    },
+    "compressed_core_v4": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/peabody_compressed_core_v4.wl",
+      "bytes": 5236,
+      "sha256": "166e8cf96c061e7dcf68ef590743df41abc5f05662d9691216560ead738f9de1"
+    },
+    "moonshot_flight_recorder": {
+      "path": "/mnt/data/confocal_peabody_family_minimality_certificate_2026-09-30/frozen_inputs/peabody_moonshot_flight_recorder.json",
+      "bytes": 10591,
+      "sha256": "133368588703c801e6fad1dd0a36fb6b170a5cc9737288a59271a4f687f30481"
+    },
+    "peabodies_source_pdf": {
+      "path": "/mnt/data/2021_peabodies.pdf",
+      "bytes": 2576397,
+      "sha256": "34925f42108f6836fa01c6b06047b5a71bb782061feacb97789221b0c153b9ae"
+    }
+  },
+  "python_version": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+}

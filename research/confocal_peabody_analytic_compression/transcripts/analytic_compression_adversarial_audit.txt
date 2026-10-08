@@ -1,0 +1,115 @@
+{
+  "audit_version": "PEABODY_ANALYTIC_COMPRESSION_AUDIT_V1",
+  "classification": "PEABODY_ANALYTIC_COMPRESSION_AUDIT_PASS",
+  "pass": true,
+  "python_version": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "mpmath_version": "1.3.0",
+  "checks": {
+    "canonical_pass": true,
+    "box_count": true,
+    "endpoint_target": true,
+    "concavity_target": true,
+    "hard_stop": true,
+    "exact_partition_coverage": true,
+    "endpoint_formula_match": true,
+    "endpoint_high_precision_inside_certificate": true,
+    "endpoint_high_precision_above_target": true,
+    "sampled_second_derivatives_inside_certificate": true,
+    "chain_rule_identity_numeric": true,
+    "sampled_global_chord_bound": true,
+    "precision_replay_same_classification": true,
+    "reverse_replay_same_classification": true,
+    "stable_leading_endpoint_digits": true,
+    "stable_leading_concavity_digits": true,
+    "underresolved_partition_rejected": true,
+    "correction_sign_mutation_rejected": true,
+    "terminal_box_metadata": true
+  },
+  "endpoint_formula_max_error": "1.142987391282274982215784e-100",
+  "phi_one_high_precision": "0.00037778434969145361892165212063707606418544247987202757462613749067337563616642949",
+  "sampled_derivatives": [
+    {
+      "slab_index": 0,
+      "q": "0.015625",
+      "e": "0.9692307692307692307692307692307692307692",
+      "phi": "0.00037769081076284442437029703052475773999844177286588",
+      "phi_second": "-0.00021009221566368442809280145784554397521445830491176",
+      "chain_error": "0.0",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 1,
+      "q": "0.046875",
+      "e": "0.9104477611940298507462686567164179104478",
+      "phi": "0.00037694252271523521708777953744344655159020021727315",
+      "phi_second": "-0.00025065378341139942661678175076754630009763155055896",
+      "chain_error": "0.0",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 3,
+      "q": "0.109375",
+      "e": "0.8028169014084507042253521126760563380282",
+      "phi": "0.00037320170584347142435184042364845831424244904640603",
+      "phi_second": "-0.00034705901987547143115741480305259065316791789362633",
+      "chain_error": "3.4881207e-105",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 7,
+      "q": "0.234375",
+      "e": "0.6202531645569620253164556962025316455696",
+      "phi": "0.00035675444213559687619903901896541524960872673597805",
+      "phi_second": "-0.00061129440791659470899054623426635105516763527551452",
+      "chain_error": "6.9762414e-105",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 15,
+      "q": "0.484375",
+      "e": "0.3473684210526315789473684210526315789474",
+      "phi": "0.00028819178496871027356479381263135386771424139934556",
+      "phi_second": "-0.0015145538271219859287425281996293218863201523829696",
+      "chain_error": "0.0",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 23,
+      "q": "0.734375",
+      "e": "0.1531531531531531531531531531531531531532",
+      "phi": "0.0001727256321642689116489963305707503313194922125341",
+      "phi_second": "-0.0031012416875277534903631464822713710930017570918668",
+      "chain_error": "2.7904966e-104",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    },
+    {
+      "slab_index": 31,
+      "q": "0.984375",
+      "e": "0.007874015748031496062992125984251968503937",
+      "phi": "0.000011555459499805778951271613086732544616880993752695",
+      "phi_second": "-0.005603042819394381798146828807068415621943113751239",
+      "chain_error": "5.5809931e-104",
+      "inside_certificate": true,
+      "scalar_bound_pass": true
+    }
+  ],
+  "source_hashes": {
+    "data/certificate_80dps/peabody_concavity_certificate.json": "032c02f2aa6832a7ebcad78aa326e1bfe2e6c2adc28168847c99edd4961516b4",
+    "data/certificate_100dps/peabody_concavity_certificate.json": "47d504f799d1cdec686866cf591b08f7f9c541cfdc51e1b789879ce62defaa35",
+    "data/certificate_reverse_80dps/peabody_concavity_certificate.json": "0cbbaefba68ea274b1d7435c0c798ef32b5555cb49ffd8f74b9f77a5a40c415d",
+    "data/control_underresolved_16/peabody_concavity_certificate.json": "bdf3bc4c7bb8d88ade8769f702b1a1b9fa9ef4afe4f3aff97579fd201736ca92",
+    "data/control_correction_sign/peabody_concavity_certificate.json": "522c321e9c6fb534d6ccc5fd0b5c60370a1501e16a4d88ba31b29f16b1f3a5cc",
+    "data/certificate_80dps/concavity_terminal_boxes.csv": "147c78f6dab5c92302b775d0e6ebcc2dc8fa5e5a43b779e001f284507ee63568",
+    "data/certificate_80dps/endpoint_terminal_boxes.csv": "ec92c15224ccccd2095d6e0b3104fa12901b53e2c1a80b7c2eec8fd39cb0b181"
+  }
+}
+real 24.26
+user 25.04
+sys 0.04

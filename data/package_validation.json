@@ -1,0 +1,31 @@
+{
+  "validation_pass": true,
+  "required_checks": [
+    "sha256_pass",
+    "central_classification_pass",
+    "family_classification_pass",
+    "central_audit_pass",
+    "additivity_audit_pass",
+    "box_accounting_pass",
+    "scope_discipline_pass",
+    "tail_zip_semantic_pass",
+    "v4_zip_semantic_pass",
+    "clean_central_replay_pass"
+  ],
+  "checks": {
+    "sha256_pass": true,
+    "sha256_failures": [],
+    "central_classification_pass": true,
+    "family_classification_pass": true,
+    "central_audit_pass": true,
+    "additivity_audit_pass": true,
+    "box_accounting_pass": true,
+    "scope_discipline_pass": true,
+    "tail_zip_semantic_pass": true,
+    "v4_zip_semantic_pass": true,
+    "clean_central_replay_pass": true,
+    "archived_proof_core_sha256": "8ab4bfbf764da3c76a76810904e8289292b4c538957af68b15567a935882ac35",
+    "replayed_proof_core_sha256": "8ab4bfbf764da3c76a76810904e8289292b4c538957af68b15567a935882ac35"
+  },
+  "classification": "PEABODY_FAMILY_PACKAGE_VALIDATION_PASS"
+}

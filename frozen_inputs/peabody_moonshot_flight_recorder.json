@@ -1,0 +1,291 @@
+{
+  "campaign": "Confocal Peabody Edge Surgery",
+  "date": "2026-09-29",
+  "normalization": "regular tetrahedron side 2; body width 2; reported coefficients width 1",
+  "meissner_width1_exact": 0.41986004596508014,
+  "source_ledger": {
+    "Arelio_Montejano_Oliveros": "Theorem 3.3 confocal distance identity; Theorem 4.5 convex constant-width-2 assembly; Section 5.3 circle-line Meissner degeneration",
+    "Meissner_source": "exact Meissner volume and Blaschke identity",
+    "Arman_source": "Robert endpoint reported more than 0.23 percent above Meissner",
+    "prior_campaigns": "affine overshoot, one-center raising dimension, seven-vertex, and tilted projection frozen NO-GO; old rowwise architecture not reopened"
+  },
+  "runtime_environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3"
+  },
+  "geometry_verification": {
+    "e_values": [
+      0.0,
+      0.1,
+      0.5,
+      0.9
+    ],
+    "orthonormal_frame_max_abs": 2.220446049250313e-16,
+    "confocal_identity_max_abs": 1.3322676295501878e-15,
+    "paired_distance_max_abs": 1.5543122344752192e-15,
+    "minimum_sampled_pea_radius": 0.0,
+    "status": "PASS"
+  },
+  "mesh_calibration": {
+    "finest_n": 513,
+    "finest_faces": 3136512,
+    "finest_V_div": 0.41985590481362073,
+    "finest_V_Blaschke": 0.41985602528757293,
+    "finest_dual_discrepancy": 1.2047395220315948e-07,
+    "Richardson_div": 0.4198600459420007,
+    "Richardson_Blaschke": 0.4198600460913733,
+    "Richardson_paired_error": 5.160688543170977e-11,
+    "quadratic_h2_fit_div": 0.4198600459650797,
+    "quadratic_h2_fit_Blaschke": 0.41986004596508514,
+    "quadratic_h2_max_abs_error": 4.9960036108132044e-15,
+    "topology": "zero boundary edges; zero nonmanifold edges; Euler characteristic 2 at every retained run",
+    "status": "PASS"
+  },
+  "endpoint_results": {
+    "orientation_coordinate_cases": 24,
+    "levels": [
+      25,
+      49,
+      97
+    ],
+    "near_zero_e": 0.0001,
+    "finest_near_zero_delta": 1.4906726442109888e-07,
+    "finest_near_zero_secant_slope": 0.0014906726442109888,
+    "negative_endpoint_directions": 0,
+    "status": "all sampled one-sided directions positive"
+  },
+  "structured_scan": {
+    "total_meshes": 1008,
+    "nonzero_parameter_points": 1000,
+    "negative_points": 0,
+    "best_nonzero_delta": 1.494952090314028e-06,
+    "max_orientation_spread": 4.0007060164715114e-16
+  },
+  "one_dimensional_scan": {
+    "49": {
+      "positive_points": 202,
+      "negative_values": 0,
+      "negative_increments": 0,
+      "minimum_delta": 1.4935134851068458e-08,
+      "minimum_sampled_slope": 4.470934559998737e-06,
+      "delta_at_e_0_98": 0.0003786566951517
+    },
+    "97": {
+      "positive_points": 202,
+      "negative_values": 0,
+      "negative_increments": 0,
+      "minimum_delta": 1.4909335294133186e-08,
+      "minimum_sampled_slope": 4.462522079997935e-06,
+      "delta_at_e_0_98": 0.0003779728577783
+    }
+  },
+  "mixed_differences": {
+    "selected_grid_tests": {
+      "49": {
+        "tests": 72,
+        "max_abs_mixed_paired": 3.8857805861880484e-16,
+        "max_estimator_spread": 7.2164496600635185e-16
+      },
+      "97": {
+        "tests": 72,
+        "max_abs_mixed_paired": 3.05311331771918e-16,
+        "max_estimator_spread": 5.551115123125784e-16
+      }
+    },
+    "random_Sobol_parameter_tests": {
+      "49": {
+        "tests": 24,
+        "max_abs_paired_residual": 4.163336342344337e-16
+      },
+      "97": {
+        "tests": 24,
+        "max_abs_paired_residual": 4.440892098500626e-16
+      }
+    },
+    "alternate_discretizations_max_abs": 2.7755575615628914e-16,
+    "interpretation": "separable to floating-point roundoff for both independent estimators"
+  },
+  "sobol_search": {
+    "points_per_orientation": 256,
+    "orientation_patterns": 8,
+    "total_points": 2048,
+    "negative_points": 0,
+    "best_screen_parameters": [
+      0.0212694631516933,
+      0.0055060821399092,
+      0.0072393194586038
+    ],
+    "best_screen_sigmas": "101",
+    "best_screen_delta": 4.963399443372318e-05,
+    "best_refined_n": 193,
+    "best_refined_delta": 4.918337070522472e-05,
+    "best_refined_volume": 0.4199092293357853,
+    "best_refined_estimator_spread": 3.66034957344219e-08
+  },
+  "local_optimization": {
+    "orientation_patterns": 8,
+    "all_returned_to_endpoint": true,
+    "optimizer": "bounded Powell at n=33 with analytic seam snapping below 1e-7"
+  },
+  "adversarial_controls": {
+    "scheme_summary": [
+      {
+        "scheme": "odd_cosine_forward",
+        "best_paired_delta": 4.929006134851699e-05,
+        "best_paired_spread": 5.83601663550759e-07,
+        "mixed_div": -2.220446049250313e-16,
+        "mixed_bla": 0.0,
+        "mixed_paired": -1.1102230246251565e-16,
+        "mixed_estimator_spread": 2.220446049250313e-16,
+        "ray_e04_delta": 0.00030833182829401173,
+        "symmetric_e098_delta": 0.0011359700854552401,
+        "topology_pass": true
+      },
+      {
+        "scheme": "even_cosine_forward",
+        "best_paired_delta": 4.929019979538207e-05,
+        "best_paired_spread": 5.903706041809897e-07,
+        "mixed_div": -5.551115123125783e-17,
+        "mixed_bla": 0.0,
+        "mixed_paired": -2.7755575615628914e-17,
+        "mixed_estimator_spread": 5.551115123125783e-17,
+        "ray_e04_delta": 0.0003083327184377205,
+        "symmetric_e098_delta": 0.0011359733863574584,
+        "topology_pass": true
+      },
+      {
+        "scheme": "odd_uniform_forward",
+        "best_paired_delta": 4.943574323779121e-05,
+        "best_paired_spread": 3.537723534119408e-07,
+        "mixed_div": -5.551115123125783e-17,
+        "mixed_bla": 0.0,
+        "mixed_paired": -2.7755575615628914e-17,
+        "mixed_estimator_spread": 5.551115123125783e-17,
+        "ray_e04_delta": 0.000309203179377604,
+        "symmetric_e098_delta": 0.0011391457702694674,
+        "topology_pass": true
+      },
+      {
+        "scheme": "odd_cosine_alternating",
+        "best_paired_delta": 4.92900609204705e-05,
+        "best_paired_spread": 5.836062879627235e-07,
+        "mixed_div": 0.0,
+        "mixed_bla": 4.440892098500626e-16,
+        "mixed_paired": 2.220446049250313e-16,
+        "mixed_estimator_spread": 4.440892098500626e-16,
+        "ray_e04_delta": 0.0003083318256958678,
+        "symmetric_e098_delta": 0.0011359700759513147,
+        "topology_pass": true
+      },
+      {
+        "scheme": "odd_cosine_capcosine",
+        "best_paired_delta": 4.9381412928345414e-05,
+        "best_paired_spread": 8.707629515769533e-07,
+        "mixed_div": -5.551115123125783e-17,
+        "mixed_bla": 0.0,
+        "mixed_paired": -2.7755575615628914e-17,
+        "mixed_estimator_spread": 5.551115123125783e-17,
+        "ray_e04_delta": 0.0003089182320891448,
+        "symmetric_e098_delta": 0.0011381436002453338,
+        "topology_pass": true
+      },
+      {
+        "scheme": "odd_cosine_rings10",
+        "best_paired_delta": 4.933881445523536e-05,
+        "best_paired_spread": 7.70086225232447e-07,
+        "mixed_div": 0.0,
+        "mixed_bla": -2.220446049250313e-16,
+        "mixed_paired": -1.1102230246251565e-16,
+        "mixed_estimator_spread": 2.220446049250313e-16,
+        "ray_e04_delta": 0.00030864724306703395,
+        "symmetric_e098_delta": 0.0011371412865478492,
+        "topology_pass": true
+      },
+      {
+        "scheme": "odd_cosine_rings14",
+        "best_paired_delta": 4.9260678959162085e-05,
+        "best_paired_spread": 4.710752568026777e-07,
+        "mixed_div": -1.1102230246251565e-16,
+        "mixed_bla": 4.440892098500626e-16,
+        "mixed_paired": 1.6653345369377348e-16,
+        "mixed_estimator_spread": 5.551115123125783e-16,
+        "ray_e04_delta": 0.0003081417185007429,
+        "symmetric_e098_delta": 0.0011352641544747077,
+        "topology_pass": true
+      },
+      {
+        "scheme": "fine_cosine_alternating",
+        "best_paired_delta": 4.920467769539694e-05,
+        "best_paired_spread": 1.46311115611919e-07,
+        "mixed_div": 1.1102230246251565e-16,
+        "mixed_bla": 4.440892098500626e-16,
+        "mixed_paired": 2.7755575615628914e-16,
+        "mixed_estimator_spread": 3.3306690738754696e-16,
+        "ray_e04_delta": 0.00030777935545148183,
+        "symmetric_e098_delta": 0.0011339185731798207,
+        "topology_pass": true
+      }
+    ],
+    "rotation_audit": {
+      "det_Q": 0.9999999999999999,
+      "div_abs_error_width1": 5.551115123125783e-17,
+      "area_abs_error": 1.7763568394002505e-15
+    },
+    "scale_audit": [
+      {
+        "lambda": 0.73,
+        "div_cubic_abs_error": 0.0,
+        "area_quadratic_abs_error": 0.0,
+        "generalized_blaschke_cubic_abs_error": 4.440892098500626e-16
+      },
+      {
+        "lambda": 1.37,
+        "div_cubic_abs_error": 1.7763568394002505e-15,
+        "area_quadratic_abs_error": 0.0,
+        "generalized_blaschke_cubic_abs_error": 1.7763568394002505e-15
+      }
+    ],
+    "relabeling_audit": {
+      "max_orientation_spread_all_structured_points": 4.0007060164715114e-16,
+      "max_orientation_coordinate_spread_one_pair_rays": 4.0001639153852686e-16,
+      "structured_parameter_points": 126
+    },
+    "domain_checks": {
+      "-1e-12": "REJECTED",
+      "1.0": "REJECTED",
+      "1.01": "REJECTED",
+      "nan": "REJECTED"
+    }
+  },
+  "structural_result": {
+    "numerical_formula": "V(e1,e2,e3;sigma) - V(0,0,0;sigma) = Phi(e1)+Phi(e2)+Phi(e3) to roundoff",
+    "orientation_dependence": "none detected above 4.01e-16",
+    "Phi_sign": "positive and monotonically increasing at all 202 positive samples on each of n=49 and n=97",
+    "continuum_theorem_target": "prove exact cap/wedge area decomposition and Phi(e)>=0 (preferably Phi'(e)>0) on 0<=e<1",
+    "proof_status": "not established; numerical/theorem-architecture GO only"
+  },
+  "direct_counterexample": {
+    "found": false,
+    "best_nonzero_refined_volume": 0.4199092293357853,
+    "margin_above_Meissner": 4.918337070522472e-05
+  },
+  "decision": "GO_PEABODY_SEPARABLE_MONOTONICITY_THEOREM",
+  "repository_action": "No repository commit performed. Scratch package prepared for optional promotion because the final classification is structural GO.",
+  "detailed_files": [
+    "best_candidates.csv",
+    "refinement_table.csv",
+    "calibration_table.csv",
+    "endpoint_scan.csv",
+    "structured_scan_n33.csv",
+    "one_dim_dense_scan.csv",
+    "mixed_differences_selected.csv",
+    "random_additivity_audit.csv",
+    "sobol_screen.csv",
+    "candidate_refinement.csv",
+    "local_optimization.json",
+    "adversarial_audit.json"
+  ]
+}

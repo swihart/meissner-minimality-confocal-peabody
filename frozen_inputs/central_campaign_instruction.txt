@@ -1,0 +1,575 @@
+Chat task: Confocal Peabody Central-Interval Certificate and Restricted-Family Theorem Assembly
+
+Use PRO-level exactification, outward-rounded interval arithmetic, theorem assembly, and adversarial-audit reasoning.
+
+The endpoint tail has now been certified. This turn must not revisit the tail mathematics except to replay it as an immutable dependency.
+
+## Read first
+
+Before calculating, read completely:
+
+1. `peabody_tail_certificate_note(1).md`;
+2. `README_TAIL_GATE(1).md`;
+3. `tail_certificate(1).json`;
+4. `tail_terminal_boxes(1).csv`;
+5. `peabody_tail_interval_certificate(1).py`;
+6. `audit_peabody_tail_certificate(1).py`;
+7. `verify_tail_chart_algebra(1).py`;
+8. `tail_gate_flight_recorder(1).json`;
+9. `SHA256SUMS(8).txt`;
+10. `README_VALIDATED_CHECKPOINT(1).md`;
+11. `confocal_peabody_monotonicity_one_page_memo(1).md`;
+12. the frozen exact-additivity artifacts:
+    - `peabody_exact_additivity_note.md`;
+    - `peabody_exact_pair_formula.py`;
+    - `peabody_phi_monotonicity.wl`;
+    - `peabody_compressed_core_v4.wl`;
+13. `2021_peabodies.pdf`, especially the confocal-quadrics identity, Peabody construction, and constant-width theorem.
+
+Use the existing working formulas and branch conventions. Do not reconstruct the Peabody formulas from memory if the frozen artifacts are present.
+
+## Frozen tail theorem
+
+Treat the following as certified and immutable:
+
+\[
+\Phi(e)>\frac1{20000}
+\qquad
+\left(\frac{199}{200}\le e<1\right).
+\]
+
+Equivalently, in
+
+\[
+q=\frac{1-e}{1+e},
+\qquad
+e=\frac{1-q}{1+q},
+\]
+
+the certified tail is
+
+\[
+0<q\le\frac1{399}.
+\]
+
+The stable `q`-chart extends continuously to `q=0`; this endpoint was included only to close the compact interval.
+
+The canonical tail proof uses:
+
+- 80-decimal `mpmath.iv` arithmetic;
+- five rational `q` slabs;
+- 400 rational `x` panels per slab;
+- 2,000 terminal boxes;
+- 896,282 bytes of certificate data;
+- weakest certified lower endpoint
+
+  \[
+  0.000060546375326427964680109855964785\ldots;
+  \]
+
+- simple rational conclusion `Phi > 1/20000`;
+- successful 60-, 80-, and 100-digit replays;
+- successful adversarial and exact-identity audits.
+
+Do not redo the tail partition, search for a sharper tail constant, or attempt to prove `Phi'(e)>0` there.
+
+## Frozen family reduction and scope
+
+The project-derived exact reduction is
+
+\[
+V\!\left(K(\mathbf e,\boldsymbol\sigma)\right)
+=
+V_M+\Phi(e_1)+\Phi(e_2)+\Phi(e_3),
+\]
+
+for admissible width-one regular-tetrahedron confocal Peabodies, independent of
+
+\[
+\boldsymbol\sigma\in\{0,1\}^3.
+\]
+
+The intended restricted-family theorem is:
+
+> For every admissible parameter triple
+> \[
+> \mathbf e=(e_1,e_2,e_3)\in[0,1)^3
+> \]
+> and every orientation pattern
+> \[
+> \boldsymbol\sigma\in\{0,1\}^3,
+> \]
+> one has
+> \[
+> V\!\left(K(\mathbf e,\boldsymbol\sigma)\right)\ge V_M,
+> \]
+> with equality exactly when
+> \[
+> e_1=e_2=e_3=0.
+> \]
+
+This is a theorem only about regular-tetrahedron confocal Peabodies.
+
+Do not claim:
+
+- global Meissner extremality;
+- a result for arbitrary Peabodies based on other ball polyhedra;
+- a universal lower-bound improvement;
+- positivity of `Phi'` unless it is separately certified.
+
+## Central target
+
+The sole missing scalar range is
+
+\[
+\boxed{
+\Phi(e)>0
+\qquad
+\left(0<e\le\frac{199}{200}\right).
+}
+\]
+
+The endpoint satisfies
+
+\[
+\Phi(0)=0.
+\]
+
+Therefore no strictly positive uniform lower bound for `Phi` exists on the closed interval beginning at zero.
+
+The proof must separate:
+
+1. a near-Meissner endpoint interval;
+2. a compact bulk interval bounded away from zero.
+
+Prefer direct positivity of `Phi` over global derivative monotonicity.
+
+## Prohibited approaches
+
+Do not:
+
+- launch unrestricted Mathematica `Integrate`;
+- launch unrestricted `FullSimplify` or special-function searches;
+- retry the exactly obstructed low-complexity rational integration-by-parts ansatz;
+- seek a global elementary primitive;
+- certify the tail again;
+- prepare an R implementation during this turn;
+- use mesh volumes as proof authority;
+- infer positivity from sampled values;
+- treat pointwise positivity of the integrand as necessary;
+- enlarge the campaign automatically after hitting a resource limit.
+
+Python with outward-rounded interval arithmetic is the proof authority. Mathematica may be used only for exact endpoint derivatives, series coefficients, identities, and optional independent auditing.
+
+## Phase C0 — mandatory dependency replay
+
+Before starting the central certificate:
+
+1. verify every hash in `SHA256SUMS(8).txt`;
+2. replay the tail certifier at 80 digits;
+3. replay the adversarial tail audit;
+4. replay the exact stable-tail chart identities;
+5. replay `validate_mathematica_outputs_v4.py`;
+6. reproduce:
+   - `GO_PEABODY_TAIL_PHI_POSITIVITY_CERTIFIED`;
+   - `PEABODY_TAIL_CERTIFICATE_ADVERSARIAL_AUDIT_PASS`;
+   - `PEABODY_TAIL_STABLE_CHART_EXACT_IDENTITIES_PASS`;
+   - `required_campaign_gates_pass: true`;
+7. confirm that the optional fixed-`rho` Mathematica integral remains classified as unevaluated.
+
+Record all source hashes, versions, precisions, and transcripts.
+
+Stop if any dependency replay fails.
+
+## Phase C1 — freeze the authoritative central formula
+
+Identify the most stable validated fixed-interval formula
+
+\[
+\Psi(e)=\int_0^1 H(e,x)\,dx,
+\qquad
+\Phi(e)=\frac{\Psi(e)-\Psi(0)}8.
+\]
+
+Compare the original and compressed implementations at at least:
+
+\[
+e=0,\;
+10^{-8},\;
+10^{-6},\;
+10^{-4},\;
+10^{-3},\;
+10^{-2},\;
+\frac1{10},\;
+\frac12,\;
+\frac9{10},\;
+\frac{99}{100},\;
+\frac{199}{200},
+\]
+
+and at 30 additional rational or dyadic values.
+
+Use at least 100-digit point arithmetic.
+
+Freeze exactly one central formula and one parameter chart before certification.
+
+Permitted charts are:
+
+- direct `e`;
+- rapidity `lambda = artanh(e)`;
+- `q=(1-e)/(1+e)`, if the stable formula is proved valid and well-conditioned on the intended central subrange.
+
+Do not switch charts after seeing certificate failures without recording the failure and invoking the two-chart-change hard stop below.
+
+## Phase C2 — near-Meissner endpoint certificate
+
+The endpoint `e=0` requires a special stable quantity.
+
+Define
+
+\[
+J(e)=\frac{\Phi(e)}e
+\qquad(e>0),
+\]
+
+and extend it by
+
+\[
+J(0)=\Phi'(0).
+\]
+
+Recover the exact symbolic value of `Phi'(0)` from the frozen artifacts. Do not use only its decimal approximation.
+
+The preferred local theorem is
+
+\[
+\boxed{
+J(e)\ge c_{\rm local}>0
+\qquad
+(0\le e\le e_0)
+}
+\]
+
+for an exact rational or dyadic `e_0`.
+
+Attempt the following methods in order.
+
+### Method C2-A: stable divided difference
+
+Derive a cancellation-free fixed-interval integrand for
+
+\[
+J(e)
+=
+\frac18
+\int_0^1
+\frac{H(e,x)-H(0,x)}e\,dx.
+\]
+
+Rationalize differences and remove removable singularities before interval evaluation.
+
+### Method C2-B: exact first derivative plus a second-derivative remainder
+
+If the stable divided difference is not compact, use
+
+\[
+\Phi(e)
+=
+\Phi'(0)e+\int_0^e(e-t)\Phi''(t)\,dt
+\]
+
+and certify an interval bound on `Phi''` giving
+
+\[
+\Phi(e)
+\ge
+\Phi'(0)e-\frac{M}{2}e^2>0
+\]
+
+on `0<e<=e_0`.
+
+### Method C2-C: integrated derivative
+
+Only if necessary, prove a positive interval lower bound for
+
+\[
+\Phi'(e)
+\]
+
+on a very small interval `[0,e_0]` by interval enclosure of the integrated derivative. Do not require pointwise positivity of its integrand.
+
+Choose the largest simple rational `e_0` that yields a compact proof, but do not optimize `e_0` unnecessarily.
+
+Initial candidate values include:
+
+\[
+e_0=\frac1{1000},\quad
+\frac1{500},\quad
+\frac1{200},\quad
+\frac1{100}.
+\]
+
+Freeze `e_0` before beginning the bulk certificate.
+
+The local certificate must include `e=0` through the continuous extension of `J`.
+
+## Phase C3 — compact bulk certificate
+
+After the local endpoint is closed, certify
+
+\[
+\boxed{
+\Phi(e)>0
+\qquad
+\left(e_0\le e\le\frac{199}{200}\right).
+}
+\]
+
+Use direct positivity of `Phi`, not derivative positivity, unless a derivative formulation is clearly smaller.
+
+Construct an adaptive rational or dyadic partition in the parameter variable. For every parameter slab:
+
+1. use an outward-rounded interval extension of the frozen integrand;
+2. integrate over `x in [0,1]` using rational interval panels;
+3. enclose `Psi(e)` simultaneously for the entire parameter slab;
+4. subtract an independent outward enclosure of `Psi(0)`;
+5. divide by 8;
+6. require a strictly positive lower endpoint.
+
+Use centered interval forms, Taylor models, or mean-value forms in the parameter variable when ordinary interval evaluation suffers dependency blowup.
+
+The integrated quantity is the proof target. The integrand is allowed to change sign.
+
+The bulk partition must meet the local certificate exactly at `e=e_0` and the existing tail certificate at
+
+\[
+e=\frac{199}{200}.
+\]
+
+No uncovered point, open seam, or floating endpoint conversion is permitted.
+
+## Phase C4 — additive-reduction semantic audit
+
+Before claiming the full restricted-family theorem, independently replay the frozen additive reduction:
+
+\[
+V(K(\mathbf e,\boldsymbol\sigma))
+=
+V_M+\sum_{i=1}^3\Phi(e_i).
+\]
+
+At minimum verify:
+
+1. all eight orientation patterns;
+2. all permutations of the three opposite-edge pairs;
+3. zero mixed pair differences in the exact or high-precision formula;
+4. recovery of the Meissner value at `(0,0,0)`;
+5. agreement of one-pair, two-pair, and three-pair formulas;
+6. width-normalization and factor-of-eight conventions;
+7. hashes of every source formula used;
+8. that equality in the assembled theorem requires all three parameters to vanish.
+
+The additive identity may remain a project-derived exact lemma, but the final report must state precisely which portions are symbolic identities, which are interval-certified, and which are semantic replays.
+
+Do not promote the final family theorem if a normalization ambiguity remains.
+
+## Phase C5 — theorem assembly
+
+If the endpoint, bulk, tail, and additive components all pass, assemble:
+
+\[
+\Phi(e)>0
+\qquad
+(0<e<1).
+\]
+
+Then conclude:
+
+\[
+V(K(\mathbf e,\boldsymbol\sigma))\ge V_M
+\]
+
+for every admissible regular-tetrahedron confocal Peabody, with equality if and only if
+
+\[
+e_1=e_2=e_3=0.
+\]
+
+State explicitly that the equality cases correspond to the classical Meissner degenerations within this family.
+
+Do not describe this as a solution of the three-dimensional Blaschke–Lebesgue problem.
+
+## Resource limits
+
+Use an initial feasibility screen of two focused hours.
+
+Use an absolute total limit of:
+
+- 12 focused hours;
+- 10,000 terminal interval boxes for the new central certificate;
+- 25 MB of new compressed certificate data;
+- maximum adaptive depth 24;
+- at most two parameter-chart changes;
+- at most three local-endpoint architectures.
+
+Stop at the first applicable limit.
+
+Do not count the already-certified 2,000 tail boxes against the new central-box limit, but report the combined family-certificate size.
+
+If the two-hour feasibility screen projects more than 10,000 boxes or reveals uncontrolled near-zero cancellation under every permitted local formulation, stop before building a large certificate.
+
+## Mandatory adversarial checks
+
+At minimum perform:
+
+1. complete tail dependency replay;
+2. original-versus-compressed central cross-check at 100 digits;
+3. exact or symbolic check of `Phi(0)=0`;
+4. exact recovery of `Phi'(0)>0`;
+5. agreement of the local quotient with direct `Phi(e)/e` at high precision;
+6. independent central certificate replays at two precisions;
+7. permutation of adaptive subdivision order;
+8. sampled high-precision quadratures inside terminal boxes;
+9. a deliberate sign mutation in one correction sector;
+10. a shifted `Psi(0)` baseline control;
+11. a deliberately under-resolved partition that must be rejected if inconclusive;
+12. exact checking of the seam at `e=e_0`;
+13. exact checking of the seam at `e=199/200`;
+14. verification that the central and tail certificates overlap or meet without a gap;
+15. all eight orientation patterns in the additive audit;
+16. deterministic clean replay;
+17. SHA-256 verification of every proof artifact.
+
+## Required principal classification
+
+Return exactly one principal classification.
+
+### `GO_PEABODY_FAMILY_MINIMALITY_CERTIFIED`
+
+Use only if:
+
+- the local endpoint is certified;
+- the entire bulk interval is certified;
+- the existing tail certificate replays;
+- the additive reduction and normalization audit pass;
+- the union covers every `0<e<1`;
+- and the equality statement is established.
+
+The exact scope must be:
+
+> Meissner minimizes volume among width-one regular-tetrahedron confocal Peabodies.
+
+### `GO_PEABODY_CENTRAL_PHI_POSITIVITY_CERTIFIED`
+
+Use if the full central scalar interval is certified but the additive-reduction audit or final family assembly is not yet sufficiently independent for promotion.
+
+In that case specify the smallest remaining assembly task.
+
+### `NO_GO_PEABODY_CENTRAL_INTERVAL`
+
+Use if the central interval cannot be certified within the frozen limits, or if a certified nonpositive value is found.
+
+A sampled or floating-point negative value is not sufficient for this classification without adversarial validation.
+
+### `METHOD_OBSTRUCTION_PEABODY_CENTRAL`
+
+Use only if there is a precise certificate-architecture obstruction, such as:
+
+- no stable removable-singularity treatment at `e=0`;
+- unavoidable interval dependency blowup in all allowed charts;
+- a proved branch discontinuity;
+- or a projected certificate necessarily exceeding the frozen limits by a large factor.
+
+Do not use this label merely because implementation is tedious.
+
+### `DEPENDENCY_TRANSFER_INCOMPLETE`
+
+Use only if required frozen artifacts are genuinely missing.
+
+## Claim discipline
+
+The final claim ledger must separate:
+
+### Established from sources
+
+- the Peabody construction;
+- constant width of admissible Peabodies;
+- inclusion of the Meissner and Robert limits.
+
+### Frozen project derivation
+
+- three-pair additivity;
+- orientation independence;
+- the one-pair formula defining `Phi`.
+
+### Certified before this turn
+
+- tail positivity
+  \[
+  \Phi(e)>1/20000
+  \]
+  for `199/200 <= e < 1`.
+
+### Certified in this turn
+
+- only those local, bulk, or assembled claims actually proved by interval or exact arithmetic.
+
+### Not established
+
+Unless the final classification supports them, do not claim:
+
+- global monotonicity of `Phi`;
+- global Meissner extremality;
+- a universal lower-bound improvement;
+- minimality among arbitrary Meissner polyhedra;
+- minimality among Peabodies generated from arbitrary self-dual ball polyhedra.
+
+## Required return format
+
+Begin with a short plain-language explanation of:
+
+- how the `e=0` endpoint was handled;
+- whether the compact central interval was certified;
+- the weakest central lower bound;
+- how the central and tail certificates join;
+- and whether the complete restricted-family theorem is established.
+
+Then provide:
+
+1. the principal classification;
+2. the exact theorem statement;
+3. the local endpoint lemma and exact `e_0`;
+4. the exact value of `Phi'(0)`;
+5. the local lower bound for `Phi(e)/e` or equivalent Taylor estimate;
+6. the bulk interval partition;
+7. the weakest bulk lower endpoint;
+8. terminal-box counts, depths, precisions, runtimes, and sizes;
+9. seam checks at `e_0` and `199/200`;
+10. the replayed tail theorem and hashes;
+11. the additive-reduction audit;
+12. the equality-case argument;
+13. all adversarial-check results;
+14. a claim ledger;
+15. a progress table against `README_TAIL_GATE(1).md`;
+16. the combined restricted-family certificate manifest;
+17. every file created or changed;
+18. exact git commands and a recommended commit message.
+
+## Suggested files
+
+Use the existing Peabody workspace.
+
+```text
+notes/peabody_central_certificate_note.md
+notes/peabody_family_minimality_theorem.md
+python/peabody_central_interval_certificate.py
+python/audit_peabody_central_certificate.py
+python/audit_peabody_additivity.py
+python/assemble_peabody_family_certificate.py
+certificates/peabody_central_certificate.json
+certificates/peabody_family_certificate.json
+data/peabody_central_terminal_boxes.csv
+data/peabody_central_endpoint.json
+data/peabody_family_manifest.json
+transcripts/peabody_central_replay.txt
+wolfram/peabody_central_endpoint_audit.wl

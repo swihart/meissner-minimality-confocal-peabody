@@ -1,0 +1,10 @@
+order,task,proof_role,required_output,pass_gate,recommended_commit
+1,Verify frozen baseline,immutability,results/python/frozen_baseline_verification.json,All 50 manifest files match size and SHA-256; root tag exists,Add Peabody release-audit scaffold
+2,Independently rederive one-pair formula,formula audit,results/python/independent_one_pair_rederivation.json,2D/1D/fixed-x/stable-q formulas agree and exact normalization identities vanish,Independently rederive the Peabody pair formula
+3,Audit width normalization,normalization audit,notes/02_width_normalization_line_audit.md,Every width-2 to width-1 line is justified and Meissner value is recovered exactly,Audit Peabody width normalization and pair additivity
+4,Audit three opposite-edge decomposition,additivity audit,notes/03_three_pair_additivity_audit.md,Normal-sphere partition and orientation independence survive independent review,Audit Peabody width normalization and pair additivity
+5,Run proof-critical Mathematica files,CAS replay,results/mathematica/wolfram_recursive_guard_summary.json,Fresh kernels; all required pass gates true; unresolved-expression scan clean except frozen optional Integrate,Replay proof-critical Peabody Mathematica checks
+6,Run independent certificate checker,certificate audit,results/python/independent_certificate_check.json,Independent implementation re-certifies local central bulk and tail targets without importing principal certifier,Add independent Peabody certificate checker
+7,Run R semantic audit,cross-language audit,results/R/peabody_release_semantic_audit.json,Formula samples orientation partition metadata and containment gates pass,Add independent R semantic audit
+8,Write human-readable proof,exposition,notes/04_human_readable_proof_draft.md,No TODO markers; theorem scope and trust boundary explicit,Rewrite the Peabody family minimality proof
+9,Finalize release audit,release gate,RELEASE_AUDIT_REPORT.md,All mandatory audit artifacts pass and baseline remains unchanged,Complete the confocal Peabody release audit

@@ -1,0 +1,2 @@
+peabody_analytic_compression_semantic_audit.R STATIC_DELIMITER_PASS
+peabody_concavity_semantic_audit.wl STATIC_DELIMITER_PASS

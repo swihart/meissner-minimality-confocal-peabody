@@ -1,0 +1,4 @@
+results/mathematica/fresh_kernel_workspace/
+__pycache__/
+*.pyc
+.DS_Store

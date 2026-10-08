@@ -1,0 +1,7 @@
+{
+  "delta_identity_remainder": "0",
+  "M_identity_remainder": "0",
+  "angle_argument_squared_identity_remainder": "0",
+  "pass": true,
+  "classification": "PEABODY_TAIL_STABLE_CHART_EXACT_IDENTITIES_PASS"
+}

@@ -1,0 +1,82 @@
+{
+  "audit_version": "PEABODY_R_SEMANTIC_AUDIT_V2",
+  "classification": "PEABODY_R_SEMANTIC_AUDIT_PASS",
+  "pass": true,
+  "scope": "width-one regular-tetrahedron confocal Peabodies only",
+  "R_version": "R version 4.6.1 (2026-06-24)",
+  "package_versions": {
+    "jsonlite": "2.0.0",
+    "Rmpfr": "1.1.3",
+    "gmp": "0.7.5.1"
+  },
+  "precision_bits": 256,
+  "pointwise_formula_cases": 35,
+  "containment_sample_count": 6,
+  "gates": {
+    "formula_pointwise": true,
+    "factor_of_eight": true,
+    "meissner_recovery": true,
+    "exact_partition_coverage": true,
+    "terminal_box_metadata": true,
+    "high_precision_sample_containment": true,
+    "local_quotient": true,
+    "orientation_independence": true,
+    "pair_permutation": true,
+    "archived_classifications": true
+  },
+  "maximum_pointwise_formula_error": "new(\"mpfr1\", prec = 256, exp = c(-247, -1), sign = 1, d = c(0, 0, 0, 0, 0, 0, 0, -1543503872))",
+  "maximum_orientation_error": "new(\"mpfr1\", prec = 256, exp = c(1, NA), sign = 1, d = integer(0))",
+  "maximum_pair_permutation_error": "new(\"mpfr1\", prec = 256, exp = c(1, NA), sign = 1, d = integer(0))",
+  "local_phi_over_e": "new(\"mpfr1\", prec = 256, exp = c(-9, -1), sign = 1, d = c(623845376, -1525155396, 1580381073, -1038018270, -529449383, 1533484990, -1323179729, -1049825926))",
+  "containment_samples": [
+    {
+      "region": "bulk",
+      "index": 0,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-16, -1), sign = 1, d = c(-2054160384, 1570385239, -1491988351, 227897225, -886122552, 1615422773, -890363405, -84125010))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-21, -1), sign = 1, d = c(-22777088, -1553585049, -1846949103, -158434433, -1607978965, 1947543446, 1576455376, -1331642282))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-15, -1), sign = 1, d = c(663882656, 839510674, 1234501614, 2128279052, 1615695474, -780414345, -1279597032, -451418943))",
+      "pass": true
+    },
+    {
+      "region": "bulk",
+      "index": 21,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-12, -1), sign = 1, d = c(1293287424, 227892218, 884963607, 440972689, 1793630157, -824007004, -1213227604, -1211759613))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-13, -1), sign = 1, d = c(62000599, -1898021847, 1010125262, 176311264, 2020613217, -1424588959, -601211364, -1369923986))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(890724431, -988875117, -400349591, 2057300706, -1056504988, 54839231, -1965162161, -1951285324))",
+      "pass": true
+    },
+    {
+      "region": "bulk",
+      "index": 42,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(-1241518080, -1784370558, -1474733650, -177466167, 1149332858, 684991477, -1589464232, -973059352))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(-231693085, 21476215, 1248425350, -1130230068, 65207025, 902937823, -1557351968, -1931184417))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(488409309, 1896549556, 2123348705, 322632373, 723739297, 1999686502, -1873164368, -15500270))",
+      "pass": true
+    },
+    {
+      "region": "tail",
+      "index": 0,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(1708660736, 387195819, 1460584271, -1845291446, 1237553715, 66059753, -2011869408, -971941226))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-14, -1), sign = 1, d = c(104119918, -953337350, 1065529509, 977923850, 1644537812, -1295311534, -1021907104, -12687568))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-10, -1), sign = 1, d = c(376257989, -1225374815, -278298427, 837098436, -1218457987, 1855557105, 384600432, -1239312628))",
+      "pass": true
+    },
+    {
+      "region": "tail",
+      "index": 2,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(-286916608, 816936698, -966726819, 1823870013, -671046442, -911387969, 2715245, -971946306))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-14, -1), sign = 1, d = c(-406763760, 432072897, -1740735431, 317418396, 331152765, 2052696154, -1975342702, -23519187))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-10, -1), sign = 1, d = c(-1752288835, -598411179, 1229074103, 988042850, 1291488111, -2003918040, 1218443336, -1238642792))",
+      "pass": true
+    },
+    {
+      "region": "tail",
+      "index": 4,
+      "value": "new(\"mpfr1\", prec = 256, exp = c(-11, -1), sign = 1, d = c(765214720, -626401555, -1523693595, -568390678, -901552756, -1107849312, 1843739346, -971958161))",
+      "lower": "new(\"mpfr1\", prec = 256, exp = c(-14, -1), sign = 1, d = c(-1228888754, -510156690, 522974484, 54378842, 1900165404, -281666021, 988860844, -34394900))",
+      "upper": "new(\"mpfr1\", prec = 256, exp = c(-10, -1), sign = 1, d = c(1524545255, -984895258, 222345593, -1726307179, -480578168, 918730865, 404640639, -1237976975))",
+      "pass": true
+    }
+  ],
+  "proof_role": "independent R semantic audit; not proof authority"
+}

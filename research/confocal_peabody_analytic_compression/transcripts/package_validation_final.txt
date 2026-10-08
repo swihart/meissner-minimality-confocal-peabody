@@ -1,0 +1,29 @@
+{
+  "validation_version": "PEABODY_ANALYTIC_COMPRESSION_PACKAGE_VALIDATOR_V1",
+  "classification": "PEABODY_ANALYTIC_COMPRESSION_PACKAGE_PASS",
+  "pass": true,
+  "checks": {
+    "canonical_certificate_pass": true,
+    "canonical_classification_pass": true,
+    "endpoint_bound_pass": true,
+    "concavity_bound_pass": true,
+    "terminal_box_count_pass": true,
+    "hard_stop_pass": true,
+    "high_precision_replay_pass": true,
+    "reverse_order_replay_pass": true,
+    "underresolved_control_rejected": true,
+    "sign_mutation_rejected": true,
+    "independent_audit_pass": true,
+    "frozen_dependency_replay_pass": true,
+    "three_lemma_manuscript_pass": true,
+    "old_proposition_removed": true,
+    "revised_pdf_present": true,
+    "proof_note_present": true,
+    "python_sources_present": true,
+    "cross_language_audits_present": true,
+    "sha256_ledger_pass": true
+  },
+  "sha256_failures": [],
+  "canonical_certificate_sha256": "032c02f2aa6832a7ebcad78aa326e1bfe2e6c2adc28168847c99edd4961516b4",
+  "revised_pdf_sha256": "a222cf8115bae0c15053434f7035b6fd1daf955a25fac63902d9c4c77a4aff4f"
+}

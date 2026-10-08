@@ -1,0 +1,19 @@
+{
+  "required_campaign_gates_pass": true,
+  "checks": {
+    "component_diagnostic_pass": true,
+    "compressed_audit_pass": true,
+    "run01_pass_marker_present": true,
+    "exact_low_complexity_obstruction_pass": true,
+    "interval_numerical_scout_pass": true,
+    "interval_proof_still_not_certified": true,
+    "optional_fixed_rho_integrate_evaluated": false
+  },
+  "interpretation": {
+    "compressed_formula": "independently high-precision validated",
+    "t_sector_primitive": "exact symbolic identity passed",
+    "rt_low_complexity_ansatz": "exactly obstructed at rho=3 and rho=4",
+    "optional_fixed_rho_integrate": "unevaluated; original v4 status was misclassified",
+    "interval_inputs": "conditioned and numerically positive on scout grids, not certified"
+  }
+}

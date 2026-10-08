@@ -1,0 +1,524 @@
+{
+  "classification": "CONFOCAL_PEABODY_RELEASE_AUDIT_SCAFFOLD_MANIFEST",
+  "scope": "Confocal Peabody Formula, Additivity, and Release Audit",
+  "frozen_parent_tag": "v1.0.0-certified",
+  "audit_branch": "audit/confocal-peabody-formula-additivity-release",
+  "control_files_excluded": [
+    "RELEASE_AUDIT_MANIFEST.json",
+    "SHA256SUMS.txt"
+  ],
+  "file_count": 102,
+  "total_bytes": 1038402,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 73,
+      "sha256": "4c174f70417bfb5eb7b85cc7f6eebb718c8cc7ec1471c01d58e3a99573bf9c8f"
+    },
+    {
+      "path": "CLAIM_LEDGER.md",
+      "bytes": 1342,
+      "sha256": "46f7f033c47d06082915b2f4ce028c8682ce095a255c344f28855733e465e4ad"
+    },
+    {
+      "path": "GIT_WORKFLOW.md",
+      "bytes": 1313,
+      "sha256": "8308688c8b6c1b9598dabb31f3df625c8ab1c20c280c870635f6caac36c98087"
+    },
+    {
+      "path": "LOCAL_RUN_CHECKLIST.md",
+      "bytes": 4009,
+      "sha256": "e352dd7ab2d7de421e91a4ab28a105dbb3865f69d30d264b21da7dbed318607d"
+    },
+    {
+      "path": "R/peabody_release_semantic_audit.R",
+      "bytes": 13893,
+      "sha256": "2010731bc4244118bf5e98b6e6b7f91850e9205594ccd13850b236882e7299ee"
+    },
+    {
+      "path": "README_RELEASE_AUDIT.md",
+      "bytes": 3906,
+      "sha256": "74281535c4a6fb6549cc8e9da4dc5b137d25435f10b8eff8d5871a989180941d"
+    },
+    {
+      "path": "RELEASE_AUDIT_HANDOFF.md",
+      "bytes": 2112,
+      "sha256": "297bad7b40234c900f2aa3d1fb7df59b3fa2c69251442eece972582f51990ce9"
+    },
+    {
+      "path": "RELEASE_AUDIT_REPORT.md",
+      "bytes": 981,
+      "sha256": "17c3ad3292ca8b5120a49291d3b964883eaee0ee4969c269cd31860b1de953e5"
+    },
+    {
+      "path": "RELEASE_AUDIT_TASK_MATRIX.md",
+      "bytes": 1855,
+      "sha256": "609490ccbafd529e26c2cf5d776aeb7ddf0564e784d7869f852d09004363699e"
+    },
+    {
+      "path": "data/audit_task_matrix.csv",
+      "bytes": 2032,
+      "sha256": "bc9067ebe7d33f9653b902c0360e5a565ac891e64b61abd8150733b40260a160"
+    },
+    {
+      "path": "data/expected_frozen_baseline.json",
+      "bytes": 774,
+      "sha256": "1b880cc375ea4ff45418ada31e344e2549dfdc75aa6feb4b9a0d99e6f89417e5"
+    },
+    {
+      "path": "notes/01_one_pair_volume_rederivation.md",
+      "bytes": 5892,
+      "sha256": "d8b470ebeee40dc72b7cb4514fe5869f0e91e9fc53b17badf8b18a9934da96ef"
+    },
+    {
+      "path": "notes/02_width_normalization_line_audit.md",
+      "bytes": 2081,
+      "sha256": "af0621efed15b727236812277c9578c186bff6a738a3b3996501bbcb6f86d2f3"
+    },
+    {
+      "path": "notes/03_three_pair_additivity_audit.md",
+      "bytes": 3390,
+      "sha256": "57c26340cc44858788f708e1115cb8827bb5bcad63c8cac463be7be2d6cbebd9"
+    },
+    {
+      "path": "notes/04_human_readable_proof_draft.md",
+      "bytes": 8023,
+      "sha256": "7dd5accfb9ef039ef9ac7e770986301de87ace18d14dee9a13c89849f5a6980e"
+    },
+    {
+      "path": "notes/05_mathematica_fresh_kernel_protocol.md",
+      "bytes": 1620,
+      "sha256": "ba5131d1e842bfe6b1bfc07f6bb764492d643aa45305a7a8b3f716f9c3c4cbe5"
+    },
+    {
+      "path": "notes/06_independent_checker_design.md",
+      "bytes": 1238,
+      "sha256": "62cdbd5f71c5a51707e1c4e86244445ed0f35c45097db1e177dc507e3daa502d"
+    },
+    {
+      "path": "preflight/assistant/README.md",
+      "bytes": 857,
+      "sha256": "61c0029f46c748474d71c43456bb9069baf9565da0d8eb15dbd2c0a48c66473b"
+    },
+    {
+      "path": "preflight/assistant/bootstrap_and_python_stage_test.txt",
+      "bytes": 953,
+      "sha256": "c9aeabdad61f32749f4d33580fe59d77a23a2c4750e96465040b4bbc289b02df"
+    },
+    {
+      "path": "preflight/assistant/python/independent_certificate_check.json",
+      "bytes": 21802,
+      "sha256": "b2d828c686e7b4b742f2e7e7a88f579045b3691209bbbcb5c46ed698d74e33bb"
+    },
+    {
+      "path": "preflight/assistant/python/independent_certificate_check.txt",
+      "bytes": 21802,
+      "sha256": "b2d828c686e7b4b742f2e7e7a88f579045b3691209bbbcb5c46ed698d74e33bb"
+    },
+    {
+      "path": "preflight/assistant/python/independent_one_pair_rederivation.csv",
+      "bytes": 3982,
+      "sha256": "e4064dcf9b052d6a8c5fe8d9c9dc002ec7ac6857b867c2bd747448e8ce21a64a"
+    },
+    {
+      "path": "preflight/assistant/python/independent_one_pair_rederivation.json",
+      "bytes": 1736,
+      "sha256": "a7b611ff5f0bdd57ae8db97ce0adcf5151cc44a40ac0604d5308457f3ca6011b"
+    },
+    {
+      "path": "preflight/assistant/python/independent_one_pair_rederivation.txt",
+      "bytes": 1736,
+      "sha256": "a7b611ff5f0bdd57ae8db97ce0adcf5151cc44a40ac0604d5308457f3ca6011b"
+    },
+    {
+      "path": "preflight/assistant/static_checks.txt",
+      "bytes": 512,
+      "sha256": "73bd3330417e46ab5a4000cca43f3da13c7bdb1944932aa14a3b869d3923581e"
+    },
+    {
+      "path": "python/build_release_audit_manifest.py",
+      "bytes": 1872,
+      "sha256": "a9a6bc99babc3c187925641ee30d9c40a228f1a51192b5b33f4945f8bc1fd861"
+    },
+    {
+      "path": "python/finalize_release_audit.py",
+      "bytes": 4214,
+      "sha256": "519ce3e0d293da1bf03a55fa38b7e46ab86428d1ca17ab4ac6f2bb3b78506fcf"
+    },
+    {
+      "path": "python/independent_certificate_checker.py",
+      "bytes": 17390,
+      "sha256": "f5e3dda1ab9a37c2cfbd03c7f2ca3c1521ef9678adc5e3d7d8928d09bfe7d509"
+    },
+    {
+      "path": "python/independent_one_pair_rederivation.py",
+      "bytes": 12744,
+      "sha256": "6f97262b17d4c1dfe11ab69b6a7595362446a89d75da9a895272331a35493e9e"
+    },
+    {
+      "path": "python/scan_wolfram_outputs.py",
+      "bytes": 5171,
+      "sha256": "115b64ca619b10671da2ba9bd6ce3b7f6f5b9fed25f990cdd074a4a6ca9c71ca"
+    },
+    {
+      "path": "python/verify_frozen_baseline.py",
+      "bytes": 5945,
+      "sha256": "9ec6c2e1d19c5a0985f0c845f97b2c4cfa1a670839adc1f4053e2b5417216741"
+    },
+    {
+      "path": "results/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R/peabody_release_semantic_audit.json",
+      "bytes": 5023,
+      "sha256": "6dc100174d94b658dd98799b843c47e24d94c6631a4da0c6fbfb27e628135dd8"
+    },
+    {
+      "path": "results/R/peabody_release_semantic_audit.txt",
+      "bytes": 5024,
+      "sha256": "ae34ecbf6fa46e443d8a1015e15428eb83b95cd8c3652a4cec9bf070ee459bb9"
+    },
+    {
+      "path": "results/mathematica/00_component_diagnostic_fresh_kernel.txt",
+      "bytes": 2835,
+      "sha256": "df9ba0ea0dfaaf45b9d6492af217835ab8f7c20b23fa8db86562771937157b39"
+    },
+    {
+      "path": "results/mathematica/01_compressed_audit_fresh_kernel.txt",
+      "bytes": 29079,
+      "sha256": "2b939deee52ddc18ebfcba51276419a346c65aa6ee12d29d4ff13b2ea40ab50a"
+    },
+    {
+      "path": "results/mathematica/02_primitive_probe_fresh_kernel.txt",
+      "bytes": 1385,
+      "sha256": "ebc64b3248d5da4609a970a86c493e9accfb67cf29720c11169f2b13ad1152b7"
+    },
+    {
+      "path": "results/mathematica/03_interval_inputs_fresh_kernel.txt",
+      "bytes": 380973,
+      "sha256": "5744a6e0aa5da0b740c1d3000bb69c86ecc4c2aa53dd9152923551acb9c34e34"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_component_diagnostic_v4/component_diagnostic_report.txt",
+      "bytes": 2586,
+      "sha256": "942932f4bed33fc2bf36ae075dab5999f7e41fe29b3b1f792b535cac949cb08d"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_component_diagnostic_v4/component_diagnostic_summary.json",
+      "bytes": 478,
+      "sha256": "1b96c6006c50e1a303db119e07ef932161ecc59862da51e33d16e92d34b4545a"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_component_diagnostic_v4/component_diagnostic_summary.wl",
+      "bytes": 522,
+      "sha256": "ac6003cf1c7dd109b899f54bf45d9af272747c0b4e69181bb571290e4873d12e"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/RUN01_PASS.txt",
+      "bytes": 14,
+      "sha256": "ca2662acd61352368e8ed05b8725ea3e4b1558d622c077bbdba3d12f18b80840"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_algebraic_sector.wl",
+      "bytes": 242,
+      "sha256": "af11118979dbe468c7479a40ed997e018d5fb56f89e3ae7f81c1e9cb5de8974c"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_arctan_sector.wl",
+      "bytes": 1229,
+      "sha256": "dfb5295f331571cddf02923c56406362d6376bcef90d27bf856ddf0b07837a14"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_audit_report.txt",
+      "bytes": 1175,
+      "sha256": "315d10519036da1795303e88e266d99c5814ec1cbd4ffcfbc5a61d0059a572db"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_audit_summary.json",
+      "bytes": 766,
+      "sha256": "e127a72ef642761b8d5135eb029a5f57cc77abd7ded21dca42719a0212c3b51f"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_audit_summary.wl",
+      "bytes": 830,
+      "sha256": "198c752965921e4dcccf3271dad1fdec9ead755830e88afd39d998cb4cfccb7f"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_expression_sizes.csv",
+      "bytes": 207,
+      "sha256": "ec596d9687b2c008e4fcd14397279c2a2e48602ce08155cdb6d7be517f10ceeb"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_integral_audit.csv",
+      "bytes": 1232,
+      "sha256": "ab36808d25c015961cb9529503b5979a61197d7f0915fdd364d99a4caf808d79"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_lambda_derivative_direct.wl",
+      "bytes": 9920,
+      "sha256": "7bb7f378505ab0fa5031e8ab5a0f7886cdb97d01860b783f1d8c816a4a007aae"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_lambda_derivative_sector.wl",
+      "bytes": 8794,
+      "sha256": "fc81ac0567baa2186376db5922968126446be1dc9403161301ba2ede31cc699a"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/compressed_pointwise_audit.csv",
+      "bytes": 29626,
+      "sha256": "ae8f414835990582c9d1c60b6e6f8a8d79860b33f9c6dea6d0c80c6d75280844"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/original_algebraic_sector.wl",
+      "bytes": 248,
+      "sha256": "d181f53223f57849f49dd2a2a7301f2a1b454272129edf9ac2f09a01ce141f26"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/original_arctan_sector.wl",
+      "bytes": 1132,
+      "sha256": "655010854a6802d9c516b7cd709e31dc05d9c863d9aea056f6ea6f05248b551e"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/t_sector_direct_reduced_numerator.wl",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/t_sector_primitive_reduced_numerator.wl",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_compressed_audit_v4/t_sector_primitive_residual_raw.wl",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/central_phi_prime_integrand_e.wl",
+      "bytes": 21773,
+      "sha256": "a07b414a61d55bfeda463f09cb8244cb28bfb44a8636cabe77bc83c026edf3f0"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/central_phi_prime_scout.csv",
+      "bytes": 822,
+      "sha256": "b7df7b9dbc71836d1c111ab3d80290dba291cf285fd9796d39bdc43ce66e03cc"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/interval_certificate_plan.json",
+      "bytes": 294,
+      "sha256": "0cbf486e29cb2d6d6d7f784fa90a8e0532ffb71f4c8fd6b868272b1a8bb45746"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/interval_certificate_plan.wl",
+      "bytes": 315,
+      "sha256": "937a8b7a8fb4e283de6dbac5da773263120ad7327dc45d0e1e2d539316e23071"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/interval_input_report.txt",
+      "bytes": 826,
+      "sha256": "1fa88e0753664859dd56b3ccf155194b78ad7e1487ed99d976aa51d0389006c8"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/interval_input_summary.json",
+      "bytes": 548,
+      "sha256": "637810ef729ffd1a21541011fde00f719b41e4362b5d601f37f4e1d3140d9f2a"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/interval_input_summary.wl",
+      "bytes": 582,
+      "sha256": "d2cfda80e40f148035ba254b4c2fb417bba8cd552fbb95168b67e72bb62d5606"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/tail_scaled_derivative_scout.csv",
+      "bytes": 808,
+      "sha256": "f5862e27a17f14f77490b4f07d6dfbf79b3514376b6fffb69d452e2aaa40d643"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_interval_inputs_v4/tail_scaled_phi_prime_integrand_q.wl",
+      "bytes": 15141,
+      "sha256": "9543987bd4be41a97ac3d94f63e07a67004b8fbae539da5391782ada4f82132b"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/forced_rt_candidate_residual.wl",
+      "bytes": 1682,
+      "sha256": "8ebf7f1fbe67fd2dea01c8f39b4a016a558d2c59a8651d5a7a68cbb4d893a448"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/forced_rt_rational_candidate_V.wl",
+      "bytes": 569,
+      "sha256": "240dba7428e2172d40ba69aaceed7e355e874d14e8737f035b6c7eae36b627e9"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/primitive_probe_report.txt",
+      "bytes": 1039,
+      "sha256": "d07d8b0beb5c6c341a1dfe3aac2cdb7ddabcbfbd1c5a3ce3be45cd755f508e0a"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/primitive_probe_summary.json",
+      "bytes": 571,
+      "sha256": "c9e2c1eaf213985c822b6291682ef7e24382afffa8e969a059d6a802dd3aa310"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/primitive_probe_summary.wl",
+      "bytes": 616,
+      "sha256": "e82bc349d609e4c83d304bb221c9b3959269218684509f92acf67e55cdfb4e07"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/rt_fixed_primitive_derivative_residual.wl",
+      "bytes": 16,
+      "sha256": "b555ba8050c63cd15c05ac519ff3be65fc52f23d96bca83ba8a03a90bab78a34"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/rt_obstruction_z1_exact.wl",
+      "bytes": 992,
+      "sha256": "7e52563c2fe81f48be01c42f871e53750296e13bd0ab88d1d953968bc4dbcc67"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/rt_obstruction_z2_exact.wl",
+      "bytes": 908,
+      "sha256": "4288e5f48c0949c6b998cb2a6dc5c3221b8e74a279ba157c999a4719a4794fd4"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/rt_sector_fixed_rho_integrand.wl",
+      "bytes": 298,
+      "sha256": "108b0ac704cfacaceccb344d55b82c1c195a4cdf88c1713417d463e57adde1f9"
+    },
+    {
+      "path": "results/mathematica/outputs/mathematica_output_primitive_probe_v4/rt_sector_fixed_rho_primitive.wl",
+      "bytes": 368,
+      "sha256": "e4ab702d342c7384f5a8b4a826894eda52e85718d3c869ad4b8ebf35cc5659f8"
+    },
+    {
+      "path": "results/mathematica/validate_mathematica_outputs_v4_fresh.txt",
+      "bytes": 778,
+      "sha256": "41f4788ab58d050c912261f9103b9bb2834dd934f2337b7791fc4dfba0822c19"
+    },
+    {
+      "path": "results/mathematica/validated_output_summary_fresh.json",
+      "bytes": 778,
+      "sha256": "41f4788ab58d050c912261f9103b9bb2834dd934f2337b7791fc4dfba0822c19"
+    },
+    {
+      "path": "results/mathematica/wolfram_recursive_guard_mathematica.txt",
+      "bytes": 11486,
+      "sha256": "ff0daf7fecc857ac734c219142d15af7fffcab119defef8d8edc693975f0de87"
+    },
+    {
+      "path": "results/mathematica/wolfram_recursive_guard_python.txt",
+      "bytes": 10192,
+      "sha256": "e5f439f6fcf3c2cc0ead8590c1c12da195f83f6e472a91ee658e57718a7f0451"
+    },
+    {
+      "path": "results/mathematica/wolfram_recursive_guard_summary.json",
+      "bytes": 10192,
+      "sha256": "e5f439f6fcf3c2cc0ead8590c1c12da195f83f6e472a91ee658e57718a7f0451"
+    },
+    {
+      "path": "results/mathematica/wolfram_recursive_guard_summary_mathematica.json",
+      "bytes": 12532,
+      "sha256": "11a017281ebbdcf4b06273cfb974e74b27839603e671af3a665ffde8d1387ced"
+    },
+    {
+      "path": "results/python/frozen_baseline_verification.json",
+      "bytes": 36508,
+      "sha256": "ae89dcb92356d98ea630c4cdab492cd52540ee360d0951ea103e404c19304886"
+    },
+    {
+      "path": "results/python/frozen_baseline_verification.txt",
+      "bytes": 36508,
+      "sha256": "ae89dcb92356d98ea630c4cdab492cd52540ee360d0951ea103e404c19304886"
+    },
+    {
+      "path": "results/python/independent_certificate_check.json",
+      "bytes": 21838,
+      "sha256": "688d0efe206e78f6850a7c9528fa98b3b3a2a3f6f22e65105c13ad8d798ec670"
+    },
+    {
+      "path": "results/python/independent_certificate_check.txt",
+      "bytes": 21838,
+      "sha256": "688d0efe206e78f6850a7c9528fa98b3b3a2a3f6f22e65105c13ad8d798ec670"
+    },
+    {
+      "path": "results/python/independent_one_pair_rederivation.csv",
+      "bytes": 3982,
+      "sha256": "e4064dcf9b052d6a8c5fe8d9c9dc002ec7ac6857b867c2bd747448e8ce21a64a"
+    },
+    {
+      "path": "results/python/independent_one_pair_rederivation.json",
+      "bytes": 1773,
+      "sha256": "41c0ffe796100027294e1cf6ae0a64838bcae8b862c3e11d85c13feab0c5490d"
+    },
+    {
+      "path": "results/python/independent_one_pair_rederivation.txt",
+      "bytes": 1773,
+      "sha256": "41c0ffe796100027294e1cf6ae0a64838bcae8b862c3e11d85c13feab0c5490d"
+    },
+    {
+      "path": "results/release_audit_manifest_transcript.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/release_audit_summary.json",
+      "bytes": 83284,
+      "sha256": "bcf99c829f7cc08e5966d07b5edc9d004801e341851c1ae054f8daf0c408fd47"
+    },
+    {
+      "path": "results/release_audit_summary.txt",
+      "bytes": 83284,
+      "sha256": "bcf99c829f7cc08e5966d07b5edc9d004801e341851c1ae054f8daf0c408fd47"
+    },
+    {
+      "path": "scripts/bootstrap_release_audit_branch.sh",
+      "bytes": 3272,
+      "sha256": "2771c821b523697df57732871967b51a2e66bc43b0c6a488942089af45283a43"
+    },
+    {
+      "path": "scripts/build_release_audit_manifest.sh",
+      "bytes": 397,
+      "sha256": "ed1d92767648c01ed3f4f6d568c863a5e3ca7b889834f7a46270f00db25316a6"
+    },
+    {
+      "path": "scripts/check_release_audit_dependencies.sh",
+      "bytes": 649,
+      "sha256": "b845027f3cffa0c91fa51f460ce8cab7c552abed0201d5d42a7491dc664f6319"
+    },
+    {
+      "path": "scripts/finalize_release_audit.sh",
+      "bytes": 383,
+      "sha256": "c0249059554ecb22caca5ac7e37867ff37f173a2fa42d87b4e8bc34f408b6a28"
+    },
+    {
+      "path": "scripts/run_R_release_audit.sh",
+      "bytes": 1285,
+      "sha256": "e9e8c2d0f3f781265fbb0a153593d98fc56fb84a708da096ff83e3e02b38c5ea"
+    },
+    {
+      "path": "scripts/run_mathematica_release_audit.sh",
+      "bytes": 2667,
+      "sha256": "2549b78c29b6281a450a85e37359d8d6ccb6449fc2db71f14a8cd28969e0b98d"
+    },
+    {
+      "path": "scripts/run_python_release_audit.sh",
+      "bytes": 785,
+      "sha256": "b8c7d5441efa551c406d9b904260a5934b4ae1468b794e2758a2f37b272e81fb"
+    },
+    {
+      "path": "scripts/verify_frozen_baseline.sh",
+      "bytes": 380,
+      "sha256": "358832805d15901f40577a8f1fc5d54a5e4c417a56491bac96c75561c1a46d70"
+    },
+    {
+      "path": "wolfram/check_proof_critical_outputs.wl",
+      "bytes": 2590,
+      "sha256": "ba107d7c1df1ad17c02fed3aec2702dfb259df07a8ef4a242f3ee93893c0713a"
+    },
+    {
+      "path": "wolfram/recursive_unresolved_guard.wl",
+      "bytes": 2504,
+      "sha256": "f192e6c8b42c401d44a636355527fbf95a227eda2b9bb31b60967fd20e97bf9c"
+    }
+  ]
+}

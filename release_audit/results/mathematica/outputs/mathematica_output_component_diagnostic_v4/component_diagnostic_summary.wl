@@ -1,0 +1,10 @@
+<|"MathematicaVersion" -> 
+  "14.0.0 for Mac OS X ARM (64-bit) (December 13, 2023)", 
+ "PrimaryArcError" -> "0``85.99538800974106", 
+ "CorrectionArcError" -> "0``86.81600860745176", 
+ "AlgebraicError" -> "0``87.12460625749458", 
+ "TotalHError" -> "0``85.95640070079106", "P0DecompositionError" -> 
+  "0``84.21395820224494", "OriginalVsDirectDerivativeError" -> 
+  "0``85.03866259879902", "DirectVsSectorDerivativeError" -> 
+  "0``83.98587245094407", "Pass" -> True, "Classification" -> 
+  "V4_COMPONENT_DIAGNOSTIC_PASS"|>

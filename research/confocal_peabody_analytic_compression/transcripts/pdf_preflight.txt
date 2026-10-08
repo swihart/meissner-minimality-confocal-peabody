@@ -1,0 +1,6 @@
+PDF: /mnt/data/confocal_peabody_analytic_compression_2026-10-01/manuscript/main_analytic_compression.pdf
+Pages: 9
+Encrypted: False
+Openable (PyMuPDF): True
+Likely scanned: False
+XFA present: False

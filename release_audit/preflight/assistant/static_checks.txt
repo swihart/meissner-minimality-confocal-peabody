@@ -1,0 +1,19 @@
+PYTHON STATIC COMPILE
+PASS
+
+SHELL SYNTAX
+PASS bootstrap_release_audit_branch.sh
+PASS build_release_audit_manifest.sh
+PASS check_release_audit_dependencies.sh
+PASS finalize_release_audit.sh
+PASS run_R_release_audit.sh
+PASS run_mathematica_release_audit.sh
+PASS run_python_release_audit.sh
+PASS verify_frozen_baseline.sh
+
+INDEPENDENCE IMPORT SCAN
+PASS: independent checker does not import principal certifiers
+
+WOLFRAM STATIC DELIMITER CHECK
+PASS check_proof_critical_outputs.wl
+PASS recursive_unresolved_guard.wl

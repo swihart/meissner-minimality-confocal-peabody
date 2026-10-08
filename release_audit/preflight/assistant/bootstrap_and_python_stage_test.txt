@@ -1,0 +1,21 @@
+SIMULATED FROZEN REPOSITORY TEST: PASS
+
+Tested workflow:
+
+1. created a clean repository containing the exact frozen theorem package;
+2. committed the frozen package and created annotated tag v1.0.0-certified;
+3. ran bootstrap_confocal_peabody_release_audit_branch.sh;
+4. verified the scaffold archive and frozen baseline;
+5. created branch audit/confocal-peabody-formula-additivity-release;
+6. created commit Add Peabody formula and release audit scaffold;
+7. ran release_audit/scripts/run_python_release_audit.sh;
+8. obtained PEABODY_RELEASE_AUDIT_PYTHON_STAGE_PASS.
+
+Observed independent certificate metadata:
+
+- local: 16 slabs, 10 panels each, 160 boxes;
+- central bulk: 43 slabs, 10 panels each, 430 boxes;
+- tail: 5 slabs, 400 panels each, 2,000 boxes;
+- independent checker runtime: approximately 14 seconds in the assistant environment.
+
+Mathematica and R stages were not executable in the assistant environment and remain required local gates.

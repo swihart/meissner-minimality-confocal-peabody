@@ -1,0 +1,14 @@
+{
+  "repository": "swihart/confocal-peabody-family-minimality",
+  "local_path": "~/github/confocal-peabody-family-minimality",
+  "frozen_tag": "v1.0.0-certified",
+  "frozen_archive_sha256": "b07df7201d2c5dcfaee65fa90c85a643f2bd55e81ce56fbf924b20e04e632459",
+  "package_directory": "confocal_peabody_family_minimality_certificate_2026-09-30",
+  "manifest_classification": "GO_PEABODY_FAMILY_MINIMALITY_CERTIFIED",
+  "manifest_payload_files": 50,
+  "manifest_payload_bytes": 4193688,
+  "root_regular_files_expected": 52,
+  "proof_core_sha256": "8ab4bfbf764da3c76a76810904e8289292b4c538957af68b15567a935882ac35",
+  "release_audit_branch": "audit/confocal-peabody-formula-additivity-release",
+  "release_audit_title": "Confocal Peabody Formula, Additivity, and Release Audit"
+}

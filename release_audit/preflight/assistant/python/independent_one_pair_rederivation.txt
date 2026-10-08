@@ -1,0 +1,37 @@
+{
+  "classification": "PEABODY_INDEPENDENT_ONE_PAIR_REDERIVATION_PASS",
+  "pass": true,
+  "scope": "width-one regular-tetrahedron confocal Peabodies only",
+  "python_version": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "mpmath_version": "1.3.0",
+  "sympy_version": "1.14.0",
+  "precision_decimal_digits": 70,
+  "gauss_legendre_order_1d": 96,
+  "gauss_legendre_order_2d": 48,
+  "maximum_representation_discrepancy": "2.6080355747020931618426263557756840328365689850641e-69",
+  "psi0_recovery_error": "7.9689975893675068834080249759812567670006274543624e-70",
+  "exact_symbolic_checks": {
+    "width2_surface_formula": "psi1 + psi2 + psi3 + 8*pi",
+    "width2_volume_formula": "psi1 + psi2 + psi3 + 16*pi/3",
+    "width1_volume_formula": "psi1/8 + psi2/8 + psi3/8 + 2*pi/3",
+    "normalization_residual": "0",
+    "normalization_identity_zero": true,
+    "meissner_recovery_residual": "0",
+    "meissner_recovery_identity_zero": true,
+    "pair_area_collapse_residual": "0",
+    "pair_area_collapse_identity_zero": true
+  },
+  "confocal_identity_audit": {
+    "maximum_confocal_identity_residual": "5.4334074472960274205054715745326750684095187188835e-71",
+    "pass": true
+  },
+  "rows_csv": "independent_one_pair_rederivation.csv",
+  "source_hashes": {
+    "exact_additivity_note": "ef3ef867a24a30ac6274629c8c9b31e6c922d2c014ca69f459a2a655d1d188bd",
+    "exact_pair_formula": "f142d394b75de96ad8752ce956f09c3d25f773ed85f4f04c04cf037007153557",
+    "phi_mathematica": "afa452e582454a41d83f1ceedb1fe8c0ae719cd32593450a3c83b7d1c06c18b6"
+  },
+  "elapsed_seconds": 11.038289070129395,
+  "proof_role": "independent formula audit; numerical quadrature is not proof authority"
+}
