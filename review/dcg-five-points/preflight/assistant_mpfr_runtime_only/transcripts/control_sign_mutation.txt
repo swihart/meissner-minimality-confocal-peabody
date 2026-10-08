@@ -1,0 +1,8 @@
+MPFR version: 4.2.2
+Endpoint pass: false
+Concavity pass: false
+Overall pass: false
+Classification: NO_GO_PEABODY_MPFR_DIRECTED_CERTIFICATE
+real 0.93
+user 0.93
+sys 0.00

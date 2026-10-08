@@ -1,0 +1,14 @@
+{
+  "classification": "PEABODY_FORMULA_DERIVATION_IDENTITIES_PASS",
+  "pass": true,
+  "checks": {
+    "beam_width_B_plus_one_identity": "0",
+    "beam_width_B_minus_one_identity": "0",
+    "delta_rationalization_remainder": "0",
+    "M_rationalization_remainder": "0",
+    "angle_product_identity_remainder": "0",
+    "angle_argument_squared_cross_difference": "0",
+    "P2_scaling_remainder": "0",
+    "Q0_scaling_remainder": "0"
+  }
+}

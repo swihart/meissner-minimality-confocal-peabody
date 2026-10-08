@@ -1,0 +1,25 @@
+{
+  "certificate_version": "PEABODY_MPFR_DIRECTED_CONCAVITY_V1",
+  "formula_version": "PEABODY_CENTRAL_STABLE_Q_V1",
+  "classification": "GO_PEABODY_MPFR_DIRECTED_CERTIFICATE",
+  "pass": true,
+  "proof_authority": "direct libmpfr directed endpoint intervals",
+  "mpfr_version": "4.2.2",
+  "precision_bits": 512,
+  "domain_diagnostics": {
+    "D2": {"lower": "3.3970562748477140585620264690516376942836e+01", "upper": "3.4970562748477140585620264690516376942837e+01", "strictly_positive": true},
+    "R2": {"lower": "2.2313708498984760390413509793677584628557e+01", "upper": "3.4970562748477140585620264690516376942837e+01", "strictly_positive": true},
+    "T2": {"lower": "3.9598989873223330683223642138935773099975e+02", "upper": "4.4161731573020282761306344097671290025687e+02", "strictly_positive": true},
+    "delta_denominator": {"lower": "9.5521659510346165130660768669901851652678e+00", "upper": "1.1742018482667122782855554206137032282991e+01", "strictly_positive": true},
+    "angle_numerator": {"lower": "3.3970562748477140585620264690516376942836e+01", "upper": "1.0340080882551305886796635581399989023957e+02", "strictly_positive": true},
+    "angle_denominator": {"lower": "2.3196551211459379400173847538519524244271e+02", "upper": "2.6776960474785768352459679317384158913888e+02", "strictly_positive": true},
+    "Z": {"lower": "1.2686489484295706023367324304187326453123e-01", "upper": "4.4575940571041352628165631265875147534479e-01", "strictly_positive": true}
+  },
+  "endpoint": {"phi_one_lower": "3.076528682490342052053580258083025767746844551546306131012521277485666954988220774673169767e-04", "phi_one_upper": "4.451561703065328614450093652302713314564605971833944131037152358001308284940118589205760390e-04", "target": "1/4000", "pass": true},
+  "concavity": {"worst_phi_second_upper": "-4.164919033614554799293552332657452342000695345699294120616474528115908990895863960504940039e-05", "target": "-1/30000", "pass": true, "q_slabs": 32, "x_panels_per_slab": 10},
+  "terminal_rectangles": 324,
+  "correction_sign": 1,
+  "deduced_bound": "Phi(e) > e/4000 for 0<e<1",
+  "subdivision_order": "forward",
+  "elapsed_seconds": 8.942608
+}

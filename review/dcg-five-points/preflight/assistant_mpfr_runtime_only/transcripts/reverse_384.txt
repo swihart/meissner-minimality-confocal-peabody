@@ -1,0 +1,5 @@
+MPFR version: 4.2.2
+Endpoint pass: true
+Concavity pass: true
+Overall pass: true
+Classification: GO_PEABODY_MPFR_DIRECTED_CERTIFICATE

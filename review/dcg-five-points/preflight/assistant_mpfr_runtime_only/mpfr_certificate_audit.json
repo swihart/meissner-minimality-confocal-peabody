@@ -1,0 +1,27 @@
+{
+  "classification": "PEABODY_MPFR_CERTIFICATE_AUDIT_PASS",
+  "pass": true,
+  "checks": {
+    "forward_pass": true,
+    "precision_replay_pass": true,
+    "reverse_replay_pass": true,
+    "underresolved_rejected": true,
+    "mutation_rejected": true,
+    "mpfr_version_recorded": true,
+    "weaker_endpoint_headroom": true,
+    "weaker_concavity_headroom": true,
+    "forward_512_same_endpoint": true,
+    "forward_reverse_same_endpoint": true,
+    "forward_512_same_worst": true,
+    "forward_reverse_same_worst": true,
+    "endpoint_overlap_mpmath": true,
+    "all_32_slab_intervals_overlap_mpmath": true,
+    "all_domain_diagnostics_positive": true
+  },
+  "forward_certificate_sha256": "fd20ad179a03f9700efbc613c70f6d717d5e4f7ab4e0c4d045ed0db84a3f3b33",
+  "mpmath_certificate_sha256": "032c02f2aa6832a7ebcad78aa326e1bfe2e6c2adc28168847c99edd4961516b4",
+  "endpoint_lower": "3.076528682490342052053580258083025767746844551546306131012521277485666954988220774673169767e-04",
+  "endpoint_target": "1/4000",
+  "worst_phi_second_upper": "-4.164919033614554799293552332657452342000695345699294120616474528115908990895863960504940039e-05",
+  "concavity_target": "-1/30000"
+}

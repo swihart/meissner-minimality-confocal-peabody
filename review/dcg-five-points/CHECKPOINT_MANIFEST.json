@@ -1,0 +1,265 @@
+{
+  "manifest_version": "PEABODY_DCG_FIVE_POINT_CHECKPOINT_MANIFEST_V1",
+  "checkpoint_date": "2026-10-08",
+  "baseline_tag": "v1.0.0",
+  "target_branch": "review/dcg-five-points",
+  "files": [
+    {
+      "path": "GIT_INSTRUCTIONS.md",
+      "bytes": 1046,
+      "sha256": "9d47ee0f1f2c3c5d739757325ef21ca70d7dcf3634a5f20e170891aeb152f7b8"
+    },
+    {
+      "path": "LOCAL_REPLAY.md",
+      "bytes": 1548,
+      "sha256": "e41edb4d17efb9169c3a34a7bec341412e9ac1d10f5cce2d4d7d4fee267be57f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2585,
+      "sha256": "3d2464c33822b7b5a12a60ab4659cd88581f94dc07a6c51690b8cfab3b4fac04"
+    },
+    {
+      "path": "REVIEW_PROGRESS_LEDGER.md",
+      "bytes": 2597,
+      "sha256": "55d7595adb9dffe85c42a306caa346c2bbe1d141e244ae2bc60245ceba710268"
+    },
+    {
+      "path": "REVISION_PLAN.md",
+      "bytes": 2041,
+      "sha256": "a2eaef350b54a4acdce323a4c39f2bf201d7e76f03e0088f66d9f0cc596e716d"
+    },
+    {
+      "path": "data/formula_derivation_identity_audit.json",
+      "bytes": 437,
+      "sha256": "ee7549364ea0555674585adcd8a44c1748271e542f1daed8679168615f9f3637"
+    },
+    {
+      "path": "data/reviewer_point_progress.json",
+      "bytes": 830,
+      "sha256": "ce22576de904a6a8faf5699355abe12a32f14a39b8d12a20e6d39d9bbf0208fc"
+    },
+    {
+      "path": "manuscript/README.md",
+      "bytes": 628,
+      "sha256": "6a85fbf08bf6124474555c69fe051e23698a25b9407e9abb68c5a0fb3e089066"
+    },
+    {
+      "path": "manuscript/build.sh",
+      "bytes": 446,
+      "sha256": "d5a357a1a85ce638db8bc9623c3da645b2f04eb05d4598f92dfdf0e15c7dbc03"
+    },
+    {
+      "path": "manuscript/main_dcg_revision_checkpoint.pdf",
+      "bytes": 232900,
+      "sha256": "e1e5d5b399bcb1ac322f6860d20eb3a727c5f8f470188902e3b2aa023e98eb7f"
+    },
+    {
+      "path": "manuscript/main_dcg_revision_checkpoint.tex",
+      "bytes": 27464,
+      "sha256": "51b5be57ff17aeb4c0ae9c02e4d27702379c4ab34c4285aac892c10840d1f87d"
+    },
+    {
+      "path": "mpfr/build_mpfr_certificate.sh",
+      "bytes": 1509,
+      "sha256": "f3fc176028ee05112e51914848d2f9fd797f873b668516988e03c304c3c1c141"
+    },
+    {
+      "path": "mpfr/peabody_mpfr_concavity.c",
+      "bytes": 27146,
+      "sha256": "696a5a785b505a8f579292e2b79e8693765c22829ce4df992e77190958b82ca8"
+    },
+    {
+      "path": "notes/01_full_parameter_geometry_and_gauss_partition.md",
+      "bytes": 7488,
+      "sha256": "9ff5b3f2f9fce1dfd889e648930c4ecead0efc483d4c5d114e57a1fa05534b24"
+    },
+    {
+      "path": "notes/02_mpfr_trust_boundary.md",
+      "bytes": 3788,
+      "sha256": "d403202eef44ac055cba2170b67e27ce5d0a9f8178c0d396a906e6198c2f3fc2"
+    },
+    {
+      "path": "notes/03_formula_derivation_and_branch_control.md",
+      "bytes": 6717,
+      "sha256": "22a65f3effbbce14b31ceea13a7db4a19ce503d9c7461534919da3e351e08a47"
+    },
+    {
+      "path": "notes/04_parabolic_endpoint_analyticity.md",
+      "bytes": 1793,
+      "sha256": "325f0ee8319b10b7ef0a567327157bcbe9e860ec6594ff4af6c9b0ad6feaefff"
+    },
+    {
+      "path": "notes/05_orientation_seams_equality.md",
+      "bytes": 2543,
+      "sha256": "97114553657c6f7d35b011d7a1ab3108be57d799897d14d62d7f36412e994888"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/README.md",
+      "bytes": 711,
+      "sha256": "8d160984811574894b1f0ae887c0eaef38bc30122eb0a5036f6ba8c51215a191"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_16_slabs/concavity_slab_summary.csv",
+      "bytes": 7052,
+      "sha256": "09519e2cc17ed618b663dfd4804c5e3a4edbaa18d2656458b3c36fadd6cb834f"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_16_slabs/concavity_terminal_boxes.csv",
+      "bytes": 71094,
+      "sha256": "14bb76d31cccabb3bc2cc821353d852fbc5755b287621590cb2c8d7d511b47fe"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_16_slabs/endpoint_terminal_boxes.csv",
+      "bytes": 926,
+      "sha256": "40b71bfc4cb97e6cc85baf224d82b19e021350cfb2b065b3ddf3c462981eb699"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_16_slabs/peabody_mpfr_concavity_certificate.json",
+      "bytes": 2159,
+      "sha256": "d400cf282e7fac27ec40353c4aba6baa19f9da63ce1afe9a4aab624710bce309"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_sign_mutation/concavity_slab_summary.csv",
+      "bytes": 1806,
+      "sha256": "78331d5a38f694cb1ca5b0bf4adfa52c10e2f8ed12f03a1b6177473df9ec96df"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_sign_mutation/concavity_terminal_boxes.csv",
+      "bytes": 17749,
+      "sha256": "d21296981563219cfa92f7593294d13751a2e813cee8789557da5a43a4c3a985"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_sign_mutation/endpoint_terminal_boxes.csv",
+      "bytes": 926,
+      "sha256": "8185d1110476d31aa65e96e156cef935b75e5cb278d0dacb28079380b772f030"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/control_sign_mutation/peabody_mpfr_concavity_certificate.json",
+      "bytes": 2161,
+      "sha256": "997244e30a901b29f3bd0aa3f9184d3d319f71c8ef391adfd77b9a32855e222a"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_384/concavity_slab_summary.csv",
+      "bytes": 14076,
+      "sha256": "8c321258fb33925da89fda041cf211f48634f15a610c77c21a4e93c1830f9bde"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_384/concavity_terminal_boxes.csv",
+      "bytes": 142271,
+      "sha256": "0d77348efe00f7339c9f911059f228ed2aa28db9f3b8d0a638c67a15164ad62f"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_384/endpoint_terminal_boxes.csv",
+      "bytes": 926,
+      "sha256": "40b71bfc4cb97e6cc85baf224d82b19e021350cfb2b065b3ddf3c462981eb699"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_384/peabody_mpfr_concavity_certificate.json",
+      "bytes": 2155,
+      "sha256": "fd20ad179a03f9700efbc613c70f6d717d5e4f7ab4e0c4d045ed0db84a3f3b33"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_512/concavity_slab_summary.csv",
+      "bytes": 14076,
+      "sha256": "8c321258fb33925da89fda041cf211f48634f15a610c77c21a4e93c1830f9bde"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_512/concavity_terminal_boxes.csv",
+      "bytes": 142271,
+      "sha256": "0d77348efe00f7339c9f911059f228ed2aa28db9f3b8d0a638c67a15164ad62f"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_512/endpoint_terminal_boxes.csv",
+      "bytes": 926,
+      "sha256": "40b71bfc4cb97e6cc85baf224d82b19e021350cfb2b065b3ddf3c462981eb699"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/forward_512/peabody_mpfr_concavity_certificate.json",
+      "bytes": 2155,
+      "sha256": "5df45db7f8114acfb52620fdc4cdc310dbd5fab7094c74706b8e49b3b6d6df5d"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/mpfr_certificate_audit.json",
+      "bytes": 1172,
+      "sha256": "14f4ab56e962c52e4075d0f42a35437357c9adb2e3dc428f5000a3ed1d290bbb"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/reverse_384/concavity_slab_summary.csv",
+      "bytes": 14076,
+      "sha256": "714a1f95ff2ecc80d5fa87d0dc6f28ccd3df8578d64a6f71671c5cd914ab46b9"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/reverse_384/concavity_terminal_boxes.csv",
+      "bytes": 142271,
+      "sha256": "a7b011a726723bd18d6197ebf40f029fa8877de72296f106aa8ab380a52e4834"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/reverse_384/endpoint_terminal_boxes.csv",
+      "bytes": 926,
+      "sha256": "40b71bfc4cb97e6cc85baf224d82b19e021350cfb2b065b3ddf3c462981eb699"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/reverse_384/peabody_mpfr_concavity_certificate.json",
+      "bytes": 2155,
+      "sha256": "43283c2261e8782603911f2ae1e4a4eebf33a5f17d659b6885444ecfec15ffe9"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/transcripts/control_16_slabs.txt",
+      "bytes": 138,
+      "sha256": "a47a12ce870027bb91a1e8f391fb1a173c085254fe5ce06f64ad42cbf5ddef30"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/transcripts/control_sign_mutation.txt",
+      "bytes": 168,
+      "sha256": "cf7c8864d9fce127e0b5f98804c86a6d32cfd4d08a8ad787cec85c0e13618a46"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/transcripts/forward_384.txt",
+      "bytes": 133,
+      "sha256": "17d033e2c9b79775b33eb3a7ab3a6531dae94ac616abb3d9062340e35b551e2d"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/transcripts/forward_512.txt",
+      "bytes": 133,
+      "sha256": "17d033e2c9b79775b33eb3a7ab3a6531dae94ac616abb3d9062340e35b551e2d"
+    },
+    {
+      "path": "preflight/assistant_mpfr_runtime_only/transcripts/reverse_384.txt",
+      "bytes": 133,
+      "sha256": "17d033e2c9b79775b33eb3a7ab3a6531dae94ac616abb3d9062340e35b551e2d"
+    },
+    {
+      "path": "python/audit_mpfr_certificate.py",
+      "bytes": 3931,
+      "sha256": "2ffc9550250eb9bf9e31c4cdf3477465c4b54752fe605ca965cf27db09f99bf6"
+    },
+    {
+      "path": "python/promote_official_mpfr_replay.py",
+      "bytes": 3516,
+      "sha256": "b6cf9d2e1eaaf736ef5b49cb8dca85c27a5a38a00b0d56f7c1692020364ce394"
+    },
+    {
+      "path": "python/validate_checkpoint_package.py",
+      "bytes": 3419,
+      "sha256": "340e96c6cccb982de19e2e655273c08a2b4cbd8700b5e3b13dc795cd715e42ec"
+    },
+    {
+      "path": "python/verify_formula_derivation_identities.py",
+      "bytes": 3827,
+      "sha256": "a096299f56d36bb4a90aa59e75b71b47d2084e5e217d7f4f7378e4b05234dcd2"
+    },
+    {
+      "path": "referee-review.md",
+      "bytes": 1342,
+      "sha256": "fc78a2fb1afa10887d15c1464f4c149096492a5e1caf1a70b6865803a3e10ee6"
+    },
+    {
+      "path": "scripts/run_mpfr_replays.sh",
+      "bytes": 2868,
+      "sha256": "97d92cd7be065b6588dcb63d4b1e8b1ac725528cac0e0fb2516c898131292b1f"
+    }
+  ],
+  "payload_file_count": 51,
+  "payload_bytes": 927154
+}

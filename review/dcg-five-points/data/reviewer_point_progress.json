@@ -1,0 +1,34 @@
+{
+  "checkpoint": "PEABODY_DCG_FIVE_POINT_REVISION_CHECKPOINT_2026_10_08",
+  "baseline_tag": "v1.0.0",
+  "branch": "review/dcg-five-points",
+  "points": {
+    "1": {
+      "status": "PROOF_DRAFT_AND_MANUSCRIPT_INTEGRATION_COMPLETE",
+      "percent": 90,
+      "closed": false
+    },
+    "2": {
+      "status": "DIRECT_MPFR_PREFLIGHT_PASS_OFFICIAL_HEADER_REPLAY_PENDING",
+      "percent": 85,
+      "closed": false
+    },
+    "3": {
+      "status": "DERIVATION_AND_MANUSCRIPT_INTEGRATION_COMPLETE",
+      "percent": 90,
+      "closed": false
+    },
+    "4": {
+      "status": "CLOSED_ANALYTICALLY",
+      "percent": 100,
+      "closed": true
+    },
+    "5": {
+      "status": "CLOSED_ANALYTICALLY",
+      "percent": 100,
+      "closed": true
+    }
+  },
+  "shape_search_reopened": false,
+  "semi_regular_extension_started": false
+}
