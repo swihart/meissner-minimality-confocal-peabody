@@ -23,15 +23,17 @@ The manuscript now uses Arb/FLINT as the sole proof authority and states only th
 \Phi''(e)<-\frac1{100000}<0.
 \]
 
-The decimal in the endpoint lemma has been changed to the Arb lower endpoint
+The endpoint lemma now uses the finite, conservatively rounded Arb lower bound
 
 \[
-0.0002951409916769718\ldots,
+0.000295140991676971,
 \]
 
-so it now agrees with the certificate described in the appendix.
+verified against the exact binary certificate endpoint in the appendix.
 
-At the same nominal 32-by-10 partition, the archived endpoint-interval implementations give
+For diagnostic comparison only, at the same nominal 32-by-10 partition the
+following numbers approximate the archived enclosure endpoints; they are not
+additional rational proof bounds.
 
 | implementation | lower bound for `Phi(1)` | weakest upper bound for `Phi''` |
 |---|---:|---:|
@@ -47,7 +49,17 @@ The former sentence that the enclosures merely "overlap" has been removed.
 
 ## Remaining source-level review
 
-The cap--cone converse and the invocation of the source global assembly theorem remain deliberately tied to the cited Peabody construction.  External source-convention and formula proofreading remain recommended before submission. No completed external-review response or correspondence confirming delivery is archived in this checkpoint.  These are now citation-depth and expert-proofreading questions rather than omitted calculations.
+The final internal mathematical audit supplies a direct cap--cone converse
+using opposite support points and the source patch incidence, together with
+an explicit inverse normal chart, a converse parameter-normalization argument,
+and a mixed-degeneration continuity argument. It also makes explicit that the
+union of unit normal regions along a collapsed singular arc can have positive
+spherical area. The supporting notes use the same conventions.
+
+External source-convention and formula proofreading remain recommended before
+submission. No completed external-review response or correspondence confirming
+delivery is archived in this checkpoint. The internal audit does not replace
+an identifiable expert review.
 
 ## Scope
 
@@ -56,3 +68,13 @@ The theorem remains restricted to regular-tetrahedron confocal Peabodies.  We ma
 ## Closeout audit of the recorded revision
 
 The closeout review of source checkpoint `ab320cf` independently checks the archived exact binary endpoints, all 96 authoritative concavity slabs, all 224 diagnostic refinement slabs, and the associated input hashes. It does not claim a fresh Arb replay or completed external human review. The revised table rounds lower bounds downward and upper bounds upward and states every partition explicitly. Historical initial-checkpoint manifests are preserved under their original scope; the current closeout has a separate manifest and validator.
+
+## Final internal mathematical audit
+
+The bounded final audit starts from the author's committed closeout `b9fb7c5`.
+It checks the complete analytic implication to the restricted-family theorem,
+clarifies the fixed-parameter mean-value enclosure, and retains both canonical
+rational gates. A separate exact-rational Python corroboration of the production
+derivative rules passes 285 coefficient identities and rejects one deliberate
+sign mutation. This finite check supports the analytic rule derivations; it is
+not a new interval certificate. See `../final-math-audit/FINAL_MATHEMATICAL_AUDIT.md`.

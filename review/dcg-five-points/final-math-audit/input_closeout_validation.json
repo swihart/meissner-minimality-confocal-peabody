@@ -1,0 +1,29 @@
+{
+  "classification": "PEABODY_CURRENT_CLOSEOUT_ARCHIVE_AUDIT_PASS",
+  "pass": true,
+  "source_commit": "ab320cff615408af8ca8f35f54715e75932c1dd5",
+  "current_payload_files": 150,
+  "checks": {
+    "unique_manifest_paths": true,
+    "exact_current_payload_set": true,
+    "all_current_hashes_and_sizes": true,
+    "protected_frozen_50_files_unchanged": true,
+    "correct_review_branch": true,
+    "point_2_reconciled": true,
+    "external_review_and_submission_not_promoted": true,
+    "independent_archive_semantics": true,
+    "directed_display_table_exactly_regenerated": true,
+    "required_table_not_optional": true,
+    "publication_targets_unchanged": true,
+    "code_and_ai_disclosures_present": true,
+    "no_unsupported_correspondence_claim": true
+  },
+  "missing": [],
+  "unexpected": [],
+  "hash_mismatches": [],
+  "semantic_check_count": 365,
+  "fresh_arb_replay": false,
+  "r_runtime_executed": false,
+  "external_review_completed": false,
+  "submission_ready": false
+}

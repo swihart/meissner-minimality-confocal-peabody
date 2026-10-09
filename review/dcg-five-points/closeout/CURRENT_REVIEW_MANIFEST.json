@@ -1,6 +1,13 @@
 {
-  "source_commit": "ab320cff615408af8ca8f35f54715e75932c1dd5",
-  "scope": "corrected review/dcg-five-points tree; excludes itself, bytecode, Finder metadata, and local build products",
+  "source_commit": "b9fb7c5",
+  "source_commit_identifier_kind": "abbreviated identifier confirmed by author terminal; full identifier unavailable in supplied snapshot",
+  "prior_archive_source_commit": "ab320cff615408af8ca8f35f54715e75932c1dd5",
+  "scope": "current review/dcg-five-points tree after bounded final mathematical audit; excludes itself, bytecode, Finder metadata, and local build products",
+  "file_count": 162,
+  "fresh_arb_replay": false,
+  "r_runtime_executed": false,
+  "external_review_completed": false,
+  "submission_ready": false,
   "files": [
     {
       "path": ".gitignore",
@@ -33,14 +40,19 @@
       "sha256": "af3678ce39d0c4f0ba8521cc848d8b406713d2e16409a84d107fe379374893c4"
     },
     {
+      "path": "R/verify_final_derivative_jets.R",
+      "bytes": 7676,
+      "sha256": "b36ffd1a4cd22e26cf826d1649e2faa1ef36b2f581d56b60b2b7c860e4e3d88e"
+    },
+    {
       "path": "README.md",
-      "bytes": 5076,
-      "sha256": "53038573ac912743d10fe63982d35f7e072a15a09aa826bb66638662bbce1c36"
+      "bytes": 5796,
+      "sha256": "eb65ce378cedc6d0908d322f3a6f03653008adbedcf52c147a7fa3c8a3d4c9d8"
     },
     {
       "path": "REVIEW_PROGRESS_LEDGER.md",
-      "bytes": 3577,
-      "sha256": "132302e34cff28597933349c786e3d30e8ca398e22c4d2a0949ba9edc28f7f21"
+      "bytes": 4753,
+      "sha256": "10a4df35f5e64fe1eab13e3f176d68414fc508aabd18bd1abd6cad273789d187"
     },
     {
       "path": "REVISION_PLAN.md",
@@ -139,13 +151,63 @@
     },
     {
       "path": "data/reviewer_point_progress.json",
-      "bytes": 1332,
-      "sha256": "512dfe676c64ab4ef7a869e56a5e822e0d44e40140c59620b8384455176e9225"
+      "bytes": 1633,
+      "sha256": "ddf22541504dec61d599d9d6cc9755b613910fdbd10d214aefdae26d08a23632"
+    },
+    {
+      "path": "final-math-audit/FINAL_MATHEMATICAL_AUDIT.md",
+      "bytes": 12074,
+      "sha256": "6ec9c88937664d3ae19b11c5d211a5b48136e4550b2bd3cde0c4ea035269d898"
+    },
+    {
+      "path": "final-math-audit/analytic_review.md",
+      "bytes": 10756,
+      "sha256": "35d1b3b12d4b13767909f82b45586472263a0c04b1e4fc2b0b7f47cab83f9dd5"
+    },
+    {
+      "path": "final-math-audit/certificate_review.md",
+      "bytes": 13648,
+      "sha256": "5048c4f91ce42b04a2966a6c5a2837ac3e7752e4f7236b37048cc89811d3d583"
+    },
+    {
+      "path": "final-math-audit/derivative_jet_audit.json",
+      "bytes": 8340,
+      "sha256": "7ec770f86fe0afca13f32f12fe3911bc149137bc4a421cfc7076276def3168ea"
+    },
+    {
+      "path": "final-math-audit/gauss_review.md",
+      "bytes": 11184,
+      "sha256": "d3487a8307209d4844f39b40f9b3ab9c9fa95d04eede9be4a05a19b7a22cf337"
+    },
+    {
+      "path": "final-math-audit/geometry_review.md",
+      "bytes": 12590,
+      "sha256": "ace37ea0faee92ff00d4dd8ac81daaa75bbebed96224da1289a0c9a50f3f8175"
+    },
+    {
+      "path": "final-math-audit/input_closeout_validation.json",
+      "bytes": 985,
+      "sha256": "641445749486989eaa94fd121934feda2ce9bb049b7d855dc154f34301496094"
+    },
+    {
+      "path": "final-math-audit/main_dcg_final_math_review.pdf",
+      "bytes": 439015,
+      "sha256": "32a487c6050a38e03aab6ce6dd94317ce08a9185b9f58e896be8c3f76be03aec"
+    },
+    {
+      "path": "final-math-audit/manuscript_build.log",
+      "bytes": 14090,
+      "sha256": "3a27eed5027e6bff8c5a6084cae5060759cd41147c7ae1e4a64de4e057cf3683"
+    },
+    {
+      "path": "final-math-audit/pdf_quality_review.json",
+      "bytes": 498,
+      "sha256": "04272eeb5d7232201cf8fe45b5463da836c6145b690fc503d8af9e37778d8f67"
     },
     {
       "path": "manuscript/README.md",
-      "bytes": 1412,
-      "sha256": "d9ecc23709eb737f201f329feab46064b8ba86f0825d0815e99dc18bc89a4500"
+      "bytes": 1809,
+      "sha256": "5c69441bcc158129800498802a4a27fbde333a528e6ae19700abb6e3dc40a3b5"
     },
     {
       "path": "manuscript/build-closeout/.gitignore",
@@ -179,8 +241,8 @@
     },
     {
       "path": "manuscript/main_dcg_closeout_review.tex",
-      "bytes": 34324,
-      "sha256": "35eb0b40cee859a3be927d45c38b7aecea9dc86b84b422060300142ed44b8a5d"
+      "bytes": 37212,
+      "sha256": "4cf004e2d19b77acf6c1341bb5f5dbf5e0f98ac3f8e46ae5b5bf578362413bb3"
     },
     {
       "path": "manuscript/main_dcg_revision_checkpoint.pdf",
@@ -224,8 +286,8 @@
     },
     {
       "path": "notes/01_full_parameter_geometry_and_gauss_partition.md",
-      "bytes": 11194,
-      "sha256": "58c9fe2c83251bc55e6efde29aecf18d5882fb53d190f1e685baec23946cb8a5"
+      "bytes": 12797,
+      "sha256": "9a9a0a1b17c1c8261e0d655d89e6f2f4213a30b71af730463ed566a93dcb4f07"
     },
     {
       "path": "notes/02_arb_flint_trust_boundary.md",
@@ -254,8 +316,8 @@
     },
     {
       "path": "notes/03_formula_derivation_and_branch_control.md",
-      "bytes": 8496,
-      "sha256": "e5bbde3ea1c612cd1f2c2c2c2be39a240aae1768b28242295102bfe13b9b73b4"
+      "bytes": 8864,
+      "sha256": "f04935dd526d1b6574e2c8965ce1b65d774bd5ba8087002785c8b2f8ccbd8239"
     },
     {
       "path": "notes/04_parabolic_endpoint_analyticity.md",
@@ -264,13 +326,13 @@
     },
     {
       "path": "notes/05_orientation_seams_equality.md",
-      "bytes": 2543,
-      "sha256": "97114553657c6f7d35b011d7a1ab3108be57d799897d14d62d7f36412e994888"
+      "bytes": 3128,
+      "sha256": "fd87b7d130c52579fa071c7bf336b0a6c2862893ab6433d5f9da3fa9b641856b"
     },
     {
       "path": "notes/06_points_1_3_independent_proofread.md",
-      "bytes": 4464,
-      "sha256": "d01a1bfec98aaa0f03fd03b5059e0f04f9facf324965e3bd71fa4043d7c4a4b2"
+      "bytes": 4797,
+      "sha256": "20009c0aeaa085ccffd064e1ec61f653b36f2e2bcb97b3dec72a2488934c4f82"
     },
     {
       "path": "notes/07_interval_enclosure_reconciliation.md",
@@ -279,8 +341,8 @@
     },
     {
       "path": "notes/draft_response_to_referee.md",
-      "bytes": 4620,
-      "sha256": "00b2776ce507cd34c9d0428c3d2099a16155d063d6e9fd2d29107819dbd1124e"
+      "bytes": 5594,
+      "sha256": "cc71c5e6de43aebbbc7b20b4b8fd17bd82d14402359f5817f73c663bf1242ccd"
     },
     {
       "path": "preflight/assistant_mpfr_runtime_only/README.md",
@@ -479,13 +541,18 @@
     },
     {
       "path": "python/validate_current_closeout.py",
-      "bytes": 4729,
-      "sha256": "7bd8007b721a02f8bef5d78c4e43680d7ed9bd1bc5cef44b366bff1f15813873"
+      "bytes": 6742,
+      "sha256": "10f2846f22b6a1310e9ebfdff0adc04004ce6c5b5e61c9cb27edba3d07a2bb48"
     },
     {
       "path": "python/verify_archived_reconciliation.py",
       "bytes": 18769,
       "sha256": "2663e56ba41153bffdf65b7768eb8e2641e117709996079f9027c5c058341c0e"
+    },
+    {
+      "path": "python/verify_final_derivative_jets.py",
+      "bytes": 6542,
+      "sha256": "efcd3c16461a1e9fc4e37d96f3c90c4e96e69d4a079110d2cbd8213a36b46868"
     },
     {
       "path": "python/verify_formula_derivation_identities.py",
@@ -752,8 +819,5 @@
       "bytes": 2868,
       "sha256": "97d92cd7be065b6588dcb63d4b1e8b1ac725528cac0e0fb2516c898131292b1f"
     }
-  ],
-  "file_count": 150,
-  "fresh_arb_replay": false,
-  "external_review_completed": false
+  ]
 }

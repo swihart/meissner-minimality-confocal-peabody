@@ -207,6 +207,24 @@ Together with \eqref{eq:radii} and \eqref{eq:beam-normalization},
 At the four cross pairs of beam endpoints both radii vanish, so every cross distance is two.  Together with the two beam lengths, all six distances among \(X_+,X_-,Y_+,Y_-\) equal two.  The beams are therefore opposite edges of a regular tetrahedron of side two.  The statement at \(e=0\) is \cite[Section~5.3]{ArelioMontejanoOliveros2023}.
 \end{proof}
 
+Conversely, the chart exhausts the nondegenerate elliptic--hyperbolic
+devices in this regular-tetrahedron construction, up to rigid motion and
+exchange of the two edges.  In the source principal-circle convention,
+put \(s=\sqrt{1-e^2}\) and \(z=\sqrt{B-1}\ge0\).  The two beam lengths
+and the width normalization give
+\[
+  \sqrt{B+1}-e\sqrt{B-1}=2s,
+  \qquad z=\frac{2e\pm\sqrt2}{s}.
+\]
+The minus root is negative when \(e<1/\sqrt2\).  For
+\(e\ge1/\sqrt2\), it instead gives
+\[
+  u_0^2-e^2=\frac{(\sqrt2-e)(\sqrt2-3e)}{B}<0,
+\]
+contrary to the elliptic principal-center ordering \(u_0>e\).
+The plus root gives exactly \eqref{eq:ab}.  The circle--line endpoint
+is included by the source degeneration already identified above.
+
 Apply \Cref{lem:admissible} independently to the three opposite-edge pairs.  Section~4 of \cite{ArelioMontejanoOliveros2023} imposes no equality among the three device parameters.  An orientation bit merely exchanges the two devices in one pair.  Hence \cite[Theorem~4.5]{ArelioMontejanoOliveros2023} applies for every generic tuple \(\mathbf e\in(0,1)^3\) and every \(\boldsymbol\sigma\in\{0,1\}^3\): the six wedge-pod patches and four spherical caps bound a convex body of constant width two.
 
 \subsection{Patch decomposition and normal-sphere partition}
@@ -266,12 +284,24 @@ For each tetrahedral vertex,
 \begin{proof}
 If \(x\in C_A^\circ\), its outer normal is \(n=(x-A)/2\).  By \Cref{lem:opposite}, \(R_K(-n)=A\). Passing from the cap interior to its closure gives \(-\Omega_A\subseteq N_K(A)\).
 
-Conversely, if \(m\in N_K(A)\), then \(R_K(-m)=A-2m\) lies in \(\partial K\cap S(A,2)\).  The patch construction and the strict-containment argument in the proof of \cite[Lemma~4.3]{ArelioMontejanoOliveros2023} imply that every wedge interior is strictly inside \(B(A,2)\), while the other spherical-cap interiors meet \(S(A,2)\) only on common seams.  Hence \(\partial K\cap S(A,2)=C_A\) as closed sets.  Thus \(-m\in\Omega_A\), proving the reverse inclusion.
+Conversely, if \(m\in N_K(A)\), then
+\(x:=R_K(-m)=A-2m\) lies in \(\partial K\cap S(A,2)\).
+We classify this support point using the source patch decomposition.
+A wedge-interior point is paired with an interior point of the opposite
+wedge by the source binormal pairing; its opposite support point cannot
+therefore be the vertex \(A\).  Every nonvertex seam borders a spherical
+cap, and the common unit normal on a cap \(C_B\) or its nonvertex boundary
+is \((x-B)/2\); see \cite[Sections~3.5 and~4, Lemma~3.8]{ArelioMontejanoOliveros2023}.
+The opposite-support identity would then give \(R_K(m)=B\), so \(B=A\)
+and \(x\in C_A\).  Finally, if \(x\) is a vertex, it is one of the other
+three tetrahedral vertices, all of which belong to the closed cap \(C_A\).
+These cases exhaust the boundary.  Thus \(x\in C_A\) and
+\(-m\in\Omega_A\), proving the reverse inclusion.
 \end{proof}
 
-For the \(i\)-th opposite-edge pair, let \(\Gamma_i=\Gauss(W_i^+)\).  The binormal pairing of \cite[Lemma~3.8]{ArelioMontejanoOliveros2023}, together with \Cref{lem:opposite}, gives
+For the \(i\)-th opposite-edge pair, let \(\Gamma_i=\Gauss(W_i^{+,\circ})\).  The binormal pairing of \cite[Lemma~3.8]{ArelioMontejanoOliveros2023}, together with \Cref{lem:opposite}, gives
 \[
-  \Gauss(W_i^-)=-\Gamma_i.
+  \Gauss(W_i^{-,\circ})=-\Gamma_i.
 \]
 Using \Cref{lem:normal-partition,lem:cap-cone},
 \begin{equation}
@@ -294,7 +324,24 @@ Adding the wedge-pod areas gives
 \end{equation}
 Interchanging the two devices exchanges \(W_i^+\) and \(W_i^-\); their Gauss images are antipodal and have equal area.  Thus \(\Psi\) is orientation independent.
 
-At \(e_i=0\), one wedge surface collapses to a circular singular arc.  Its physical area is zero, but its normal cone is the nonzero limit of \(\Gamma_i\).  Accordingly, the generic identity is extended to mixed zero-parameter tuples by the continuous circle-line degeneration, not by deleting the limiting normal term.  The explicit patch maps converge uniformly, the convex bodies converge in the Hausdorff metric, and intrinsic volumes are continuous under this convergence \cite{Schneider2014}.  Hence \eqref{eq:additive-area} holds for every \(\mathbf e\in[0,1)^3\).
+At \(e_i=0\), one wedge surface collapses to a circular singular arc.
+Its physical area is zero, but the union of its unit normal regions has
+positive spherical area and is the limit of \(\Gamma_i\).  This is a union
+along the arc, not the normal region at one nonvertex point.
+The explicit wedge and seam maps converge uniformly after their parameter
+intervals are rescaled to fixed intervals.  The caps converge as well:
+by cap--cone duality each \(\Omega_A\) is spherically convex, and
+\(K\subseteq B(B,2)\) for every vertex \(B\) implies
+\(n\cdot(B-A)/2\ge1/2\) for \(n\in\Omega_A\), \(B\ne A\).
+Thus these regions lie in a fixed open hemisphere and are the spherical
+convex hulls of their three boundary arcs.  Gnomonic projection reduces
+their convergence to continuity of ordinary convex hulls under Hausdorff
+convergence.  The full boundaries, and hence their convex bodies, therefore
+converge in the Hausdorff metric to the source circle--line degeneration.
+Intrinsic volumes are continuous under this convergence \cite{Schneider2014}.
+Consequently the generic identity extends to mixed zero-parameter tuples,
+retaining the limiting normal term, and \eqref{eq:additive-area} holds for
+every \(\mathbf e\in[0,1)^3\).
 
 For a body of constant width \(d\), Blaschke's identity is
 \begin{equation}
@@ -335,7 +382,12 @@ Selecting one edge from each of
 \[
   \{AB,CD\},\qquad \{AC,BD\},\qquad \{AD,BC\}
 \]
-gives either a vertex star or a face boundary.  There are four of each.  The tetrahedral symmetry group acts transitively on vertices and on faces, so there are exactly two orbits.  The corresponding classical Meissner bodies are noncongruent \cite{KawohlWeber2011}.
+gives either a vertex star or a face boundary.  There are four of each.
+Here the selected elliptic edges retain the circular singular arcs; the
+complementary edges are rounded.  Taking complements exchanges stars and
+face boundaries.  The tetrahedral symmetry group acts transitively on
+vertices and on faces, so there are exactly two orbits.  The corresponding
+classical Meissner bodies are noncongruent \cite{KawohlWeber2011}.
 \end{proof}
 
 \section{The one-pair formula}
@@ -400,6 +452,16 @@ Thus
   \dd\omega=\frac{b^2}{d^2}\,\dd t\,\dd\xi.
   \label{eq:area-element}
 \end{equation}
+This chart counts each normal once.  Indeed, writing \(n_k,n_p,n_q\)
+for its components in the fixed frame, one recovers
+\[
+  \tanh\xi=-\frac{s n_q}{1+e n_k},\qquad
+  D_0=\frac{s^2\cosh\xi}{1+e n_k},\qquad
+  \cos t=\frac{n_pD_0}{s}.
+\]
+The denominator is positive, \(\tanh\) is injective, and \(\cos\) is
+injective on \([\theta,\pi-\theta]\).  Thus the normal map is injective;
+its positive area element computes the area of its image without multiplicity.
 
 The paired boundary points are
 \[
@@ -555,7 +617,7 @@ H(0,x)=\bigg[&-\frac{16\sqrt2(1+\sqrt2)}{\sqrt A}
 The independent Arb/FLINT enclosure described in \Cref{app:arb} gives the conservative proof-authority bound
 \[
   \Phi(1)>
-  0.0002951409916769718631415784748725\ldots
+  0.000295140991676971
   >\frac1{4000}.
 \]
 The tighter decimal produced by the earlier endpoint-interval audits is recorded only in the reproducibility comparison and is not used in the proof.
@@ -583,9 +645,9 @@ the chain rule gives
   \int_0^1\left((1+q)H_{qq}(q,x)+2H_q(q,x)\right)\,\dd x.
   \label{eq:concavity-identity}
 \end{equation}
-The independent Arb/FLINT certificate of \Cref{app:arb} partitions \([0,1]\) into 32 exact rational slabs and uses ten rational \(x\)-panels on each slab.  Its weakest upper endpoint is
+The independent Arb/FLINT certificate of \Cref{app:arb} partitions \([0,1]\) into 32 exact rational slabs and uses ten rational \(x\)-panels on each slab. A conservative upper bound from this certificate is
 \[
-  -0.0000179286178483067822590960267370\ldots
+  -0.000017928617848306
   <-\frac1{100000}.
 \]
 \end{proof}
@@ -635,7 +697,10 @@ in \texttt{review/dcg-five-points/}. Its repository identifier is
 \texttt{swihart/meissner-minimality-confocal-peabody}.
 The frozen input to this closeout review is
 repository revision \texttt{ab320cf}; its full identifier and SHA-256 file manifest
-are recorded in the closeout report.  The Arb implementation is pinned to
+are recorded in the closeout report. The final internal mathematical audit
+starts from the subsequent closeout commit \texttt{b9fb7c5}; its findings and
+resolved proof clarifications are recorded in \texttt{final-math-audit/}.
+The Arb implementation is pinned to
 \texttt{python-flint==0.9.0}.  The closeout audit verifies archived exact binary
 endpoints and provenance; it is distinct from reevaluating the transcendental
 functions in a fresh Arb replay.  The publication inequalities continue to use
@@ -804,30 +869,36 @@ A nested automatic-differentiation jet encloses derivatives through third order 
   Q_j=\left[\frac j{32},\frac{j+1}{32}\right],
   \qquad j=0,\ldots,31.
 \]
-On each slab, centered at \(q_j\), the mean-value enclosure
+Define \(F(q)=\int_0^1 C(q,x)\,\dd x\), with one fixed parameter
+\(q\) throughout the integral. On each slab, centered at \(q_j\),
+the mean-value theorem gives
 \[
-  \int_0^1C(Q_j,x)\,\dd x
-  \subseteq
-  \int_0^1C(q_j,x)\,\dd x
-  +(Q_j-q_j)\int_0^1C_q(Q_j,x)\,\dd x
+  F(Q_j)\subseteq F(q_j)+(Q_j-q_j)F'(Q_j),
+  \qquad F'(q)=\int_0^1C_q(q,x)\,\dd x.
 \]
-is combined with ten rational \(x\)-panels and \eqref{eq:midpoint}.  Multiplication by \((1+Q_j)^3/32\) encloses \(\Phi''\).
+Here \(F(Q_j)\) and \(F'(Q_j)\) denote ranges of scalar functions;
+interval quadrature with ten rational \(x\)-panels and \eqref{eq:midpoint}
+encloses \(F(q_j)\) and \(F'(Q_j)\). Multiplication by
+\((1+Q_j)^3/32\) encloses \(\Phi''\).
 
 The 384-bit forward Arb certificate gives
 \[
   \Phi(1)>
-  0.0002951409916769718631415784748725\ldots
+  0.000295140991676971
   >\frac1{4000},
 \]
 and
 \[
   \sup_{0<e<1}\Phi''(e)
-  <-0.0000179286178483067822590960267370\ldots
+  <-0.000017928617848306
   <-\frac1{100000}.
 \]
 The 512-bit and reverse-order replays certify the same rational conclusions.  A deliberately under-resolved control and a correction-sector sign mutation return semantic no-go certificates.
 
-At the same nominal $32\times10$ partition, the two endpoint-interval implementations give
+The finite decimals in these inequalities are outward-rounded rational
+bounds. For comparison only, at the same nominal $32\times10$ partition,
+the following displays approximate recorded enclosure endpoints; they are
+not additional proof bounds:
 \[
 \begin{array}{c|cc}
  & \text{lower bound for }\Phi(1) & \text{weakest upper bound for }\Phi'' \\

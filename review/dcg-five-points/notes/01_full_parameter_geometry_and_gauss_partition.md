@@ -235,7 +235,20 @@ For our family, the three parameters `e_1,e_2,e_3` may therefore be chosen indep
  \boldsymbol\sigma\in\{0,1\}^3.
 \]
 
-The endpoint `e=0` is treated in Section 9 below.
+The endpoint `e=0` is treated in Section 10 below. The chart also exhausts
+the nondegenerate source devices with this regular normalization. Put
+`s=sqrt(1-e^2)` and `z=sqrt(B-1)>=0`. The beam lengths and width give
+
+\[
+\sqrt{B+1}-e\sqrt{B-1}=2s,
+\qquad z=\frac{2e\pm\sqrt2}{s}.
+\]
+
+The minus root is negative for `e<1/sqrt(2)`. For `e>=1/sqrt(2)` it gives
+`u_0^2-e^2=(sqrt(2)-e)(sqrt(2)-3e)/B<0`, contrary to the principal-center
+ordering `u_0>e`. The plus root yields the stated `b^2` formula. Up to
+rigid motion and exchange of the two edges, no second normalized branch
+of these elliptic--hyperbolic devices remains.
 
 ## 6. Generic patch decomposition
 
@@ -260,7 +273,11 @@ For a generic regular-tetrahedron confocal Peabody, the Gauss images of the ten 
 
 If two distinct smooth patch interiors shared an outer normal, the corresponding supporting plane would touch the strictly convex body at two distinct points, impossible. Every support point belongs to a patch interior, a seam, or a vertex, so the listed normal sets cover the sphere after the seam normals are added.
 
-Each nonvertex seam is a compact piecewise-smooth curve. Because the assembled surface has a common tangent plane along it, the unit normal restricted to the seam is piecewise smooth. Its image is therefore a finite union of one-dimensional curves in `S^2`, which has two-dimensional spherical measure zero. ∎
+Away from the vertices, the explicit seam maps and their common unit normals
+are smooth. Exhaust each nonvertex seam by countably many compact subarcs.
+Each such normal image is piecewise smooth and has spherical area zero;
+the countable union has area zero as well. This argument concerns generic
+positive parameters, before any seam degenerates to a singular arc. ∎
 
 ## 8. Vertex-cone / opposite-cap duality
 
@@ -272,13 +289,15 @@ For a body of constant width two,
 
 Indeed, if `x=R_K(n)` and `y=R_K(-n)`, then `(x-y)·n=2` while `|x-y|<=2`; equality in Cauchy--Schwarz gives `x-y=2n`.
 
-Let `C_A` denote the closed spherical cap lying on `S(A,2)` and let `Omega_A` be its Gauss image. If `x\in C_A^\circ`, then its outer normal is
+Let `C_A` denote the closed spherical cap lying on `S(A,2)`. Define its
+radial image `Omega_A={(x-A)/2:x in C_A}` and the unit normal region
+`N_K(A)={n in S^2:R_K(n)=A}`. If `x\in C_A^\circ`, its outer normal is
 
 \[
  n=\frac{x-A}{2},
 \]
 
-so the opposite-support identity gives `R_K(-n)=A`. Hence
+so the opposite-support identity gives `R_K(-n)=A`. Passing to the closure gives
 
 \[
  -\Omega_A\subseteq N_K(A).
@@ -290,7 +309,14 @@ Conversely, let `m\in N_K(A)`. Then
  x:=R_K(-m)=A-2m
 \]
 
-lies on `\partial K\cap S(A,2)`. By the patch construction and the strict-containment statement used in the proof of the source Lemma 4.3, every wedge-pod interior is strictly inside `B(A,2)`. The interiors of the other spherical caps lie on their own supporting spheres and meet `S(A,2)` only along shared seam curves. Therefore
+lies on `\partial K\cap S(A,2)`. A wedge-interior point has its opposite
+support point in the opposite wedge interior by source Section 3.5 and
+Lemma 3.8, so it cannot have opposite support point `A`. Every nonvertex
+seam borders a spherical cap, and the source Section 4 identifies its
+common normal. On a cap `C_B` or its nonvertex boundary, this normal is
+`(x-B)/2`; the opposite-support identity then forces `B=A`. Finally, if
+`x` is a vertex it is one of the other three vertices, all belonging to
+the closed cap `C_A`. These cases exhaust the boundary, proving
 
 \[
  \partial K\cap S(A,2)=C_A
@@ -309,13 +335,13 @@ The same argument applies to all four vertices.
 The source binormal pairing and the opposite-support identity show that the two wedge surfaces in an opposite-edge pair have antipodal Gauss images. If
 
 \[
- \Gamma_i=\operatorname{Gauss}(W_i^+),
+ \Gamma_i=\operatorname{Gauss}(W_i^{+,\circ}),
 \]
 
 then
 
 \[
- \operatorname{Gauss}(W_i^-)=-\Gamma_i.
+ \operatorname{Gauss}(W_i^{-,\circ})=-\Gamma_i.
 \]
 
 The almost-everywhere normal partition therefore gives
@@ -351,9 +377,24 @@ Swapping the two devices exchanges `W_i^+` and `W_i^-`; the antipodal Gauss imag
 
 ## 10. Degenerate parameters and the correction to the earlier draft
 
-At `e=0`, the elliptic wedge-pod surface collapses to a circular arc. It is **not** correct to regard its Gauss contribution as zero: the singular arc carries a two-dimensional normal cone, which is the limit of `\Gamma_i`.
+At `e=0`, the elliptic wedge-pod surface collapses to a circular singular
+arc. Its physical area is zero. The union of its unit normal regions along
+the arc has positive spherical area and is the limit of `Gamma_i`; this
+is not a claim of positive spherical area at one nonvertex point.
 
-The additive identity is extended to mixed tuples with zero parameters by continuity, not by deleting that normal contribution. The explicit patch maps converge uniformly as `e\downarrow0`, the source identifies the limiting circle-line construction with the Meissner surgery, and the resulting convex bodies converge in Hausdorff distance. Volume and surface area are continuous under Hausdorff convergence of convex bodies. The scalar integral defining `\Psi(e)` is also continuous at `e=0`. Therefore the generic additive identity passes to every tuple
+The additive identity extends to mixed zero-parameter tuples by continuity,
+retaining this normal contribution. On fixed rescaled parameter intervals,
+the explicit wedge and seam maps converge uniformly. Cap--cone duality
+makes each `Omega_A` spherically convex; diameter two gives
+`n dot (B-A)/2>=1/2` for its radial directions and every vertex `B!=A`.
+The cap regions thus lie in a fixed open hemisphere and are the spherical
+convex hulls of their three boundary arcs. Under gnomonic projection,
+continuity of ordinary convex hulls proves cap convergence from seam
+convergence. The whole boundaries, and their convex bodies, converge in
+Hausdorff distance to the source circle-line degeneration. Volume and
+surface area are continuous under this convergence, and the scalar
+integral defining `Psi(e)` is continuous at zero. Hence the identity passes
+to every tuple
 
 \[
  (e_1,e_2,e_3)\in[0,1)^3.
@@ -374,10 +415,17 @@ The eight choices are exactly:
 - four three-edge stars incident to one vertex;
 - four three-edge cycles bounding one face.
 
-The tetrahedral symmetry group is transitive on vertices and on faces, so these form exactly two congruence classes. They are the two classical Meissner types.
+The selected elliptic edges retain the circular singular arcs, and the
+complementary edges are rounded. Taking complements exchanges stars and
+face boundaries. Tetrahedral symmetry gives exactly two orbits. The two
+resulting classical Meissner bodies are noncongruent, as described by
+Kawohl and Weber, *Meissner's Mysterious Bodies*.
 
 ## 12. Audit conclusion
 
 The full-parameter geometry and normal-sphere bookkeeping are now supplied in a form sufficient for the additive reduction. The earlier two omissions—principal-circle/bulb-center verification and the nonzero normal cone of the collapsed Meissner arc—have been repaired.
 
-An external geometric proofread remains prudent, especially for the concise citation to the source Lemma 4.3 in the cap-cone converse, but no unresolved mathematical gap remains in this point.
+The final internal audit replaces the former strict-containment citation
+in the cap-cone converse with the explicit support-point argument above.
+No unresolved internal mathematical obstruction was found. External
+source-convention and geometric proofreading remain pending.

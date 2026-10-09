@@ -1,5 +1,11 @@
 # Independent proofread of DCG Reviewer Points 1 and 3
 
+Historical internal review record. The final mathematical audit based on
+`b9fb7c5` supersedes its terse strict-containment and parameter-injectivity
+accounts with explicit proofs in the current manuscript and notes 01/03/05.
+See `../final-math-audit/FINAL_MATHEMATICAL_AUDIT.md`. This file does not
+record an external human review.
+
 ## Classification
 
 ```text

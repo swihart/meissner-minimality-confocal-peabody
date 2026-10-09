@@ -2,7 +2,8 @@
 
 **Current repository:** `swihart/meissner-minimality-confocal-peabody`
 **Current branch:** `review/dcg-major-revision`
-**Audited input checkpoint:** `ab320cf`
+**Archive closeout input checkpoint:** `ab320cf`
+**Final mathematical audit input checkpoint:** `b9fb7c5`
 **Protected public baseline:** `v1.0.0` (`1485d7e`)
 
 This directory contains the bounded revision of the restricted-family theorem: the classical Meissner degenerations minimize volume among width-one regular-tetrahedron confocal Peabodies. The revision does not establish global Meissner extremality or a universal lower-bound improvement. The regular Peabody search and semi-regular extensions remain closed.
@@ -18,6 +19,16 @@ The source checkpoint contains the following reconciled source/PDF pair, retaine
 The `main_dcg_revision_checkpoint` and `main_dcg_revision_points_1_3_closed` files are earlier drafts. `manuscript/current/` at the repository root is the public-release manuscript, not this revision.
 
 The corrected closeout source is `manuscript/main_dcg_closeout_review.tex`, with required input `manuscript/generated_enclosure_reconciliation_closeout.tex`. Its build and preview-font details are in `manuscript/README.md`. The current gate is `python3 review/dcg-five-points/python/validate_current_closeout.py --repo-root .` from the repository root. See `closeout/CLOSEOUT_REPORT.md` for its exact scope and remaining submission gates.
+
+The bounded final internal mathematical audit is complete, with its finite
+proof clarifications incorporated into that source and the supporting notes.
+The current **15-page review PDF** is
+`final-math-audit/main_dcg_final_math_review.pdf`; the older 14-page
+`closeout/main_dcg_closeout_review_preview.pdf` is retained as historical evidence.
+See `final-math-audit/FINAL_MATHEMATICAL_AUDIT.md` for the full disposition.
+External review remains incomplete and submission readiness remains false.
+The current validator also runs the 286-check exact derivative-rule corroboration
+and checks finite displayed bounds against all three exact binary archives.
 
 ## Exact reviewer status
 

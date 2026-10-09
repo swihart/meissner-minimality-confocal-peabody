@@ -38,5 +38,10 @@
   "enclosure_reconciliation_classification": "PEABODY_ENCLOSURE_RECONCILIATION_PASS",
   "closeout_archive_verification_completed": true,
   "closeout_audit_scope": "Archived exact arithmetic, manuscript source corrections, and current packaging; not external human approval",
-  "submission_ready": false
+  "submission_ready": false,
+  "final_internal_mathematical_audit_completed": true,
+  "final_internal_mathematical_audit_classification": "PEABODY_FINAL_INTERNAL_MATHEMATICAL_AUDIT_PASS",
+  "final_internal_mathematical_audit_input_commit": "b9fb7c5",
+  "external_review_completed": false,
+  "external_review_request_ready": true
 }

@@ -28,3 +28,22 @@ Update this ledger in every substantive revision commit.
 ## Bounded closeout audit, 2026-10-09
 
 The actual `ab320cf` archive verifies the recorded reconciliation PASS. The separate current closeout audit passes 365 archive-semantic checks, including exact downstream reconstruction of all 96 authoritative concavity slabs. Published rational targets and the underlying Arb source/results are unchanged. Corrected source, directed table formatting, current build instructions, and a separate current manifest are supplied. External geometry/formula proofreading remains undocumented; final submission sign-off remains pending. See `closeout/CLOSEOUT_REPORT.md`.
+
+## Final internal mathematical audit based on `b9fb7c5`, 2026-10-09
+
+**PEABODY_FINAL_INTERNAL_MATHEMATICAL_AUDIT_PASS.** Four independent internal
+review tracks and coordinating re-review found no unresolved theorem-level
+obstruction after finite corrections. The manuscript now includes the source
+chart converse, a direct cap-cone proof, the normal-chart inverse, explicit
+mixed-limit continuity, precise singular-arc and orientation conventions, and
+fixed-parameter mean-value notation. Supporting notes are synchronized.
+
+The theorem, the protected 50-file package, all archived scalar certificates,
+the canonical partition, and both rational targets are unchanged. The 365
+archive checks still pass; the new exact-rational Python corroboration passes
+285 derivative coefficient identities and rejects one intentional sign mutation.
+The matching R script is supplied but unexecuted; no cross-language runtime
+agreement or fresh Arb replay is claimed. The 15-page PDF is internally ready
+for an external review request after this checkpoint is integrated and pushed.
+External review and final submission remain pending. See
+`final-math-audit/FINAL_MATHEMATICAL_AUDIT.md`.

@@ -51,13 +51,29 @@ The tetrahedral symmetry group acts transitively on vertices and transitively on
 1. round the three edges incident to a vertex;
 2. round the three edges bounding a face.
 
-At the all-zero parameter triple these are precisely the two classical noncongruent Meissner bodies.
+In the manuscript, each orientation bit selects the elliptic edge, which
+retains a circular singular arc at zero. The complementary edges are
+rounded. Complementation exchanges the star and face types, so the list
+of congruence classes is unchanged. At the all-zero parameter triple these
+are precisely the two classical noncongruent Meissner bodies; see Kawohl
+and Weber, *Meissner's Mysterious Bodies*.
 
 ## 2. Why seams may be ignored in area bookkeeping
 
-The regular Peabody boundary consists of finitely many smooth patch interiors whose closures meet along finitely many piecewise-smooth seam curves and at four vertices.  The source construction glues adjacent patches with a common tangent plane along every nonvertex seam.
+For generic positive parameters `e_i>0`, the regular Peabody boundary
+consists of finitely many smooth patch interiors whose closures meet
+along finitely many piecewise-smooth seam curves and at four vertices.
+The source construction gives a common tangent plane along nonvertex seams.
 
-A finite union of piecewise-smooth curves has two-dimensional Hausdorff measure zero on the boundary.  Its image under the common Gauss map is again a finite union of curves in \(S^2\), so it has spherical area zero.  Therefore seam sets contribute neither physical area nor Gauss-image area.
+A finite union of these curves has physical area zero. Away from vertices,
+the explicit seam maps and common normals are smooth. Exhaust each
+nonvertex seam by countably many compact subarcs; each normal image has
+spherical area zero, and so does their countable union.
+
+This conclusion must not be applied to the singular circular arcs at zero
+parameters. The union of unit normal regions along a collapsed wedge can
+have positive spherical area. Mixed degenerations retain this contribution
+by the continuity argument in note 01, Section 10.
 
 The vertices are different: their normal cones can have positive spherical area and are included explicitly in the normal-sphere partition.  The equality
 
@@ -65,7 +81,8 @@ The vertices are different: their normal cones can have positive spherical area 
 N_K(A)=-\Omega_A
 \]
 
-between a vertex normal cone and the antipodal Gauss image of the opposite spherical cap accounts for these contributions exactly.
+between the unit vertex-normal region and the antipodal radial image of
+the closed opposite spherical cap accounts for these contributions exactly.
 
 ## 3. Equality statement
 

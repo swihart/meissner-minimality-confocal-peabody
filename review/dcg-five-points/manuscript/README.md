@@ -6,6 +6,13 @@ pair from input commit `ab320cf` is retained unchanged under
 `main_dcg_revision_enclosure_reconciled.*`. Earlier checkpoint and Points 1/3
 files are historical drafts.
 
+The final internal mathematical audit based on `b9fb7c5` has been incorporated
+into this source. Its current 15-page portable review PDF is
+`../final-math-audit/main_dcg_final_math_review.pdf`. The 14-page PDF under
+`../closeout/` records the preceding checkpoint and is no longer the current
+review attachment. The mathematical audit report is
+`../final-math-audit/FINAL_MATHEMATICAL_AUDIT.md`.
+
 Build the corrected source from this directory:
 
 ```bash

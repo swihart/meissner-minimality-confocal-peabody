@@ -154,7 +154,20 @@ Since `n_t` and `n_xi` are orthogonal,
  dA_H=R_H(2-R_E)\frac{b^2}{d^2}\,dt\,d\xi.
 \]
 
-The normal chart is injective on a smooth wedge interior by strict convexity, so its area element integrates the Gauss-image area without multiplicity. Since `R_E+R_H=2-d`,
+The normal chart is injective by an explicit inverse, independently of
+the assertion that a support point is unique. Writing `n_k,n_p,n_q` for
+the normal components, one has
+
+\[
+\tanh\xi=-\frac{s n_q}{1+e n_k},\qquad
+D_0=\frac{s^2\cosh\xi}{1+e n_k},\qquad
+\cos t=\frac{n_pD_0}{s}.
+\]
+
+Here `1+e n_k=s^2 cosh(xi)/D_0>0`. Both `tanh` and the restriction of
+`cos` to `[theta,pi-theta]` are injective, so the two parameters are
+uniquely recovered. Thus the area element integrates the Gauss-image
+area without multiplicity. Since `R_E+R_H=2-d`,
 
 \[
  R_E(2-R_H)+R_H(2-R_E)-4

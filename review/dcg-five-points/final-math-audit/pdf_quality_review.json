@@ -1,0 +1,19 @@
+{
+  "classification": "PEABODY_FINAL_MATHEMATICAL_AUDIT_PDF_QA_PASS",
+  "pages": 15,
+  "build_passes": 2,
+  "portable_fonts": "Latin Modern",
+  "all_pages_visually_reviewed": true,
+  "last_rebuild_changed_pages_rechecked": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "final_pass_undefined_references": false,
+  "final_pass_overfull_or_underfull_warnings": false,
+  "external_review_completed": false,
+  "pdf_sha256": "32a487c6050a38e03aab6ce6dd94317ce08a9185b9f58e896be8c3f76be03aec"
+}
