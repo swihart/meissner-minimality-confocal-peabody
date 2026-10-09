@@ -1,234 +1,383 @@
-# Reviewer Point 1 — Full-parameter Peabody geometry and normal-sphere partition
+# Reviewer Point 1 — Full-parameter geometry and normal-sphere partition
 
 ## Status
 
-**Proof draft complete; independent geometric proofreading remains.**
+**Closed internally after a second, adversarial derivation. External review by a convex geometer remains recommended before journal submission.**
 
-This note supplies the missing bridge between the explicit eccentricity chart used in the manuscript and the source construction of Arelio–Montejano–Oliveros.  It also states and proves the normal-sphere partition needed for the additive area formula.
+This note replaces the earlier geometry draft. It makes explicit the principal-circle and bulb-center data required by the source definition of a *convex confocal* pea-pod pair, proves that the four beam endpoints form the prescribed regular tetrahedron, sharpens the cap-cone argument, and corrects the treatment of the Meissner degeneration.
 
 ## 1. Source statements used
 
-For a pair of convex confocal pea-pod devices, Arelio–Montejano–Oliveros prove:
+For convex confocal pea-pod devices, Arelio--Montejano--Oliveros prove:
 
-- Theorem 3.3: the center distance plus the two pea radii is constant.
-- Lemma 3.8: the two opposite wedge-pod surfaces are paired by binormals of that constant length, with tangent planes orthogonal to the binormal.
-- Section 4 and Theorem 4.5: for a regular tetrahedron, three independent opposite-edge pairs assemble into six wedge-pod surfaces and four spherical caps; the resulting surface bounds a convex body of constant width two and is smooth away from the four tetrahedral vertices.
-- Section 5.3: the circle-line degeneration is the classical Meissner surgery.
+1. the center-distance plus the two pea radii is constant (their Theorem 3.3);
+2. paired wedge-pod surfaces are joined by binormals of that constant length (their Lemma 3.8);
+3. for a regular tetrahedron, independent choices on all three opposite-edge pairs assemble into six wedge-pod surfaces and four spherical caps, whose convex hull is a body of constant width two (their Section 4 and Theorem 4.5);
+4. the circle-line degeneration gives the classical Meissner surgery (their Section 5.3).
 
-The source theorem is formulated for any choice of convex confocal devices on the three opposite-edge pairs.  It is therefore not restricted to the Robert or Meissner endpoints.
+Our task is to verify that the explicit eccentricity chart used in the volume calculation satisfies those hypotheses for every `e in [0,1)` and for either orientation of each opposite-edge pair.
 
-## 2. The explicit chart is admissible for every parameter
+## 2. Explicit local chart
 
-Fix one opposite-edge pair and let
-
-\[
-0\le e<1,
-\qquad
-b^2=\frac{3+3e^2+4\sqrt2\,e}{1-e^2},
-\qquad
-a=\frac b{\sqrt{1-e^2}}.
-\]
-
-Then \(b^2\ge 3\), so \(b>1\), and the endpoint parameters
+Fix `0 < e < 1`. Put
 
 \[
-\theta=\arccos\frac1b,
-\qquad
-\eta=\operatorname{arsinh}\frac1b
+ b^2=\frac{3+3e^2+4\sqrt2\,e}{1-e^2},
+ \qquad
+ a=\frac b{\sqrt{1-e^2}},
 \]
 
-are real.  Put
+and
 
 \[
-X(t)=a\sin t\,\mathbf k+b\cos t\,\mathbf p,
-\qquad
-Y(\xi)=ae\cosh\xi\,\mathbf k+b\sinh\xi\,\mathbf q,
+ \theta=\arccos\frac1b,
+ \qquad
+ \eta=\operatorname{arsinh}\frac1b,
+ \qquad
+ u_0=\sin\theta,
+ \qquad
+ v_0=\cosh\eta.
 \]
 
-with
+In an orthonormal frame `(k,p,q)`, define
 
 \[
-\theta\le t\le\pi-\theta,
-\qquad
--\eta\le\xi\le\eta.
+ X(t)=a\sin t\,\mathbf k+b\cos t\,\mathbf p,
+ \qquad \theta\le t\le\pi-\theta,
 \]
-
-The two curves lie in orthogonal planes, have a common axis, and are confocal because
 
 \[
-a^2-b^2=a^2e^2.
+ Y(\xi)=ae\cosh\xi\,\mathbf k+b\sinh\xi\,\mathbf q,
+ \qquad -\eta\le\xi\le\eta.
 \]
 
-Their transverse endpoint coordinates are
+The curves lie in orthogonal planes, share the axis `R k`, and are confocal because
 
 \[
-b\cos\theta=1,
-\qquad
-b\sinh\eta=1,
+ a^2-b^2=a^2e^2.
 \]
 
-so their longitudinal beams are the two prescribed length-two opposite edges in the local regular-tetrahedron frame.
-
-Let
+The beam endpoints are
 
 \[
-u_0=\sin\theta,
-\qquad
-v_0=\cosh\eta,
+ X_\pm=a u_0\,\mathbf k\pm\mathbf p,
+ \qquad
+ Y_\pm=ae v_0\,\mathbf k\pm\mathbf q,
 \]
 
-and define the pea radii
+because `b cos theta = b sinh eta = 1`. Hence each beam has length two.
+
+The pea radii are
 
 \[
-R_E(t)=ae(\sin t-u_0),
-\qquad
-R_H(\xi)=a(v_0-\cosh\xi).
+ R_E(t)=ae(\sin t-u_0),
+ \qquad
+ R_H(\xi)=a(v_0-\cosh\xi).
 \]
 
-On the stated parameter intervals,
+They are nonnegative on the stated subarcs and vanish exactly at the beam endpoints.
+
+## 3. Principal circles and bulb centers
+
+The missing point in the earlier draft was the explicit verification of Definition 3.5 in the source.
+
+### 3.1 Elliptic device
+
+The ellipse has foci
 
 \[
-R_E\ge0,
-\qquad
-R_H\ge0,
+ c_E^+=ae\,\mathbf k,
+ \qquad
+ c_E^-=-ae\,\mathbf k.
 \]
 
-with equality precisely at the beam endpoints.  Thus the displayed subarcs are the center curves of the corresponding convex confocal devices.
-
-The regular-tetrahedron normalization is exact.  If \(B=b^2\), then
+For every `t`,
 
 \[
-B+1=\frac{2(e+\sqrt2)^2}{1-e^2},
-\qquad
-B-1=\frac{2(\sqrt2e+1)^2}{1-e^2}.
+ |X(t)-c_E^+|=a(1-e\sin t),
+ \qquad
+ |X(t)-c_E^-|=a(1+e\sin t).
 \]
 
-Since all quantities are positive,
+At the beam endpoints, the corresponding frame radii are
 
 \[
-\sqrt{B+1}-e\sqrt{B-1}=2\sqrt{1-e^2}.
+ r_E^+=a(1-eu_0),
+ \qquad
+ r_E^-=a(1+eu_0).
 \]
 
-Equivalently,
+The beam midpoint is `m_E=a u_0 k`. Moreover,
 
 \[
-a(v_0-eu_0)=2.
+ u_0^2-e^2
+ =\frac{2+3e^2+4\sqrt2\,e}{b^2}>0,
 \]
 
-A direct center-distance calculation gives
+so `u_0>e`. Therefore `m_E` lies beyond `c_E^+` and is not between the two circle centers; `c_E^+` is the closer center and hence the principal-circle center. The pea radius generated from that principal circle is
 
 \[
-\lVert X(t)-Y(\xi)\rVert
-=a(\cosh\xi-e\sin t),
+ r_E^+-|X-c_E^+|
+ =ae(\sin t-u_0)=R_E(t).
 \]
 
-and hence
+The center of the elliptic bulb is
 
 \[
-\lVert X-Y\rVert+R_E+R_H=2.
+ X(\pi/2)=a\,\mathbf k.
 \]
 
-Therefore every \(e\in(0,1)\) produces exactly a convex confocal device pair satisfying the hypotheses of the source construction.  At \(e=0\) the ellipse-hyperbola pair degenerates to the circle-line pair of Section 5.3 of the source, giving the classical Meissner surgery.
+### 3.2 Hyperbolic device
 
-For a triple \((e_1,e_2,e_3)\in[0,1)^3\), apply this construction independently to the three pairs of opposite tetrahedral edges.  A bit \(\sigma_i\) only interchanges which member of the pair receives the elliptic or hyperbolic device.  The unordered pair of convex confocal devices is unchanged, so the source theorem applies to every \(\boldsymbol\sigma\in\{0,1\}^3\).
-
-## 3. Patch decomposition
-
-For \(0<e_i<1\), denote the four open spherical-cap interiors by
+The hyperbola has foci
 
 \[
-C_A^\circ,C_B^\circ,C_C^\circ,C_D^\circ
+ c_H^+=a\,\mathbf k,
+ \qquad
+ c_H^-=-a\,\mathbf k.
 \]
 
-and the six open wedge-pod interiors by
+For every `xi`,
 
 \[
-W_1^{+,\circ},W_1^{-,\circ},\ldots,W_3^{+,\circ},W_3^{-,\circ}.
+ |Y(\xi)-c_H^+|=a(\cosh\xi-e),
+ \qquad
+ |Y(\xi)-c_H^-|=a(\cosh\xi+e).
 \]
 
-The source construction gives a finite patch decomposition of \(\partial K\): the complement of these ten open patches consists of finitely many seam curves and the four tetrahedral vertices.  Adjacent patches have the same tangent plane along a seam; the source describes the assembled surface as smooth away from the four vertices.
+At the beam endpoints, the frame radii are
 
-## 4. Normal-sphere partition lemma
+\[
+ r_H^+=a(v_0-e),
+ \qquad
+ r_H^-=a(v_0+e).
+\]
 
-### Lemma
+The beam midpoint is `m_H=ae v_0 k`. Also,
 
-For every admissible regular-tetrahedron confocal Peabody with \(0<e_i<1\), the following sets partition \(S^2\) up to spherical measure zero:
+\[
+ 1-e^2v_0^2
+ =\frac{3+2e^2+4\sqrt2\,e}{b^2}>0,
+\]
 
-1. the Gauss images of the ten smooth patch interiors;
-2. the four vertex normal cones.
+so `ev_0<1`; thus `m_H` lies between `-a k` and `a k`. The smaller frame circle is the one centered at `c_H^+`, so it is the principal circle. Its pea radius is
 
-The interiors of the listed sets are pairwise disjoint.  The Gauss images of the seams have spherical area zero.
+\[
+ r_H^+-|Y-c_H^+|
+ =a(v_0-\cosh\xi)=R_H(\xi).
+\]
+
+The center of the hyperbolic bulb is
+
+\[
+ Y(0)=ae\,\mathbf k.
+\]
+
+### 3.3 Convex-confocal condition
+
+The two principal-circle centers are exactly the opposite bulb centers:
+
+\[
+ c_E^+=Y(0),
+ \qquad
+ c_H^+=X(\pi/2).
+\]
+
+Hence the pair is *convex confocal* in the precise sense of the source definition, not merely a pair of confocal center curves with a constant distance identity.
+
+## 4. Regular-tetrahedron normalization
+
+Let `B=b^2`. Directly,
+
+\[
+ B+1=\frac{2(e+\sqrt2)^2}{1-e^2},
+ \qquad
+ B-1=\frac{2(\sqrt2 e+1)^2}{1-e^2}.
+\]
+
+Since all factors are positive,
+
+\[
+ \sqrt{B+1}-e\sqrt{B-1}=2\sqrt{1-e^2},
+\]
+
+or equivalently
+
+\[
+ a(v_0-eu_0)=2.
+\]
+
+The exact center-distance computation gives
+
+\[
+ |X(t)-Y(\xi)|=a(\cosh\xi-e\sin t).
+\]
+
+Therefore
+
+\[
+ |X-Y|+R_E+R_H=2.
+\]
+
+At all four pairs of beam endpoints, both radii vanish, so every cross distance `|X_\pm-Y_\pm|` and `|X_\pm-Y_\mp|` equals two. Together with the two beam lengths, all six distances among `X_+,X_-,Y_+,Y_-` equal two. Thus the beams are opposite edges of a regular tetrahedron of side two.
+
+This proves full local admissibility for every `0<e<1`.
+
+## 5. Three independent opposite-edge pairs and orientations
+
+Section 4 of the source chooses a convex confocal device pair on each of the three opposite-edge pairs of the same regular tetrahedron and then constructs the six wedge-pod surfaces and four spherical caps. No cross-pair parameter equality is assumed.
+
+For our family, the three parameters `e_1,e_2,e_3` may therefore be chosen independently. An orientation bit `sigma_i` exchanges the elliptic and hyperbolic devices within the `i`th opposite-edge pair. This leaves the unordered convex-confocal pair unchanged and preserves the source hypotheses. Consequently, the source constant-width theorem applies for every
+
+\[
+ (e_1,e_2,e_3)\in(0,1)^3,
+ \qquad
+ \boldsymbol\sigma\in\{0,1\}^3.
+\]
+
+The endpoint `e=0` is treated in Section 9 below.
+
+## 6. Generic patch decomposition
+
+For a generic tuple `e_i>0`, the boundary is the union of:
+
+- four open spherical-cap interiors `C_A^\circ,C_B^\circ,C_C^\circ,C_D^\circ`;
+- six open wedge-pod interiors `W_i^{+,\circ},W_i^{-,\circ}`, `i=1,2,3`;
+- finitely many nonvertex seam curves;
+- the four tetrahedral vertices.
+
+The source proves that the assembled surface is smooth away from the four vertices. In particular, adjacent patches have a common tangent plane along every nonvertex seam.
+
+## 7. Normal-sphere partition
+
+Let `R_K(n)` be the unique support point with outer unit normal `n`. Constant-width bodies are strictly convex, so `R_K(n)` is single-valued.
+
+### Lemma 7.1 — Almost-everywhere partition
+
+For a generic regular-tetrahedron confocal Peabody, the Gauss images of the ten open smooth patch interiors, together with the four vertex normal cones, cover `S^2` up to the Gauss images of the seam curves. Their interiors are pairwise disjoint. Each seam Gauss image has spherical area zero.
 
 ### Proof
 
-A body of constant width is strictly convex.  Hence every \(n\in S^2\) supports \(K\) at a unique point \(R_K(n)\).  If two distinct smooth patch interiors had a common outer normal, the corresponding support plane would touch \(K\) at two distinct points, contradicting strict convexity.  Thus their Gauss images are disjoint.
+If two distinct smooth patch interiors shared an outer normal, the corresponding supporting plane would touch the strictly convex body at two distinct points, impossible. Every support point belongs to a patch interior, a seam, or a vertex, so the listed normal sets cover the sphere after the seam normals are added.
 
-Every support point lies either in a smooth patch interior, on a seam, or at one of the four vertices, so these Gauss images together with the vertex normal cones cover \(S^2\).
+Each nonvertex seam is a compact piecewise-smooth curve. Because the assembled surface has a common tangent plane along it, the unit normal restricted to the seam is piecewise smooth. Its image is therefore a finite union of one-dimensional curves in `S^2`, which has two-dimensional spherical measure zero. ∎
 
-Each seam is a compact piecewise-smooth one-dimensional curve.  Because the adjacent patches have a common tangent plane there, its normal image is also a finite union of one-dimensional curves in \(S^2\).  Such a set has two-dimensional spherical measure zero.  This proves the asserted almost-everywhere partition.  ∎
+## 8. Vertex-cone / opposite-cap duality
 
-## 5. Vertex cone versus opposite spherical cap
-
-Let \(C_A\subset S(A,2)\) be the spherical cap centered at vertex \(A\), and let \(\Omega_A\) be its Gauss image.  For \(x\in C_A^\circ\),
+For a body of constant width two,
 
 \[
-n=\frac{x-A}{2}.
+ R_K(-n)=R_K(n)-2n.
 \]
 
-The opposite-point identity for a width-two body is
+Indeed, if `x=R_K(n)` and `y=R_K(-n)`, then `(x-y)·n=2` while `|x-y|<=2`; equality in Cauchy--Schwarz gives `x-y=2n`.
+
+Let `C_A` denote the closed spherical cap lying on `S(A,2)` and let `Omega_A` be its Gauss image. If `x\in C_A^\circ`, then its outer normal is
 
 \[
-R_K(-n)=R_K(n)-2n.
+ n=\frac{x-A}{2},
 \]
 
-Since \(R_K(n)=x\), it gives \(R_K(-n)=A\).  Therefore
+so the opposite-support identity gives `R_K(-n)=A`. Hence
 
 \[
--\Omega_A\subset N_K(A).
+ -\Omega_A\subseteq N_K(A).
 \]
 
-Conversely, if \(m\in N_K(A)\), then the opposite support point is
+Conversely, let `m\in N_K(A)`. Then
 
 \[
-R_K(-m)=A-2m\in\partial K\cap S(A,2)=C_A.
+ x:=R_K(-m)=A-2m
 \]
 
-Hence \(-m\in\Omega_A\), and
+lies on `\partial K\cap S(A,2)`. By the patch construction and the strict-containment statement used in the proof of the source Lemma 4.3, every wedge-pod interior is strictly inside `B(A,2)`. The interiors of the other spherical caps lie on their own supporting spheres and meet `S(A,2)` only along shared seam curves. Therefore
 
 \[
-N_K(A)=-\Omega_A.
+ \partial K\cap S(A,2)=C_A
 \]
 
-The same holds at the other three vertices.
-
-## 6. Opposite wedge Gauss images
-
-Lemma 3.8 of the source pairs every smooth point of \(W_i^+\) with a point of \(W_i^-\) at distance two, with tangent planes perpendicular to the joining segment.  The outward normals are therefore antipodal:
+as closed sets, and `x\in C_A`. Thus `-m\in\Omega_A`, proving
 
 \[
-\operatorname{Gauss}(W_i^-)=-\operatorname{Gauss}(W_i^+).
+ N_K(A)=-\Omega_A.
 \]
 
-Writing \(\Gamma_i=\operatorname{Gauss}(W_i^+)\), the normal-sphere partition yields
+The same argument applies to all four vertices.
+
+## 9. Opposite wedges and additive area
+
+The source binormal pairing and the opposite-support identity show that the two wedge surfaces in an opposite-edge pair have antipodal Gauss images. If
 
 \[
-4\pi
-=2\sum_{v\in\{A,B,C,D\}}|\Omega_v|
+ \Gamma_i=\operatorname{Gauss}(W_i^+),
+\]
+
+then
+
+\[
+ \operatorname{Gauss}(W_i^-)=-\Gamma_i.
+\]
+
+The almost-everywhere normal partition therefore gives
+
+\[
+ 4\pi
+ =2\sum_{v\in\{A,B,C,D\}}|\Omega_v|
  +2\sum_{i=1}^3|\Gamma_i|.
 \]
 
-This is the exact tiling statement required for the surface-area bookkeeping.
+A radius-two spherical patch has physical area four times its Gauss-image area. Hence
 
-## 7. Degenerate parameters
+\[
+ \sum_v|C_v|
+ =8\pi-4\sum_{i=1}^3|\Gamma_i|.
+\]
 
-The preceding proof is written on the generic stratum \(0<e_i<1\).  The formulas, patch surfaces, and Gauss-image areas extend continuously when one or more \(e_i\to0\).  The source identifies this limit with the circle-line Meissner surgery.  The additive area identity therefore extends to all \(e_i\in[0,1)\) by continuity.  Equivalently, one may treat the collapsed wedge as a zero-area patch and repeat the same normal bookkeeping directly.
+Adding the six wedge areas gives
 
-## 8. Remaining release task
+\[
+ S_2
+ =8\pi+\sum_{i=1}^3\Psi(e_i),
+\]
 
-Before marking Reviewer Point 1 fully closed in the manuscript, a convex geometer should check:
+where
 
-- that the chart-to-device identification above uses the same principal-circle convention as the source;
-- that the source theorem indeed permits independent choices on all three opposite-edge pairs, as its Section 4 wording indicates;
-- that the direct continuity argument at mixed degenerate triples is presented cleanly.
+\[
+ \Psi(e_i)
+ =|W_i^+|+|W_i^-|-4|\Gamma_i|.
+\]
 
-No numerical search or new geometric construction is required.
+Swapping the two devices exchanges `W_i^+` and `W_i^-`; the antipodal Gauss images have equal area. Thus `\Psi` is orientation independent.
+
+## 10. Degenerate parameters and the correction to the earlier draft
+
+At `e=0`, the elliptic wedge-pod surface collapses to a circular arc. It is **not** correct to regard its Gauss contribution as zero: the singular arc carries a two-dimensional normal cone, which is the limit of `\Gamma_i`.
+
+The additive identity is extended to mixed tuples with zero parameters by continuity, not by deleting that normal contribution. The explicit patch maps converge uniformly as `e\downarrow0`, the source identifies the limiting circle-line construction with the Meissner surgery, and the resulting convex bodies converge in Hausdorff distance. Volume and surface area are continuous under Hausdorff convergence of convex bodies. The scalar integral defining `\Psi(e)` is also continuous at `e=0`. Therefore the generic additive identity passes to every tuple
+
+\[
+ (e_1,e_2,e_3)\in[0,1)^3.
+\]
+
+This correction is important: the physical area of the collapsed surface is zero, while its limiting normal region is not.
+
+## 11. Equality orientations
+
+At the all-zero tuple, one edge is chosen from each of
+
+\[
+ \{AB,CD\},\qquad \{AC,BD\},\qquad \{AD,BC\}.
+\]
+
+The eight choices are exactly:
+
+- four three-edge stars incident to one vertex;
+- four three-edge cycles bounding one face.
+
+The tetrahedral symmetry group is transitive on vertices and on faces, so these form exactly two congruence classes. They are the two classical Meissner types.
+
+## 12. Audit conclusion
+
+The full-parameter geometry and normal-sphere bookkeeping are now supplied in a form sufficient for the additive reduction. The earlier two omissions—principal-circle/bulb-center verification and the nonzero normal cone of the collapsed Meissner arc—have been repaired.
+
+An external geometric proofread remains prudent, especially for the concise citation to the source Lemma 4.3 in the cap-cone converse, but no unresolved mathematical gap remains in this point.

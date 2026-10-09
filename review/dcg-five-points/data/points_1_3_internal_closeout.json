@@ -1,0 +1,12 @@
+{
+  "classification": "PEABODY_DCG_POINTS_1_3_INTERNAL_CLOSEOUT_PASS",
+  "pass": true,
+  "points": [
+    1,
+    3
+  ],
+  "exact_identity_audit": "8a587f2594a99b7280d7bab927dced549d2eb85d1bc3135f449490915936c59d",
+  "proofread_note": "d01a1bfec98aaa0f03fd03b5059e0f04f9facf324965e3bd71fa4043d7c4a4b2",
+  "progress_all_five_closed": true,
+  "external_review_recommended": true
+}

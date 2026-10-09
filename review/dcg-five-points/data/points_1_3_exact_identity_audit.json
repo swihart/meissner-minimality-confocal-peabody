@@ -1,0 +1,36 @@
+{
+  "classification": "PEABODY_DCG_POINTS_1_3_EXACT_IDENTITY_AUDIT_PASS",
+  "pass": true,
+  "checks": {
+    "B_plus_one": "0",
+    "B_minus_one": "0",
+    "u0_squared_minus_e_squared": "0",
+    "one_minus_e2v0_squared": "0",
+    "center_distance_square": "0",
+    "ellipse_principal_focus_distance": "0",
+    "hyperbola_principal_focus_distance": "0",
+    "tan_pi_over_12": "0",
+    "meissner_half_angle": "0",
+    "b2_q_chart": "0",
+    "a2_q_chart": "0",
+    "A_squared_q_chart": "0",
+    "u0_squared_q_chart": "0",
+    "v0_squared_q_chart": "0",
+    "one_minus_C_squared_full_remainder": "0",
+    "angle_product_identity": "0",
+    "delta_rationalization": "0",
+    "M_rationalization": "0",
+    "stable_angle_argument_squared": "0",
+    "P1_derivation": "0",
+    "P2_derivation": "0",
+    "Q0_derivation": "0"
+  },
+  "non_symbolic_proof_obligations": [
+    "positivity and ordering used to choose principal circles",
+    "source Theorem 4.5 applies independently on the three edge pairs",
+    "strict-convexity normal partition and seam-nullity argument",
+    "closed-cap identification in cap-cone duality",
+    "continuity through the e=0 singular-arc degeneration",
+    "positive-quantity branch selection for 0<q<=1 and analytic continuation at q=0"
+  ]
+}

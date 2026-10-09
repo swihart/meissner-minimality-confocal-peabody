@@ -1,481 +1,561 @@
-# Reviewer Point 3 — Full one-pair derivation and global arctangent branch control
+# Reviewer Point 3 — Complete one-pair derivation and global branch control
 
 ## Status
 
-**Detailed derivation draft complete; exact algebraic cross-check passes.  Manuscript integration and independent human proofreading remain.**
+**Closed internally after a second derivation and exact symbolic audit. External line-by-line review remains recommended before journal submission.**
 
-This supplement expands the steps previously summarized as “direct calculation.”  It starts from the confocal center curves, derives the surface Jacobians, performs the \(\xi\)-integration, fixes the moving interval, and derives the stable \(q\)-chart.  A separate exact SymPy script verifies the rationalization identities.
+This note replaces the earlier derivation draft. It retains the center-distance, normal-chart, wedge-Jacobian, and one-dimensional reductions, and adds the missing substitution table from the fixed-interval formula to the stable `q`-chart, an explicit derivation of `Psi(0)`, and a corrected branch statement at the parabolic endpoint.
 
-## 1. Center distance
+## 1. Center distance and width identity
 
 Let
 
 \[
-X(t)=a\sin t\,\mathbf k+b\cos t\,\mathbf p,
+ X(t)=a\sin t\,\mathbf k+b\cos t\,\mathbf p,
 \]
 
 \[
-Y(\xi)=ae\cosh\xi\,\mathbf k+b\sinh\xi\,\mathbf q,
+ Y(\xi)=ae\cosh\xi\,\mathbf k+b\sinh\xi\,\mathbf q,
 \]
 
-where \(b^2=a^2(1-e^2)\).  Then
+where `b^2=a^2(1-e^2)`. Then
 
 \[
-\frac{|X-Y|^2}{a^2}
-=(\sin t-e\cosh\xi)^2
+ \frac{|X-Y|^2}{a^2}
+ = (\sin t-e\cosh\xi)^2
  +(1-e^2)(\cos^2t+\sinh^2\xi).
 \]
 
-Expanding and using \(\cosh^2\xi=1+\sinh^2\xi\) gives
+Using `cosh^2 xi=1+sinh^2 xi`, this becomes
 
 \[
-\frac{|X-Y|^2}{a^2}
-=\cosh^2\xi-2e\sin t\cosh\xi+e^2\sin^2t
-=(\cosh\xi-e\sin t)^2.
+ \frac{|X-Y|^2}{a^2}
+ =(\cosh\xi-e\sin t)^2.
 \]
 
-On the chosen parameter rectangle, \(\cosh\xi-e\sin t>0\), so
+On the parameter rectangle, `cosh xi-e sin t >= 1-e>0`, so
 
 \[
-d:=|X-Y|=a(\cosh\xi-e\sin t).
+ d:=|X-Y|=a(\cosh\xi-e\sin t).
 \]
 
-The pea radii are
+With
 
 \[
-R_E=ae(\sin t-u_0),
-\qquad
-R_H=a(v_0-\cosh\xi).
+ R_E=ae(\sin t-u_0),
+ \qquad
+ R_H=a(v_0-\cosh\xi),
 \]
 
-The regular beam constraint is \(a(v_0-eu_0)=2\), hence
+and `a(v_0-eu_0)=2`, one obtains
 
 \[
-d+R_E+R_H=2.
+ d+R_E+R_H=2.
 \]
 
 ## 2. Normal chart and conformality
 
-Put
+Set
 
 \[
-D=\cosh\xi-e\sin t,
-\qquad
-s=\sqrt{1-e^2}.
+ D_0=\cosh\xi-e\sin t,
+ \qquad
+ s=\sqrt{1-e^2}.
 \]
 
-The unit vector from the hyperbolic center to the elliptic center is
+The unit vector from `Y` to `X` is
 
 \[
-n=\frac{U}{D},
+ n=\frac{U}{D_0},
 \]
 
 where
 
 \[
-U=(\sin t-e\cosh\xi)\mathbf k
-+s\cos t\,\mathbf p
--s\sinh\xi\,\mathbf q.
+ U=(\sin t-e\cosh\xi)\mathbf k
+   +s\cos t\,\mathbf p
+   -s\sinh\xi\,\mathbf q.
 \]
 
-Since \(|U|=D\), for either parameter \(r\),
+Since `|U|=D_0`, differentiation of `n=U/D_0` gives
 
 \[
-|n_r|^2=\frac{|U_r|^2-D_r^2}{D^2}.
+ |n_r|^2=\frac{|U_r|^2-D_{0,r}^2}{D_0^2}
 \]
 
-For \(t\),
+for `r=t,xi`. Directly,
 
 \[
-U_t=\cos t\,\mathbf k-s\sin t\,\mathbf p,
-\qquad
-D_t=-e\cos t,
+ |U_t|^2-D_{0,t}^2=s^2,
+ \qquad
+ |U_\xi|^2-D_{0,\xi}^2=s^2,
 \]
 
-so
+and
 
 \[
-|U_t|^2-D_t^2
-=\cos^2t+s^2\sin^2t-e^2\cos^2t
-=1-e^2=s^2.
+ U_t\cdot U_\xi=D_{0,t}D_{0,\xi}.
 \]
 
-For \(\xi\),
+Hence
 
 \[
-U_\xi=-e\sinh\xi\,\mathbf k-s\cosh\xi\,\mathbf q,
-\qquad
-D_\xi=\sinh\xi,
+ n_t\cdot n_\xi=0,
+ \qquad
+ |n_t|=|n_\xi|=\frac{s}{D_0}=\frac bd.
 \]
 
-and again
+Thus the Gauss-image area element is
 
 \[
-|U_\xi|^2-D_\xi^2=s^2.
+ d\omega=|n_t\times n_\xi|\,dt\,d\xi
+ =\frac{b^2}{d^2}\,dt\,d\xi.
 \]
 
-Moreover,
-
-\[
-U_t\cdot U_\xi=-e\cos t\sinh\xi=D_tD_\xi,
-\]
-
-which gives
-
-\[
-n_t\cdot n_\xi=0.
-\]
-
-Therefore
-
-\[
-|n_t|=|n_\xi|=\frac{s}{D}=\frac b d,
-\]
-
-and the Gauss-image area element is
-
-\[
-d\omega=|n_t\times n_\xi|\,dt\,d\xi
-=\frac{b^2}{d^2}\,dt\,d\xi.
-\]
-
-## 3. Wedge Jacobians
+## 3. Wedge-pod Jacobians
 
 The paired boundary points are
 
 \[
-U_E=X+R_En,
-\qquad
-U_H=Y-R_Hn.
+ U_E=X+R_En,
+ \qquad
+ U_H=Y-R_Hn.
 \]
 
-Using \(X=Y+dn\) and \(d+R_E+R_H=2\),
+Because `X=Y+dn` and `d+R_E+R_H=2`, also
 
 \[
-U_E=Y+(2-R_H)n,
-\qquad
-U_H=X-(2-R_E)n.
+ U_E=Y+(2-R_H)n,
+ \qquad
+ U_H=X-(2-R_E)n.
 \]
 
-Because \(Y,R_H\) are independent of \(t\), while \(X,R_E\) are independent of \(\xi\),
+Choose whichever representation removes the differentiated center curve. Then
 
 \[
-(U_E)_t=(2-R_H)n_t,
-\qquad
-(U_E)_\xi=R_En_\xi,
-\]
-
-\[
-(U_H)_t=-R_Hn_t,
-\qquad
-(U_H)_\xi=-(2-R_E)n_\xi.
-\]
-
-Since \(n_t\perp n_\xi\),
-
-\[
-dA_E=R_E(2-R_H)\frac{b^2}{d^2}\,dt\,d\xi,
+ (U_E)_t=(2-R_H)n_t,
+ \qquad
+ (U_E)_\xi=R_En_\xi,
 \]
 
 \[
-dA_H=R_H(2-R_E)\frac{b^2}{d^2}\,dt\,d\xi.
+ (U_H)_t=-R_Hn_t,
+ \qquad
+ (U_H)_\xi=-(2-R_E)n_\xi.
 \]
 
-Subtracting four times the Gauss-image area gives
+Since `n_t` and `n_xi` are orthogonal,
 
 \[
-R_E(2-R_H)+R_H(2-R_E)-4
-=-2(d+R_ER_H),
+ dA_E=R_E(2-R_H)\frac{b^2}{d^2}\,dt\,d\xi,
 \]
 
-because \(R_E+R_H=2-d\).  Hence
-
 \[
-\Psi(e)
-=-2b^2\int_\theta^{\pi-\theta}
-\int_{-\eta}^{\eta}
-\frac{d+R_ER_H}{d^2}\,d\xi\,dt.
+ dA_H=R_H(2-R_E)\frac{b^2}{d^2}\,dt\,d\xi.
 \]
 
-## 4. The elementary \(\xi\)-integration
-
-For fixed \(t\), put
+The normal chart is injective on a smooth wedge interior by strict convexity, so its area element integrates the Gauss-image area without multiplicity. Since `R_E+R_H=2-d`,
 
 \[
-A=\sin t,
-\qquad
-C=eA,
-\qquad
-y=\tanh\frac\eta2.
-\]
-
-The substitution \(z=\tanh(\xi/2)\) gives
-
-\[
-\cosh\xi=\frac{1+z^2}{1-z^2},
-\qquad
-d\xi=\frac{2\,dz}{1-z^2}.
+ R_E(2-R_H)+R_H(2-R_E)-4
+ =-2(d+R_ER_H).
 \]
 
 Therefore
 
 \[
-I(C):=\int_{-\eta}^{\eta}\frac{d\xi}{\cosh\xi-C}
-=\int_{-y}^y\frac{2\,dz}{(1-C)+(1+C)z^2},
+ \Psi(e)
+ =-2b^2\int_\theta^{\pi-\theta}\int_{-\eta}^{\eta}
+ \frac{d+R_ER_H}{d^2}\,d\xi\,dt.
 \]
 
-and thus
+## 4. Elementary integration in `xi`
+
+For fixed `t`, put
 
 \[
-I(C)=\frac4{\sqrt{1-C^2}}
-\arctan\left(y\sqrt{\frac{1+C}{1-C}}\right).
+ A=\sin t,
+ \qquad C=eA,
+ \qquad y=\tanh(\eta/2).
+\]
+
+The substitution `z=tanh(xi/2)` gives
+
+\[
+ \cosh\xi=\frac{1+z^2}{1-z^2},
+ \qquad
+ d\xi=\frac{2\,dz}{1-z^2}.
+\]
+
+Hence
+
+\[
+ I(C):=\int_{-\eta}^{\eta}\frac{d\xi}{\cosh\xi-C}
+ =\frac4{\sqrt{1-C^2}}
+ \arctan\left(y\sqrt{\frac{1+C}{1-C}}\right).
 \]
 
 Also,
 
 \[
-\int_{-\eta}^{\eta}
-\frac{v_0-\cosh\xi}{(\cosh\xi-C)^2}\,d\xi
-=(v_0-C)I'(C)-I(C).
+ \frac{v_0-\cosh\xi}{(\cosh\xi-C)^2}
+ =\frac{v_0-C}{(\cosh\xi-C)^2}
+  -\frac1{\cosh\xi-C},
 \]
 
-Differentiating the explicit formula for \(I\) gives
+so its integral is `(v_0-C)I'(C)-I(C)`. Differentiation of the displayed formula for `I`, followed by
 
 \[
-I'(C)=\frac{CI(C)}{1-C^2}
-+\frac{4z}{(1-C^2)^{3/2}(1+z^2)},
+ 1+z^2=\frac{(1-y^2)(v_0-C)}{1-C},
+ \qquad
+ \frac{2y}{1-y^2}=\sinh\eta=\frac1b,
 \]
 
-where now \(z=y\sqrt{(1+C)/(1-C)}\).  Since
+gives
 
 \[
-1+z^2=\frac{(1-y^2)(v_0-C)}{1-C}
+ (v_0-C)I'(C)-I(C)
+ =\frac{(v_0C-1)I(C)+2/b}{1-C^2}.
 \]
 
-and
+Substitution and the symmetry `sin(pi-t)=sin t` yield
 
 \[
-\frac{2y}{1-y^2}=\sinh\eta=\frac1b,
+\begin{aligned}
+ \Psi(e)=-4b^2\int_\theta^{\pi/2}
+ \bigg[&\frac{I(e\sin t)}a\\
+ &+\frac{e(\sin t-u_0)}{1-e^2\sin^2t}
+ \left((v_0e\sin t-1)I(e\sin t)+\frac2b\right)
+ \bigg]dt.
+\end{aligned}
 \]
 
-one obtains
+## 5. Exact value at the Meissner endpoint
+
+At `e=0`,
 
 \[
-(v_0-C)I'(C)-I(C)
-=\frac{(v_0C-1)I(C)+2/b}{1-C^2}.
-\]
-
-Using the symmetry \(\sin(\pi-t)=\sin t\) gives the stated one-dimensional formula.
-
-## 5. Fixed integration interval
-
-Set
-
-\[
-x=b\cos t.
-\]
-
-Because \(b\cos\theta=1\), the interval \(\theta\le t\le\pi/2\) maps to \(1\ge x\ge0\).  Put
-
-\[
-A(e,x)=\sin t=\sqrt{1-\frac{x^2}{b^2}},
-\qquad
-C=eA.
-\]
-
-Since
-
-\[
-dt=-\frac{dx}{bA},
-\]
-
-we obtain
-
-\[
-\Psi(e)=\int_0^1H(e,x)\,dx,
-\]
-
-with
-
-\[
-H(e,x)
-=-\frac{4b}{A}
-\left[
-\frac{I(C)}a
-+\frac{e(A-u_0)}{1-C^2}
-\left((v_0C-1)I(C)+\frac2b\right)
-\right].
-\]
-
-This is the fixed-interval formula from which the stable chart is derived.
-
-## 6. Stable \(q\)-chart
-
-Let
-
-\[
-q=\frac{1-e}{1+e},
-\qquad
-K=(1+\sqrt2)^2,
-\qquad
-\rho^2=\frac Kq.
-\]
-
-Then
-
-\[
-1-e^2=\frac{4q}{(1+q)^2},
-\]
-
-\[
-b^2=\frac{K^2+q^2}{2Kq},
-\]
-
-\[
-a^2=\frac{(K^2+q^2)(1+q)^2}{8Kq^2}.
-\]
-
-Introduce
-
-\[
-D=\sqrt{K^2+q^2},
-\]
-
-\[
-R=\sqrt{K^2+q^2-2Kqx^2},
-\]
-
-\[
-T=\sqrt{2K(K^2+q^2)+K^2(1-q)^2x^2}.
-\]
-
-The shifted-rapidity radicals scale as
-
-\[
-\sqrt{\rho^4+1}=\frac Dq,
-\qquad
-\sqrt{\rho^4+1-2\rho^2x^2}=\frac Rq,
-\qquad
-\sqrt{2K(\rho^4+1)+(\rho^2-K)^2x^2}=\frac Tq.
-\]
-
-The apparent difference
-
-\[
-\frac{R-K+q}{q}
-\]
-
-is rationalized by
-
-\[
-R^2-(K-q)^2=2Kq(1-x^2),
-\]
-
-which gives
-
-\[
-\delta=\frac{2K(1-x^2)}{R+K-q}.
-\]
-
-The second removable quotient is
-
-\[
-\frac{(1-q)(K+q)R-(1+q)(K^2+q^2)}q.
-\]
-
-Using
-
-\[
-R-K=\frac{q(q-2Kx^2)}{R+K}
-\]
-
-reduces it to
-
-\[
-M=\frac{K(q-2Kx^2)}{R+K}
- +(1-K)R-K^2-qR-q-q^2.
-\]
-
-Substitution now gives
-
-\[
-P_1=-\frac{16\sqrt2(1+\sqrt2)(K^2+q^2)}{RT},
-\]
-
-\[
-P_2=-\frac{4K(1-q^2)(K^2+q^2)\delta M}{RT^3},
-\]
-
-\[
-Q_0=-\frac{4K(1-q^2)(K^2+q^2)\delta}{RT^2}.
-\]
-
-## 7. Global arctangent branch control
-
-In the original formula,
-
-\[
-0\le C=e\sin t<1,
-\]
-
-and
-
-\[
-y=\tanh(\eta/2)>0.
+ a=b=\sqrt3,
+ \qquad
+ \eta=\operatorname{arsinh}(1/\sqrt3)=\log\sqrt3.
 \]
 
 Therefore
 
 \[
-y\sqrt{\frac{1+C}{1-C}}>0,
+ y=\tanh(\eta/2)=2-\sqrt3=\tan(\pi/12),
 \]
 
-and the geometric angle is represented by the principal value in \((0,\pi/2)\).
-
-In the \(q\)-chart, define
+and
 
 \[
-A_+=(1+q)D+(1-q)R,
-\qquad
-A_-=(1+q)D-(1-q)R.
+ I(0)=4\arctan y=\frac\pi3.
 \]
 
-The identity
+If `L=pi/2-theta=arcsin(1/sqrt3)`, then
 
 \[
-A_+A_-=\frac{2q}{K}T^2
+ \cos(2L)=1-2\sin^2L=\frac13,
 \]
 
-follows directly from the definitions of \(D,R,T\).  Rationalizing
+and `0<2L<pi`, so
 
 \[
-K+q-D=\frac{2Kq}{K+q+D}
+ L=\frac12\arccos\frac13.
 \]
 
-and using the preceding product identity gives
+The second term in the one-dimensional integrand vanishes at `e=0`, hence
 
 \[
-y\sqrt{\frac{1+C}{1-C}}
-=\frac{KA_+}{T(K+q+D)}=:Z.
+ \Psi(0)
+ =-4b^2\frac{I(0)}aL
+ =-\frac{2\pi}{\sqrt3}\arccos\frac13.
 \]
 
-All factors in the last expression are strictly positive on the closed square \(0\le q,x\le1\).  The equality is obtained between positive quantities, not merely after squaring.  Hence no sign choice or multiple of \(\pi\) is introduced, and
+## 6. Fixed integration interval
+
+Set
 
 \[
-\arctan Z
+ x=b\cos t.
 \]
 
-is the same principal analytic branch as the original geometric angle throughout the domain.
+Because `b cos theta=1`, the interval `[theta,pi/2]` maps to `[1,0]`. Put
 
-## 8. Exact machine check
+\[
+ A(e,x)=\sin t=\sqrt{1-\frac{x^2}{b^2}},
+ \qquad
+ C=eA.
+\]
 
-The accompanying script `verify_formula_derivation_identities.py` reduces the following differences exactly to zero:
+Since
 
-- the two beam-normalization identities;
-- the rationalization of \(\delta\);
-- the rationalization of \(M\);
-- the angle-product identity;
-- the cross-multiplied equality of the original and stable arctangent arguments;
-- the scaling identities for \(P_2\) and \(Q_0\).
+\[
+ dt=-\frac{dx}{bA},
+\]
 
-The script is an audit of the written derivation, not a substitute for it.
+we obtain
+
+\[
+ \Psi(e)=\int_0^1H(e,x)\,dx,
+\]
+
+where
+
+\[
+ H(e,x)=-\frac{4b}{A}
+ \left[
+ \frac{I(C)}a
+ +\frac{e(A-u_0)}{1-C^2}
+ \left((v_0C-1)I(C)+\frac2b\right)
+ \right].
+\]
+
+## 7. Complete substitution table for the stable `q`-chart
+
+Let
+
+\[
+ q=\frac{1-e}{1+e},
+ \qquad
+ K=(1+\sqrt2)^2,
+ \qquad
+ D=\sqrt{K^2+q^2},
+\]
+
+\[
+ R=\sqrt{K^2+q^2-2Kqx^2},
+\]
+
+\[
+ T=\sqrt{2K(K^2+q^2)+K^2(1-q)^2x^2}.
+\]
+
+Then
+
+\[
+ e=\frac{1-q}{1+q},
+ \qquad
+ b=\frac{D}{\sqrt{2Kq}},
+ \qquad
+ a=\frac{(1+q)D}{2\sqrt{2K}\,q}.
+\]
+
+The elementary quantities in the fixed-interval formula become
+
+\[
+ A=\frac RD,
+ \qquad
+ u_0=\frac{K-q}{D},
+ \qquad
+ v_0=\frac{K+q}{D},
+\]
+
+\[
+ C=\frac{(1-q)R}{(1+q)D},
+\]
+
+\[
+ y=\frac{\sqrt{2Kq}}{K+q+D}.
+\]
+
+The last identity follows from
+
+\[
+ y=\frac{\sinh\eta}{\cosh\eta+1}
+ =\frac{1/b}{v_0+1}.
+\]
+
+Furthermore,
+
+\[
+ 1-C^2
+ =\frac{2qT^2}{K(1+q)^2D^2}.
+\]
+
+Define
+
+\[
+ A_+=(1+q)D+(1-q)R,
+ \qquad
+ A_-=(1+q)D-(1-q)R.
+\]
+
+Then
+
+\[
+ A_+A_-=\frac{2q}{K}T^2.
+\]
+
+For `q>0`, all quantities are positive and
+
+\[
+ y\sqrt{\frac{1+C}{1-C}}
+ =\frac{KA_+}{T(K+q+D)}=:Z.
+\]
+
+Thus
+
+\[
+ I(C)=4\frac{(1+q)D}{T}\sqrt{\frac K{2q}}\,\arctan Z.
+\]
+
+Two removable differences are rationalized as
+
+\[
+ A-u_0=\frac{q\delta}{D},
+ \qquad
+ \delta=\frac{2K(1-x^2)}{R+K-q},
+\]
+
+and
+
+\[
+ v_0C-1=\frac{qM}{(1+q)D^2},
+\]
+
+where
+
+\[
+ M=\frac{K(q-2Kx^2)}{R+K}
+ +(1-K)R-K^2-qR-q-q^2.
+\]
+
+These formulas are obtained from
+
+\[
+ R^2-(K-q)^2=2Kq(1-x^2)
+\]
+
+and
+
+\[
+ R-K=\frac{q(q-2Kx^2)}{R+K}.
+\]
+
+## 8. Derivation of `P_1`, `P_2`, and `Q_0`
+
+The first term in `H` is
+
+\[
+ -\frac{4b}{A}\frac{I(C)}a
+ =-\frac{16\sqrt2(1+\sqrt2)(K^2+q^2)}{RT}\arctan Z.
+\]
+
+For the second term, first note
+
+\[
+ \frac{e(A-u_0)}{1-C^2}
+ =\frac{K(1-q^2)D\delta}{2T^2}.
+\]
+
+Also,
+
+\[
+ (v_0C-1)I(C)+\frac2b
+ =\frac{4\sqrt{Kq/2}}D
+ \left(\frac MT\arctan Z+1\right).
+\]
+
+Finally,
+
+\[
+ -\frac{4b}{A}=-\frac{4D^2}{R\sqrt{2Kq}}.
+\]
+
+Multiplying and collecting the arctangent and algebraic parts gives
+
+\[
+ H(q,x)=(P_1+P_2)\arctan Z+Q_0,
+\]
+
+with
+
+\[
+ P_1=-\frac{16\sqrt2(1+\sqrt2)(K^2+q^2)}{RT},
+\]
+
+\[
+ P_2=-\frac{4K(1-q^2)(K^2+q^2)\delta M}{RT^3},
+\]
+
+\[
+ Q_0=-\frac{4K(1-q^2)(K^2+q^2)\delta}{RT^2}.
+\]
+
+No symbolic integration is used in this reduction.
+
+## 9. Global arctangent branch control
+
+For the original elliptic-hyperbolic chart with `0<=e<1`,
+
+\[
+ 0\le C=e\sin t<1,
+ \qquad
+ y>0.
+\]
+
+Thus
+
+\[
+ y\sqrt{\frac{1+C}{1-C}}>0,
+\]
+
+and the geometric angle is represented by the principal arctangent in `(0,pi/2)`.
+
+For `0<q<=1`, the identities above are equalities between positive quantities, not merely identities after squaring. Hence
+
+\[
+ y\sqrt{\frac{1+C}{1-C}}=Z>0
+\]
+
+and the principal branch is preserved globally on `(0,1]x[0,1]`.
+
+At `q=0`, the original elliptic-hyperbolic expression is a limiting expression and should not be equated term-by-term with the indeterminate product `y sqrt((1+C)/(1-C))`. Instead, the stable expression
+
+\[
+ Z=\frac{K((1+q)D+(1-q)R)}{T(K+q+D)}
+\]
+
+extends real analytically and remains strictly positive at `q=0`. Therefore `arctan Z` extends continuously and analytically on the same principal branch to the parabolic endpoint. No multiple of `pi` can appear.
+
+## 10. Parabolic regularity
+
+On the closed square `0<=q,x<=1`,
+
+\[
+ D^2\ge K^2,
+\]
+
+\[
+ R^2\ge(K-q)^2\ge(K-1)^2>0,
+\]
+
+\[
+ T^2\ge2K^3>0.
+\]
+
+Also,
+
+\[
+ R+K-q\ge2(K-1)>0,
+ \qquad
+ R+K>0,
+ \qquad
+ K+q+D>0.
+\]
+
+Thus every radical and denominator is uniformly separated from zero, and the stable formula contains no negative power of `q`. It is therefore real analytic on a neighborhood of the closed square. This justifies differentiation under the fixed integral, including on slabs meeting `q=0`.
+
+## 11. Audit conclusion
+
+The complete chain
+
+\[
+ \text{center curves}
+ \longrightarrow \Psi(e)
+ \longrightarrow H(e,x)
+ \longrightarrow H(q,x)
+\]
+
+is now displayed without a `direct calculation` gap. The exact symbolic audit checks all polynomial/radical identities after clearing positive denominators. The corrected branch statement distinguishes the genuine elliptic-hyperbolic range `q>0` from the analytic continuation at `q=0`.

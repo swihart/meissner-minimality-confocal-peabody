@@ -4,9 +4,9 @@
   "branch": "review/dcg-major-revision",
   "points": {
     "1": {
-      "status": "PROOF_DRAFT_AND_MANUSCRIPT_INTEGRATION_COMPLETE",
-      "percent": 90,
-      "closed": false
+      "status": "CLOSED_INTERNALLY_EXTERNAL_GEOMETRIC_CHECK_RECOMMENDED",
+      "percent": 100,
+      "closed": true
     },
     "2": {
       "status": "CLOSED_INDEPENDENT_ARB_FLINT_REPLAY_PASS",
@@ -14,9 +14,9 @@
       "closed": true
     },
     "3": {
-      "status": "DERIVATION_AND_MANUSCRIPT_INTEGRATION_COMPLETE",
-      "percent": 90,
-      "closed": false
+      "status": "CLOSED_INTERNALLY_EXTERNAL_LINE_BY_LINE_CHECK_RECOMMENDED",
+      "percent": 100,
+      "closed": true
     },
     "4": {
       "status": "CLOSED_ANALYTICALLY",
@@ -30,5 +30,8 @@
     }
   },
   "shape_search_reopened": false,
-  "semi_regular_extension_started": false
+  "semi_regular_extension_started": false,
+  "all_five_points_mathematically_addressed": true,
+  "external_review_recommended": true,
+  "final_dcg_release_audit_pending": true
 }
