@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "scope": "two new archive-auditor mutation controls; not new Arb controls",
+  "controls": [
+    {
+      "mutation": "false_endpoint",
+      "rejected": true,
+      "semantic_failures": [
+        "forward_384: EXACT BINARY publication bounds"
+      ],
+      "all_failed_checks": [
+        "forward_384: EXACT BINARY publication bounds",
+        "forward_384: all output hashes"
+      ]
+    },
+    {
+      "mutation": "bad_slab_endpoint",
+      "rejected": true,
+      "semantic_failures": [
+        "forward_384: exact domains of all 320 rectangles"
+      ],
+      "all_failed_checks": [
+        "forward_384: all output hashes",
+        "forward_384: exact domains of all 320 rectangles"
+      ]
+    }
+  ]
+}

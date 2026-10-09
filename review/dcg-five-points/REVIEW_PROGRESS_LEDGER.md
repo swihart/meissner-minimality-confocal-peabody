@@ -24,3 +24,7 @@ Update this ledger in every substantive revision commit.
 - Arb midpoint-radius enclosures are wider on the coarse partition; the theorem uses only the conservative Arb result.
 - A bounded `32x10`, `64x20`, `128x20` refinement study records the enclosure-width behavior without changing the formula or theorem.
 - The manuscript now uses the Arb endpoint decimal consistently and no longer states the ambiguous `overlap` sentence.
+
+## Bounded closeout audit, 2026-10-09
+
+The actual `ab320cf` archive verifies the recorded reconciliation PASS. The separate current closeout audit passes 365 archive-semantic checks, including exact downstream reconstruction of all 96 authoritative concavity slabs. Published rational targets and the underlying Arb source/results are unchanged. Corrected source, directed table formatting, current build instructions, and a separate current manifest are supplied. External geometry/formula proofreading remains undocumented; final submission sign-off remains pending. See `closeout/CLOSEOUT_REPORT.md`.

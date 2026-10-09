@@ -35,5 +35,8 @@
   "external_review_recommended": true,
   "final_dcg_release_audit_pending": true,
   "interval_enclosure_provenance_reconciled": true,
-  "enclosure_reconciliation_classification": "PEABODY_ENCLOSURE_RECONCILIATION_PASS"
+  "enclosure_reconciliation_classification": "PEABODY_ENCLOSURE_RECONCILIATION_PASS",
+  "closeout_archive_verification_completed": true,
+  "closeout_audit_scope": "Archived exact arithmetic, manuscript source corrections, and current packaging; not external human approval",
+  "submission_ready": false
 }

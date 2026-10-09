@@ -1,0 +1,17 @@
+\begin{table}[tbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcc}
+\toprule
+implementation & $N_q/N_x/N_0$ & lower endpoint for $\Phi(1)$ & upper endpoint for $\Phi^{\prime\prime}$ \\
+\midrule
+legacy \texttt{mpmath.iv} & 32/10/4 & $3.076528682490\times 10^{-4}$ & $-4.167982417137\times 10^{-5}$ \\
+direct MPFR & 32/10/4 & $3.076528682490\times 10^{-4}$ & $-4.164919033614\times 10^{-5}$ \\
+Arb canonical & 32/10/4 & $2.951409916769\times 10^{-4}$ & $-1.792861784830\times 10^{-5}$ \\
+Arb refined & 128/20/16 & $3.766645104929\times 10^{-4}$ & $-1.793709947800\times 10^{-4}$ \\
+\bottomrule
+\end{tabular}
+\caption{Archived enclosure comparison. $N_q$ is the number of parameter slabs, $N_x$ the integration panels per slab, and $N_0$ the endpoint panels. Lower displays are rounded downward and upper displays upward. Only the canonical Arb certificate supplies the published rational bounds; refined and endpoint-interval results document provenance.}
+\label{tab:enclosure-reconciliation}
+\end{table}

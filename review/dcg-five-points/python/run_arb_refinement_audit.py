@@ -17,6 +17,7 @@ from decimal import Decimal, getcontext
 from fractions import Fraction
 from pathlib import Path
 from typing import Any
+from format_reconciliation_table import write_table
 
 getcontext().prec = 160
 
@@ -281,29 +282,8 @@ def main() -> int:
     ])
     (args.output_dir / "enclosure_reconciliation.md").write_text("\n".join(md), encoding="utf-8")
 
-    # LaTeX table for the manuscript.
-    row_end = r"\\"
-    lines = [
-        r"\begin{table}[t]", r"\centering", r"\small",
-        r"\begin{tabular}{lcc}", r"\toprule",
-        f"implementation & endpoint lower bound & weakest upper bound for $\\Phi''$ {row_end}",
-        r"\midrule",
-        f"legacy \\texttt{{mpmath.iv}} & ${mpmath_endpoint['lower']:.12E}$ & ${max(v['upper'] for v in mpmath.values()):.12E}$ {row_end}",
-        f"direct MPFR & ${mpfr_endpoint['lower']:.12E}$ & ${max(v['upper'] for v in mpfr.values()):.12E}$ {row_end}",
-    ]
-    # use finest Arb run in generated manuscript table
-    finest = run_rows[-1]
-    finest_endpoint = endpoint_rows[-1]
-    lines.append(
-        f"Arb refinement & ${d(finest_endpoint['lower']):.12E}$ & "
-        f"${d(finest['worst_phi_second_upper']):.12E}$ {row_end}"
-    )
-    lines.extend([
-        r"\bottomrule", r"\end{tabular}",
-        r"\caption{Enclosure comparison.  The endpoint-interval implementations are retained only as redundant audits; Arb is the proof authority.}",
-        r"\label{tab:enclosure-reconciliation}", r"\end{table}", "",
-    ])
-    (args.output_dir / "generated_enclosure_reconciliation.tex").write_text("\n".join(lines), encoding="utf-8")
+    # Outward decimal formatting; canonical proof gates are unchanged.
+    write_table(args.output_dir / "generated_enclosure_reconciliation.tex", summary)
 
     print(summary["classification"])
     print("pass:", summary["pass"])

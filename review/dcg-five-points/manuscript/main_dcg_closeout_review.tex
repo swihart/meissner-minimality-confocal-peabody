@@ -1,0 +1,896 @@
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+% The default preserves the author's New TX typography.
+% --portable-fonts in build_closeout.sh uses the documented Latin Modern preview.
+\ifdefined\PeabodyPortableFonts
+  \usepackage{lmodern}
+\else
+  \usepackage{newtxtext,newtxmath}
+\fi
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\usepackage{url}
+
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\setlist[itemize]{leftmargin=2em,itemsep=0.15em,topsep=0.25em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Sph}{\mathbb{S}^{2}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\Area}{\operatorname{Area}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\VM}{V_{\mathrm M}}
+\newcommand{\arsinh}{\operatorname{arsinh}}
+\newcommand{\Gauss}{\operatorname{Gauss}}
+
+\title{Meissner Minimality in the Confocal Peabody Family}
+\author{Bruce Swihart\thanks{DCG major-revision draft.  The five referee points are addressed; the interval-enclosure provenance has been made explicit and external geometric review remains recommended before submission.}}
+\date{October 9, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Arelio, Montejano, and Oliveros introduced a three-parameter family of bodies of constant width obtained from a regular Reuleaux tetrahedron by replacing its six edge neighborhoods with envelopes of spheres associated with confocal quadrics.  The family contains the two classical Meissner bodies as a circle-line degeneration and Robert's tetrahedrally symmetric body as a parabolic limit.  We prove that the Meissner degenerations minimize volume within this regular-tetrahedron confocal family.  We first verify that the explicit eccentricity chart satisfies the source construction for every parameter and every orientation, and we prove the almost-everywhere partition of the normal sphere used in the area bookkeeping.  This gives the exact decomposition
+\[
+  \Vol K(\mathbf e,\boldsymbol\sigma)
+  =\VM+\Phi(e_1)+\Phi(e_2)+\Phi(e_3),
+\]
+independently of the eight orientation choices.  A complete one-pair calculation reduces \(\Phi\) to a fixed integral with a globally controlled principal-arctangent branch.  The stable chart extends real analytically to the parabolic endpoint.  An independent Arb/FLINT ball-arithmetic certificate proves the high-headroom inequalities
+\[
+  \Phi(1)>\frac1{4000},
+  \qquad
+  \Phi''(e)<-\frac1{100000}\quad(0<e<1).
+\]
+Concavity then gives \(\Phi(e)>e/4000\).  Equality holds exactly when all three parameters vanish.  The result is restricted to regular-tetrahedron confocal Peabodies and does not resolve the three-dimensional Blaschke--Lebesgue problem.
+\end{abstract}
+
+\noindent\textbf{Keywords:} bodies of constant width, Peabodies, Meissner bodies, confocal quadrics, strict concavity, Arb, FLINT, computer-assisted proof
+
+\section{Introduction}
+
+The Blaschke--Lebesgue problem asks for convex bodies of minimum volume among all convex bodies of prescribed constant width.  In the plane, the minimizers are the Reuleaux triangles \cite{Blaschke1915,Lebesgue1914}.  The corresponding three-dimensional problem remains open.  Bonnesen and Fenchel conjectured that the two noncongruent Meissner bodies are minimizers; their common width-one volume is
+\begin{equation}
+  \VM
+  =\pi\left(\frac23-\frac{\sqrt3}{4}\arccos\frac13\right)
+  =0.419860045965080\ldots .
+  \label{eq:meissner-volume}
+\end{equation}
+See \cite{KawohlWeber2011,MartiniMontejanoOliveros2019,Nishioka2026} for background.
+
+Arelio, Montejano, and Oliveros introduced \emph{Peabodies}, obtained by replacing neighborhoods of the six edges of a Reuleaux tetrahedron with sections of envelopes of spheres guided by confocal quadrics \cite{ArelioMontejanoOliveros2023}.  Their regular-tetrahedron construction gives genuine bodies of constant width and contains both Meissner bodies and Robert's tetrahedrally symmetric body.  We study only this regular-tetrahedron family.
+
+We prove this restricted case independently, without assuming the still-open Bonnesen--Fenchel conjecture.  Indeed, Robert's body has full tetrahedral symmetry, while each Meissner body breaks that symmetry, and the numerical volume difference between these canonical endpoints is only about $0.27\%$.  Nor is additivity evident a priori: simultaneous deformations of the three opposite-edge pairs might have produced mixed terms.  The exact disappearance of those terms and the positivity of the resulting scalar increment are therefore substantive parts of the result.  Strict concavity by itself would not force positivity near the parabolic endpoint; the independently certified positive value of $\Phi(1)$ is essential.
+
+The regular tetrahedron has three pairs of opposite edges.  Each pair has a parameter \(e_i\in[0,1)\), and an orientation bit \(\sigma_i\in\{0,1\}\) records which edge receives the elliptic device.  Let
+\[
+  \mathbf e=(e_1,e_2,e_3),\qquad
+  \boldsymbol\sigma=(\sigma_1,\sigma_2,\sigma_3),
+\]
+and write \(K_d(\mathbf e,\boldsymbol\sigma)\) for the resulting body of width \(d\).  The value \(e_i=0\) is the circle-line Meissner degeneration; the limit \(e_i\to1^-\) is parabolic.
+
+\begin{theorem}[Main theorem]
+\label{thm:main}
+For every \(d>0\), every \(\mathbf e\in[0,1)^3\), and every \(\boldsymbol\sigma\in\{0,1\}^3\),
+\begin{equation}
+  \Vol K_d(\mathbf e,\boldsymbol\sigma)
+  \ge
+  \pi\left(\frac23-\frac{\sqrt3}{4}\arccos\frac13\right)d^3.
+  \label{eq:main}
+\end{equation}
+Equality holds if and only if \(e_1=e_2=e_3=0\).  Over the eight orientation choices, the equality cases form exactly the two classical Meissner congruence classes.
+\end{theorem}
+
+The proof has two parts.  First, the source geometry and a partition of the unit normal sphere give an exact additive volume formula.  Second, a one-pair calculation and a compact directed-rounding certificate prove a positive parabolic endpoint and uniform strict concavity.  Positivity then follows from the chord inequality.
+
+\section{Full-parameter Peabody geometry and exact additivity}
+\label{sec:additivity}
+
+We work first at the native scale of the source construction: a regular tetrahedron of side length two and a body of constant width two.
+
+\subsection{The explicit chart lies in the source family}
+
+For one opposite-edge pair, let \(0\le e<1\) and put
+\begin{equation}
+  b^2=\frac{3+3e^2+4\sqrt2\,e}{1-e^2},
+  \qquad
+  a=\frac b{\sqrt{1-e^2}}.
+  \label{eq:ab}
+\end{equation}
+Since \(b^2\ge3\), define
+\[
+  \theta=\arccos\frac1b,
+  \qquad
+  \eta=\arsinh\frac1b,
+  \qquad
+  u_0=\sin\theta,
+  \qquad
+  v_0=\cosh\eta.
+\]
+In an orthonormal frame \((\mathbf k,\mathbf p,\mathbf q)\), set
+\begin{align}
+  X(t)&=a\sin t\,\mathbf k+b\cos t\,\mathbf p,
+  &&\theta\le t\le\pi-\theta,\label{eq:X}\\
+  Y(\xi)&=ae\cosh\xi\,\mathbf k+b\sinh\xi\,\mathbf q,
+  &&-\eta\le\xi\le\eta.\label{eq:Y}
+\end{align}
+The curves lie in orthogonal planes, share the axis \(\R\mathbf k\), and are confocal because
+\[
+  a^2-b^2=a^2e^2.
+\]
+Their beam endpoints are
+\[
+  X_\pm=a u_0\mathbf k\pm\mathbf p,
+  \qquad
+  Y_\pm=ae v_0\mathbf k\pm\mathbf q,
+\]
+so both beams have length two.  Define
+\begin{equation}
+  R_E(t)=ae(\sin t-u_0),
+  \qquad
+  R_H(\xi)=a(v_0-\cosh\xi).
+  \label{eq:radii}
+\end{equation}
+
+\begin{lemma}[Full-parameter admissibility]
+\label{lem:admissible}
+For every \(e\in(0,1)\), the data \eqref{eq:X}--\eqref{eq:radii} form a convex confocal pea-pod pair in the precise sense of \cite[Definition~3.5]{ArelioMontejanoOliveros2023}, and the four beam endpoints form a regular tetrahedron of side two.  At \(e=0\) the pair is the circle-line degeneration of \cite[Section~5.3]{ArelioMontejanoOliveros2023}.  Interchanging the two devices preserves admissibility.
+\end{lemma}
+
+\begin{proof}
+Let \(B=b^2\).  The identities
+\[
+  B+1=\frac{2(e+\sqrt2)^2}{1-e^2},
+  \qquad
+  B-1=\frac{2(\sqrt2e+1)^2}{1-e^2}
+\]
+give
+\begin{equation}
+  a(v_0-eu_0)=2.
+  \label{eq:beam-normalization}
+\end{equation}
+
+The ellipse has foci \(\pm ae\mathbf k\).  For \(c_E=ae\mathbf k\),
+\[
+  |X(t)-c_E|=a(1-e\sin t),
+  \qquad
+  r_E:=a(1-eu_0),
+\]
+so \(r_E-|X-c_E|=R_E\).  Moreover
+\[
+  u_0^2-e^2=\frac{2+3e^2+4\sqrt2e}{b^2}>0,
+\]
+so the beam midpoint \(a u_0\mathbf k\) lies beyond \(c_E\); hence \(c_E\) is the principal-circle center.  The elliptic bulb center is \(X(\pi/2)=a\mathbf k\).
+
+The hyperbola has foci \(\pm a\mathbf k\).  For \(c_H=a\mathbf k\),
+\[
+  |Y(\xi)-c_H|=a(\cosh\xi-e),
+  \qquad
+  r_H:=a(v_0-e),
+\]
+so \(r_H-|Y-c_H|=R_H\).  Also
+\[
+  1-e^2v_0^2=\frac{3+2e^2+4\sqrt2e}{b^2}>0,
+\]
+so the hyperbolic beam midpoint \(ae v_0\mathbf k\) lies between the two focus centers and \(c_H\) is the smaller, principal-circle center.  The hyperbolic bulb center is \(Y(0)=ae\mathbf k\).  Therefore
+\[
+  c_E=Y(0),
+  \qquad
+  c_H=X(\pi/2),
+\]
+which is exactly the convex-confocal condition.
+
+The calculation in \Cref{sec:pair} gives
+\begin{equation}
+  |X(t)-Y(\xi)|=a(\cosh\xi-e\sin t).
+  \label{eq:center-distance}
+\end{equation}
+Together with \eqref{eq:radii} and \eqref{eq:beam-normalization},
+\begin{equation}
+  |X-Y|+R_E+R_H=2.
+  \label{eq:local-width}
+\end{equation}
+At the four cross pairs of beam endpoints both radii vanish, so every cross distance is two.  Together with the two beam lengths, all six distances among \(X_+,X_-,Y_+,Y_-\) equal two.  The beams are therefore opposite edges of a regular tetrahedron of side two.  The statement at \(e=0\) is \cite[Section~5.3]{ArelioMontejanoOliveros2023}.
+\end{proof}
+
+Apply \Cref{lem:admissible} independently to the three opposite-edge pairs.  Section~4 of \cite{ArelioMontejanoOliveros2023} imposes no equality among the three device parameters.  An orientation bit merely exchanges the two devices in one pair.  Hence \cite[Theorem~4.5]{ArelioMontejanoOliveros2023} applies for every generic tuple \(\mathbf e\in(0,1)^3\) and every \(\boldsymbol\sigma\in\{0,1\}^3\): the six wedge-pod patches and four spherical caps bound a convex body of constant width two.
+
+\subsection{Patch decomposition and normal-sphere partition}
+
+For generic parameters, denote the open spherical-cap interiors by
+\[
+  C_A^\circ,C_B^\circ,C_C^\circ,C_D^\circ
+\]
+and the six open wedge-pod interiors by
+\[
+  W_1^{+,\circ},W_1^{-,\circ},\ldots,W_3^{+,\circ},W_3^{-,\circ}.
+\]
+Their complement consists of finitely many seam curves and the four vertices.  The source assembly is smooth along every nonvertex seam.
+
+For a strictly convex body \(K\), write \(R_K(n)\) for the unique support point with outward normal \(n\in\Sph\).
+
+\begin{lemma}[Opposite support points]
+\label{lem:opposite}
+For a body of constant width two,
+\begin{equation}
+  R_K(-n)=R_K(n)-2n.
+  \label{eq:opposite-support}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put \(x=R_K(n)\) and \(y=R_K(-n)\).  The supporting planes are separated by two, so \((x-y)\cdot n=2\).  Since the diameter is two, \(|x-y|\le2\).  Equality in Cauchy--Schwarz gives \(x-y=2n\).
+\end{proof}
+
+\begin{lemma}[Normal-sphere partition]
+\label{lem:normal-partition}
+For every generic regular-tetrahedron confocal Peabody, the Gauss images of the ten smooth patch interiors together with the four vertex normal cones partition \(\Sph\) up to spherical measure zero.  Their interiors are pairwise disjoint.  The Gauss images of the seams have spherical area zero.
+\end{lemma}
+
+\begin{proof}
+A body of constant width is strictly convex.  Thus each \(n\in\Sph\) has a unique support point.  Two distinct smooth patch interiors cannot share an outward normal, because the corresponding support plane would touch the body at two points.  Every support point lies in a patch interior, a seam, or a vertex, which gives coverage.
+
+Away from the vertices, the explicit seam parametrizations and their common unit normals are smooth. Exhaust each nonvertex seam by countably many compact subarcs. The normal image of each subarc is a piecewise-smooth curve in \(\Sph\) and has spherical area zero. The countable union therefore also has spherical area zero.
+\end{proof}
+
+Let \(C_A\subset S(A,2)\) be the closed spherical cap centered at \(A\), and define
+\[
+  \Omega_A=\{(x-A)/2:x\in C_A\},\qquad
+  N_K(A)=\{n\in\Sph:R_K(n)=A\}.
+\]
+Thus \(N_K(A)\) denotes the unit vertex-normal region, the intersection of the usual normal cone with \(\Sph\).
+
+\begin{lemma}[Cap--cone duality]
+\label{lem:cap-cone}
+For each tetrahedral vertex,
+\begin{equation}
+  N_K(A)=-\Omega_A.
+  \label{eq:cap-cone}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If \(x\in C_A^\circ\), its outer normal is \(n=(x-A)/2\).  By \Cref{lem:opposite}, \(R_K(-n)=A\). Passing from the cap interior to its closure gives \(-\Omega_A\subseteq N_K(A)\).
+
+Conversely, if \(m\in N_K(A)\), then \(R_K(-m)=A-2m\) lies in \(\partial K\cap S(A,2)\).  The patch construction and the strict-containment argument in the proof of \cite[Lemma~4.3]{ArelioMontejanoOliveros2023} imply that every wedge interior is strictly inside \(B(A,2)\), while the other spherical-cap interiors meet \(S(A,2)\) only on common seams.  Hence \(\partial K\cap S(A,2)=C_A\) as closed sets.  Thus \(-m\in\Omega_A\), proving the reverse inclusion.
+\end{proof}
+
+For the \(i\)-th opposite-edge pair, let \(\Gamma_i=\Gauss(W_i^+)\).  The binormal pairing of \cite[Lemma~3.8]{ArelioMontejanoOliveros2023}, together with \Cref{lem:opposite}, gives
+\[
+  \Gauss(W_i^-)=-\Gamma_i.
+\]
+Using \Cref{lem:normal-partition,lem:cap-cone},
+\begin{equation}
+  4\pi
+  =2\sum_{v\in\{A,B,C,D\}}|\Omega_v|
+   +2\sum_{i=1}^3|\Gamma_i|.
+  \label{eq:normal-partition}
+\end{equation}
+A radius-two spherical patch has area four times its Gauss-image area.  Therefore
+\begin{equation}
+  \sum_v|C_v|=8\pi-4\sum_{i=1}^3|\Gamma_i|.
+  \label{eq:cap-elimination}
+\end{equation}
+Adding the wedge-pod areas gives
+\begin{equation}
+  S_2=8\pi+\sum_{i=1}^3\Psi(e_i),
+  \qquad
+  \Psi(e_i):=|W_i^+|+|W_i^-|-4|\Gamma_i|.
+  \label{eq:additive-area}
+\end{equation}
+Interchanging the two devices exchanges \(W_i^+\) and \(W_i^-\); their Gauss images are antipodal and have equal area.  Thus \(\Psi\) is orientation independent.
+
+At \(e_i=0\), one wedge surface collapses to a circular singular arc.  Its physical area is zero, but its normal cone is the nonzero limit of \(\Gamma_i\).  Accordingly, the generic identity is extended to mixed zero-parameter tuples by the continuous circle-line degeneration, not by deleting the limiting normal term.  The explicit patch maps converge uniformly, the convex bodies converge in the Hausdorff metric, and intrinsic volumes are continuous under this convergence \cite{Schneider2014}.  Hence \eqref{eq:additive-area} holds for every \(\mathbf e\in[0,1)^3\).
+
+For a body of constant width \(d\), Blaschke's identity is
+\begin{equation}
+  V=\frac d2S-\frac\pi3d^3.
+  \label{eq:blaschke}
+\end{equation}
+At width two, \eqref{eq:additive-area} gives
+\[
+  V_2=\frac{16\pi}{3}+\sum_{i=1}^3\Psi(e_i).
+\]
+Scaling by one half multiplies volume by \(1/8\).  Define
+\begin{equation}
+  \Phi(e):=\frac{\Psi(e)-\Psi(0)}8.
+  \label{eq:phi-def}
+\end{equation}
+Since the all-zero body is Meissner, we obtain:
+
+\begin{proposition}[Exact additive reduction]
+\label{prop:additive}
+For every width-one regular-tetrahedron confocal Peabody,
+\begin{equation}
+  \Vol K_1(\mathbf e,\boldsymbol\sigma)
+  =\VM+\Phi(e_1)+\Phi(e_2)+\Phi(e_3),
+  \label{eq:additive-volume}
+\end{equation}
+independently of \(\boldsymbol\sigma\).
+\end{proposition}
+
+\subsection{The eight zero-parameter orientations}
+
+\begin{lemma}[Two equality orbits]
+\label{lem:orientation-orbits}
+At \(\mathbf e=0\), the eight orientation choices form exactly two tetrahedral congruence classes: the four triples of edges incident to a vertex and the four triples bounding a face.  These are the two classical Meissner types.
+\end{lemma}
+
+\begin{proof}
+Selecting one edge from each of
+\[
+  \{AB,CD\},\qquad \{AC,BD\},\qquad \{AD,BC\}
+\]
+gives either a vertex star or a face boundary.  There are four of each.  The tetrahedral symmetry group acts transitively on vertices and on faces, so there are exactly two orbits.  The corresponding classical Meissner bodies are noncongruent \cite{KawohlWeber2011}.
+\end{proof}
+
+\section{The one-pair formula}
+\label{sec:pair}
+
+We now derive the formula used by the certificate.  Put
+\[
+  D_0=\cosh\xi-e\sin t,
+  \qquad s=\sqrt{1-e^2}.
+\]
+From \eqref{eq:X}--\eqref{eq:Y},
+\begin{align*}
+  \frac{|X-Y|^2}{a^2}
+  &=(\sin t-e\cosh\xi)^2
+    +(1-e^2)(\cos^2t+\sinh^2\xi)\\
+  &=\cosh^2\xi-2e\sin t\cosh\xi+e^2\sin^2t\\
+  &=(\cosh\xi-e\sin t)^2.
+\end{align*}
+Since \(D_0>0\) on the parameter rectangle,
+\begin{equation}
+  d:=|X-Y|=aD_0.
+  \label{eq:d}
+\end{equation}
+Together with \eqref{eq:radii} and \eqref{eq:beam-normalization}, this proves \eqref{eq:local-width}.
+
+Let
+\[
+  n=\frac{X-Y}{d}=\frac{U}{D_0},
+\]
+where
+\[
+  U=(\sin t-e\cosh\xi)\mathbf k
+   +s\cos t\,\mathbf p-s\sinh\xi\,\mathbf q.
+\]
+Since \(|U|=D_0\),
+\[
+  |n_r|^2=\frac{|U_r|^2-D_{0,r}^2}{D_0^2}.
+\]
+For \(r=t\),
+\[
+  U_t=\cos t\,\mathbf k-s\sin t\,\mathbf p,
+  \qquad D_{0,t}=-e\cos t,
+\]
+so \(|U_t|^2-D_{0,t}^2=s^2\).  For \(r=\xi\),
+\[
+  U_\xi=-e\sinh\xi\,\mathbf k-s\cosh\xi\,\mathbf q,
+  \qquad D_{0,\xi}=\sinh\xi,
+\]
+and again \(|U_\xi|^2-D_{0,\xi}^2=s^2\).  Finally,
+\[
+  U_t\cdot U_\xi=D_{0,t}D_{0,\xi},
+\]
+so
+\begin{equation}
+  n_t\cdot n_\xi=0,
+  \qquad
+  |n_t|=|n_\xi|=\frac{s}{D_0}=\frac bd.
+  \label{eq:conformal}
+\end{equation}
+Thus
+\begin{equation}
+  \dd\omega=\frac{b^2}{d^2}\,\dd t\,\dd\xi.
+  \label{eq:area-element}
+\end{equation}
+
+The paired boundary points are
+\[
+  U_E=X+R_En,
+  \qquad
+  U_H=Y-R_Hn.
+\]
+Using \(X=Y+dn\) and \(d+R_E+R_H=2\),
+\[
+  U_E=Y+(2-R_H)n,
+  \qquad
+  U_H=X-(2-R_E)n.
+\]
+Because \(Y,R_H\) are independent of \(t\), while \(X,R_E\) are independent of \(\xi\),
+\begin{align*}
+  (U_E)_t&=(2-R_H)n_t,& (U_E)_\xi&=R_En_\xi,\\
+  (U_H)_t&=-R_Hn_t,& (U_H)_\xi&=-(2-R_E)n_\xi.
+\end{align*}
+Consequently,
+\[
+  \dd A_E=R_E(2-R_H)\frac{b^2}{d^2}\,\dd t\,\dd\xi,
+  \qquad
+  \dd A_H=R_H(2-R_E)\frac{b^2}{d^2}\,\dd t\,\dd\xi.
+\]
+Since \(R_E+R_H=2-d\),
+\[
+  R_E(2-R_H)+R_H(2-R_E)-4=-2(d+R_ER_H).
+\]
+Therefore
+\begin{equation}
+  \Psi(e)
+  =-2b^2\int_\theta^{\pi-\theta}\int_{-\eta}^{\eta}
+  \frac{d+R_ER_H}{d^2}\,\dd\xi\,\dd t.
+  \label{eq:psi-2d}
+\end{equation}
+
+For fixed \(t\), put \(C=e\sin t\) and \(y=\tanh(\eta/2)\).  The substitution \(z=\tanh(\xi/2)\) gives
+\[
+  \cosh\xi=\frac{1+z^2}{1-z^2},
+  \qquad
+  \dd\xi=\frac{2\,\dd z}{1-z^2},
+\]
+and hence
+\begin{equation}
+  I(C):=\int_{-\eta}^{\eta}\frac{\dd\xi}{\cosh\xi-C}
+  =\frac4{\sqrt{1-C^2}}
+  \arctan\left(y\sqrt{\frac{1+C}{1-C}}\right).
+  \label{eq:I}
+\end{equation}
+Differentiating this expression and using
+\[
+  \frac{2y}{1-y^2}=\sinh\eta=\frac1b
+\]
+gives
+\begin{equation}
+  \int_{-\eta}^{\eta}
+  \frac{v_0-\cosh\xi}{(\cosh\xi-C)^2}\,\dd\xi
+  =\frac{(v_0C-1)I(C)+2/b}{1-C^2}.
+  \label{eq:xi-second-integral}
+\end{equation}
+Substitution into \eqref{eq:psi-2d} and the symmetry \(\sin(\pi-t)=\sin t\) yield
+\begin{equation}
+\begin{aligned}
+  \Psi(e)=-4b^2\int_\theta^{\pi/2}
+  \bigg[&\frac{I(e\sin t)}a\\
+  &+\frac{e(\sin t-u_0)}{1-e^2\sin^2t}
+  \left((v_0e\sin t-1)I(e\sin t)+\frac2b\right)
+  \bigg]\dd t.
+\end{aligned}
+\label{eq:psi-1d}
+\end{equation}
+At \(e=0\), one has \(a=b=\sqrt3\),
+\[
+  \eta=\arsinh(1/\sqrt3)=\log\sqrt3,
+  \qquad
+  y=\tanh(\eta/2)=2-\sqrt3=\tan(\pi/12),
+\]
+so \(I(0)=\pi/3\).  If \(L=\pi/2-\theta=\arcsin(1/\sqrt3)\), then
+\[
+  \cos(2L)=1-2\sin^2L=\frac13,
+\]
+and hence \(L=\frac12\arccos(1/3)\).  Therefore
+\begin{equation}
+  \Psi(0)=-\frac{2\pi}{\sqrt3}\arccos\frac13.
+  \label{eq:psi-zero}
+\end{equation}
+Finally set \(x=b\cos t\).  Since \(b\cos\theta=1\), this sends \([\theta,\pi/2]\) to \([1,0]\), and
+\[
+  A(e,x)=\sin t=\sqrt{1-\frac{x^2}{b^2}},
+  \qquad
+  \dd t=-\frac{\dd x}{bA}.
+\]
+Thus
+\begin{equation}
+  \Psi(e)=\int_0^1H(e,x)\,\dd x,
+  \label{eq:fixed-H}
+\end{equation}
+where
+\begin{equation}
+H(e,x)=-\frac{4b}{A}
+\left[
+\frac{I(eA)}a
++\frac{e(A-u_0)}{1-e^2A^2}
+\left((v_0eA-1)I(eA)+\frac2b\right)
+\right].
+\label{eq:fixed-H-explicit}
+\end{equation}
+The stable parameter
+\begin{equation}
+  q=\frac{1-e}{1+e},
+  \qquad e=\frac{1-q}{1+q}
+  \label{eq:q}
+\end{equation}
+fixes the parabolic endpoint at \(q=0\).  The complete stable formula, branch control, and endpoint analyticity are proved in \Cref{app:q-chart}.
+
+\section{Endpoint value, strict concavity, and scalar positivity}
+\label{sec:certificate}
+
+The stable formula extends real analytically to \(0\le q\le1\), and hence \(\Phi\) extends to \([0,1]\).  At \(e=0\), exact differentiation gives
+\begin{equation}
+\begin{aligned}
+  \Phi'(0)=\frac12\bigg[&\frac{5\pi}{3\sqrt3}-3\\
+  &+\arccos\frac13
+  \left(\frac{3\sqrt2}{2}-\frac{5\sqrt6\,\pi}{18}\right)
+  \bigg]>0.
+\end{aligned}
+\label{eq:phi-prime-zero}
+\end{equation}
+The endpoint derivative is a consistency check; the compressed proof uses the parabolic endpoint and concavity.
+
+\begin{lemma}[Parabolic endpoint]
+\label{lem:parabolic-endpoint}
+The endpoint extension satisfies
+\begin{equation}
+  \Phi(0)=0,
+  \qquad
+  \Phi(1)>\frac1{4000}.
+  \label{eq:endpoint-bound}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+At \(q=0\), put \(K=(1+\sqrt2)^2\) and \(A=2K+x^2\).  The stable integrand simplifies to
+\begin{equation}
+\begin{aligned}
+H(0,x)=\bigg[&-\frac{16\sqrt2(1+\sqrt2)}{\sqrt A}
+ +\frac{4(1-x^2)(A-1)}{A^{3/2}}\bigg]
+ \arctan\frac1{\sqrt A}
+ -\frac{4(1-x^2)}A.
+\end{aligned}
+\label{eq:endpoint-integrand}
+\end{equation}
+The independent Arb/FLINT enclosure described in \Cref{app:arb} gives the conservative proof-authority bound
+\[
+  \Phi(1)>
+  0.0002951409916769718631415784748725\ldots
+  >\frac1{4000}.
+\]
+The tighter decimal produced by the earlier endpoint-interval audits is recorded only in the reproducibility comparison and is not used in the proof.
+\end{proof}
+
+\begin{lemma}[Strict concavity]
+\label{lem:concavity}
+For every \(0<e<1\),
+\begin{equation}
+  \Phi''(e)<-\frac1{100000}.
+  \label{eq:concavity-bound}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+In this paragraph, \(H(q,x)\) and \(\Psi(q)=\int_0^1H(q,x)\,\dd x\) denote the reparameterized functions under \(e=(1-q)/(1+q)\).  Since
+\[
+  q'(e)=-\frac{(1+q)^2}{2},
+  \qquad
+  q''(e)=\frac{(1+q)^3}{2},
+\]
+the chain rule gives
+\begin{equation}
+  \Phi''(e)=\frac{(1+q)^3}{32}
+  \int_0^1\left((1+q)H_{qq}(q,x)+2H_q(q,x)\right)\,\dd x.
+  \label{eq:concavity-identity}
+\end{equation}
+The independent Arb/FLINT certificate of \Cref{app:arb} partitions \([0,1]\) into 32 exact rational slabs and uses ten rational \(x\)-panels on each slab.  Its weakest upper endpoint is
+\[
+  -0.0000179286178483067822590960267370\ldots
+  <-\frac1{100000}.
+\]
+\end{proof}
+
+\begin{lemma}[Chord bound]
+\label{lem:chord}
+For every \(0<e<1\),
+\begin{equation}
+  \Phi(e)>\frac e{4000}>0.
+  \label{eq:chord-bound}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By \Cref{lem:concavity}, \(\Phi\) is strictly concave.  Therefore it lies above the chord joining its endpoint values:
+\[
+  \Phi(e)\ge(1-e)\Phi(0)+e\Phi(1).
+\]
+Apply \Cref{lem:parabolic-endpoint}.
+\end{proof}
+
+\section{Proof of the main theorem}
+
+\begin{proof}[Proof of \Cref{thm:main}]
+By dilation it is enough to take \(d=1\).  From \Cref{prop:additive,lem:chord},
+\[
+  \Vol K_1(\mathbf e,\boldsymbol\sigma)-\VM
+  =\Phi(e_1)+\Phi(e_2)+\Phi(e_3)\ge0.
+\]
+Equality forces \(e_1=e_2=e_3=0\), and the converse is immediate.  The two equality congruence classes are identified by \Cref{lem:orientation-orbits}.  Scaling by \(d\) proves \eqref{eq:main}.
+\end{proof}
+
+\section{Scope and reproducibility}
+
+The theorem concerns only regular-tetrahedron confocal Peabodies.  It does not prove the global Meissner conjecture, improve a universal lower bound, or establish a six-patch construction for arbitrary semi-regular tetrahedral bases.
+
+The exact part of the proof consists of the source construction, \Cref{lem:admissible,lem:normal-partition,lem:cap-cone,lem:orientation-orbits}, the width normalization, and the one-pair formulas.  The finite proof authority is an independently written Arb/FLINT implementation using \texttt{python-flint}.  The stable formula and its automatic-differentiation jets are reconstructed without importing the earlier \texttt{mpmath.iv} certifier.  The canonical proof uses four endpoint panels and 32 exact rational parameter slabs with ten integration panels each.  It is replayed at 384 and 512 bits and in reverse slab order.  A deliberately under-resolved control and a correction-sector sign mutation return semantic no-go certificates, as required.
+
+The earlier endpoint-interval implementations based on directed MPFR endpoints and on \texttt{mpmath.iv} produce tighter enclosures at the same nominal partition and agree closely with one another.  The Arb midpoint-radius calculation is wider.  These outputs are inclusion bounds rather than approximations to a single exact extremal value, so arithmetic precision alone does not force their endpoints to coincide.  The theorem uses only the conservative Arb bounds; the other calculations are retained as redundant audits.  A bounded partition-refinement study in the reproducibility package records the enclosure-width behavior without changing the formula or theorem.
+
+The major-revision package includes the Arb source, exact rational partitions, terminal balls, formula-identity checks, proof notes, and replay scripts.  The exact geometric and formula derivations were separately rederived during the five-point review.
+
+\paragraph{Code and data availability.}
+The proof-authority source and archived certificates are available at
+\href{https://github.com/swihart/meissner-minimality-confocal-peabody}{the public Confocal Peabody repository},
+in \texttt{review/dcg-five-points/}. Its repository identifier is
+\texttt{swihart/meissner-minimality-confocal-peabody}.
+The frozen input to this closeout review is
+repository revision \texttt{ab320cf}; its full identifier and SHA-256 file manifest
+are recorded in the closeout report.  The Arb implementation is pinned to
+\texttt{python-flint==0.9.0}.  The closeout audit verifies archived exact binary
+endpoints and provenance; it is distinct from reevaluating the transcendental
+functions in a fresh Arb replay.  The publication inequalities continue to use
+the canonical 324-box certificate, not a promoted refinement bound.
+
+\paragraph{AI assistance.}
+OpenAI ChatGPT was used as an interactive assistant for symbolic exploration,
+software development, adversarial checks, release preparation, and manuscript
+drafting.  The author is responsible for reviewing the mathematical claims,
+references, computations, and final submitted text.  Internal AI-assisted audits
+are not described as completed external human proofreading.
+
+\appendix
+
+\section{Stable chart, branch control, and parabolic analyticity}
+\label{app:q-chart}
+
+Put
+\[
+  \kappa=1+\sqrt2,
+  \qquad K=\kappa^2=3+2\sqrt2.
+\]
+From \eqref{eq:q},
+\[
+  e=\frac{1-q}{1+q},
+  \qquad
+  b=\frac D{\sqrt{2Kq}},
+  \qquad
+  a=\frac{(1+q)D}{2\sqrt{2K}\,q},
+\]
+where
+\begin{align*}
+  D&=\sqrt{K^2+q^2},\\
+  R&=\sqrt{K^2+q^2-2Kqx^2},\\
+  T&=\sqrt{2K(K^2+q^2)+K^2(1-q)^2x^2}.
+\end{align*}
+The quantities in \eqref{eq:fixed-H-explicit} become
+\[
+  A=\frac RD,
+  \qquad
+  u_0=\frac{K-q}{D},
+  \qquad
+  v_0=\frac{K+q}{D},
+  \qquad
+  C=\frac{(1-q)R}{(1+q)D},
+\]
+and
+\[
+  y=\frac{\sqrt{2Kq}}{K+q+D}.
+\]
+Moreover,
+\[
+  1-C^2=\frac{2qT^2}{K(1+q)^2D^2}.
+\]
+The two removable differences are
+\[
+  A-u_0=\frac{q\delta}{D},
+  \qquad
+  \delta=\frac{2K(1-x^2)}{R+K-q},
+\]
+and
+\[
+  v_0C-1=\frac{qM}{(1+q)D^2},
+\]
+where
+\[
+  M=\frac{K(q-2Kx^2)}{R+K}+(1-K)R-K^2-qR-q-q^2.
+\]
+These follow from
+\[
+  R^2-(K-q)^2=2Kq(1-x^2),
+  \qquad
+  R-K=\frac{q(q-2Kx^2)}{R+K}.
+\]
+
+Let
+\[
+  A_+=(1+q)D+(1-q)R,
+  \qquad
+  A_-=(1+q)D-(1-q)R.
+\]
+Then
+\[
+  A_+A_-=\frac{2q}{K}T^2,
+  \qquad
+  Z=\frac{KA_+}{T(K+q+D)}.
+\]
+For \(q>0\), all factors are positive and
+\[
+  y\sqrt{\frac{1+C}{1-C}}=Z.
+\]
+Consequently
+\[
+  I(C)=4\frac{(1+q)D}{T}\sqrt{\frac K{2q}}\,\arctan Z.
+\]
+Substitution into \eqref{eq:fixed-H-explicit} gives
+\begin{equation}
+  H(q,x)=(P_1+P_2)\arctan Z+Q_0,
+  \label{eq:stable-H}
+\end{equation}
+where
+\begin{align*}
+  P_1&=-\frac{16\sqrt2\,\kappa(K^2+q^2)}{RT},\\
+  P_2&=-\frac{4K(1-q^2)(K^2+q^2)\delta M}{RT^3},\\
+  Q_0&=-\frac{4K(1-q^2)(K^2+q^2)\delta}{RT^2}.
+\end{align*}
+Indeed,
+\[
+  -\frac{4b}{A}\frac{I(C)}a=P_1\arctan Z,
+\]
+while
+\[
+  \frac{e(A-u_0)}{1-C^2}=\frac{K(1-q^2)D\delta}{2T^2}
+\]
+and
+\[
+  (v_0C-1)I(C)+\frac2b
+  =\frac{4\sqrt{Kq/2}}D\left(\frac MT\arctan Z+1\right),
+\]
+which give \(P_2\) and \(Q_0\).
+
+We now fix the branch.  In the original formula,
+\[
+  C=e\sin t\in[0,1),
+  \qquad y=\tanh(\eta/2)>0,
+\]
+so the argument in \eqref{eq:I} is positive and represents the principal angle in \([0,\pi/2)\).  For \(0<q\le1\), the equality with \(Z\) above is an equality of positive quantities, not merely an identity after squaring.  Thus the principal branch is preserved on \((0,1]\times[0,1]\).
+
+At \(q=0\), the original elliptic--hyperbolic product is only a limiting expression.  The stable quantity \(Z\), however, remains positive and real analytic.  Hence \(\arctan Z\) continues on the same principal branch to the parabolic endpoint.
+
+Finally, on \(0\le q,x\le1\),
+\[
+  D^2\ge K^2,
+  \qquad
+  R^2\ge(K-q)^2\ge(K-1)^2>0,
+  \qquad
+  T^2\ge2K^3>0.
+\]
+Also
+\[
+  R+K-q\ge2(K-1)>0,
+  \quad R+K>0,
+  \quad K+q+D>0.
+\]
+Thus every radicand and denominator is uniformly separated from zero, and \eqref{eq:stable-H} contains no negative power of \(q\).  Hence \(H\) is real analytic on a neighborhood of the closed square \([0,1]^2\).  Differentiation under the fixed integral is justified, including on slabs meeting \(q=0\).
+
+\section{Independent Arb/FLINT verification}
+\label{app:arb}
+
+The proof authority for the two scalar inequalities is an independent implementation using Arb balls through \texttt{python-flint}.  Exact rational panel and slab endpoints are converted directly to Arb balls.  Arithmetic, square roots, and inverse tangents are evaluated with rigorous enclosure semantics.  The certifier reconstructs \eqref{eq:stable-H} and its automatic-differentiation jets independently of the earlier \texttt{mpmath.iv} implementation.
+
+For an \(x\)-panel \([a,b]\), with midpoint \(m\) and width \(h\), the certifier uses
+\begin{equation}
+  \int_a^bf(x)\,\dd x
+  \in h f(m)+\frac{h^3}{24}f''([a,b]).
+  \label{eq:midpoint}
+\end{equation}
+Four equal rational panels enclose the endpoint integral at \(q=0\).
+
+For concavity, put
+\[
+  C(q,x)=(1+q)H_{qq}(q,x)+2H_q(q,x).
+\]
+A nested automatic-differentiation jet encloses derivatives through third order in \(q\) and second order in \(x\).  The parameter interval is divided into
+\[
+  Q_j=\left[\frac j{32},\frac{j+1}{32}\right],
+  \qquad j=0,\ldots,31.
+\]
+On each slab, centered at \(q_j\), the mean-value enclosure
+\[
+  \int_0^1C(Q_j,x)\,\dd x
+  \subseteq
+  \int_0^1C(q_j,x)\,\dd x
+  +(Q_j-q_j)\int_0^1C_q(Q_j,x)\,\dd x
+\]
+is combined with ten rational \(x\)-panels and \eqref{eq:midpoint}.  Multiplication by \((1+Q_j)^3/32\) encloses \(\Phi''\).
+
+The 384-bit forward Arb certificate gives
+\[
+  \Phi(1)>
+  0.0002951409916769718631415784748725\ldots
+  >\frac1{4000},
+\]
+and
+\[
+  \sup_{0<e<1}\Phi''(e)
+  <-0.0000179286178483067822590960267370\ldots
+  <-\frac1{100000}.
+\]
+The 512-bit and reverse-order replays certify the same rational conclusions.  A deliberately under-resolved control and a correction-sector sign mutation return semantic no-go certificates.
+
+At the same nominal $32\times10$ partition, the two endpoint-interval implementations give
+\[
+\begin{array}{c|cc}
+ & \text{lower bound for }\Phi(1) & \text{weakest upper bound for }\Phi'' \\
+\hline
+\text{direct MPFR} & 0.000307652868249034\ldots & -0.000041649190336146\ldots \\
+\texttt{mpmath.iv} & 0.000307652868249034\ldots & -0.000041679824171374\ldots
+\end{array}
+\]
+whereas the canonical Arb balls give
+\[
+  0.000295140991676972\ldots,
+  \qquad
+  -0.000017928617848307\ldots .
+\]
+The direct-MPFR intervals contain the corresponding \texttt{mpmath.iv} intervals on all 32 slabs, and the two endpoint enclosures agree to the displayed precision.  The wider Arb result is reported openly and is the sole proof authority.  No claim is made that the earlier \texttt{mpmath.iv} enclosures were false; their trust boundary is simply not used for publication.
+
+\input{generated_enclosure_reconciliation_closeout.tex}
+
+\begin{thebibliography}{99}
+\bibitem{ArelioMontejanoOliveros2023}
+I.~Arelio, L.~Montejano, and D.~Oliveros.
+\newblock Peabodies of constant width.
+\newblock \emph{Beitr. Algebra Geom.}, 64:367--385, 2023.
+
+\bibitem{AnciauxGuilfoyle2011}
+H.~Anciaux and B.~Guilfoyle.
+\newblock On the three-dimensional Blaschke--Lebesgue problem.
+\newblock \emph{Proc. Amer. Math. Soc.}, 139(5):1831--1839, 2011.
+
+\bibitem{Blaschke1915}
+W.~Blaschke.
+\newblock Konvexe Bereiche gegebener konstanter Breite und kleinsten Inhalts.
+\newblock \emph{Math. Ann.}, 76:504--513, 1915.
+
+\bibitem{ChakerianGroemer1983}
+G.~D. Chakerian and H.~Groemer.
+\newblock Convex bodies of constant width.
+\newblock In P.~M. Gruber and J.~M. Wills, editors, \emph{Convexity and Its Applications}, pages 49--96. Birkh\"auser, Basel, 1983.
+
+\bibitem{KawohlWeber2011}
+B.~Kawohl and C.~Weber.
+\newblock Meissner's mysterious bodies.
+\newblock \emph{Math. Intelligencer}, 33(3):94--101, 2011.
+
+\bibitem{Lebesgue1914}
+H.~Lebesgue.
+\newblock Sur le probl\`eme des isop\'erim\`etres et sur les domaines de largeur constante.
+\newblock \emph{Bull. Soc. Math. France}, 42:72--76, 1914.
+
+\bibitem{MartiniMontejanoOliveros2019}
+H.~Martini, L.~Montejano, and D.~Oliveros.
+\newblock \emph{Bodies of Constant Width: An Introduction to Convex Geometry with Applications}.
+\newblock Birkh\"auser, Cham, 2019.
+
+
+\bibitem{Schneider2014}
+R.~Schneider.
+\newblock \emph{Convex Bodies: The Brunn--Minkowski Theory}, second expanded edition.
+\newblock Cambridge University Press, Cambridge, 2014.
+
+\bibitem{Nishioka2026}
+A.~Nishioka.
+\newblock An improved lower bound for the three-dimensional Blaschke--Lebesgue problem from spectral and dual perspectives.
+\newblock arXiv:2606.01754, 2026.
+\end{thebibliography}
+\end{document}

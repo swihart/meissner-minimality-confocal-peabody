@@ -1,35 +1,55 @@
-# Confocal Peabody five-point DCG revision checkpoint
+# Confocal Peabody DCG major revision
 
-**Date:** 2026-10-08  
-**Target branch:** `review/dcg-five-points`  
-**Immutable baseline:** public release tag `v1.0.0`
+**Current repository:** `swihart/meissner-minimality-confocal-peabody`
+**Current branch:** `review/dcg-major-revision`
+**Audited input checkpoint:** `ab320cf`
+**Protected public baseline:** `v1.0.0` (`1485d7e`)
 
-This checkpoint begins the finite major revision prompted by the five-point review of *Meissner Minimality in the Confocal Peabody Family*.  It does not reopen the regular-tetrahedron Peabody search, enlarge the theorem's scope, or start a semi-regular construction campaign.
+This directory contains the bounded revision of the restricted-family theorem: the classical Meissner degenerations minimize volume among width-one regular-tetrahedron confocal Peabodies. The revision does not establish global Meissner extremality or a universal lower-bound improvement. The regular Peabody search and semi-regular extensions remain closed.
 
-## Principal progress
+## Current manuscript
 
-1. **Independent rigorous arithmetic.**  A second certifier was written in C against MPFR.  It reconstructs the stable formula independently of the principal Python certifier and calls `mpfr_sqrt` and `mpfr_atan` with explicit downward/upward rounding.  The assistant preflight proves the publication-headroom bounds
-   \[
-   \Phi(1)>1/4000,
-   \qquad
-   \Phi''(e)<-1/30000.
-   \]
-   The release script deliberately requires the official `mpfr.h`; the author's local official-header replay is the remaining promotion gate.
-2. **Full-parameter geometry.**  A proof draft connects the explicit eccentricity chart to the source construction for every `e` and every orientation pattern, then proves the almost-everywhere normal-sphere partition used in the area bookkeeping.
-3. **Formula derivation and branch control.**  A detailed supplement derives the one-pair formula, fixed-interval formula, stable `q` chart, and global principal-`arctan` branch.  An exact SymPy audit reduces the frozen algebraic identities to zero.
-4. **Parabolic regularity.**  Uniform positive radicand and denominator bounds prove real analyticity at `q=0`.
-5. **Equality and seams.**  The eight zero-parameter orientations are classified into the two classical Meissner congruence classes, and the seam Gauss images are shown to have spherical area zero.
+The source checkpoint contains the following reconciled source/PDF pair, retained unchanged:
 
-## Current status
+- `manuscript/main_dcg_revision_enclosure_reconciled.tex`
+- `manuscript/main_dcg_revision_enclosure_reconciled.pdf`
+- `manuscript/generated_enclosure_reconciliation.tex` (required local input)
 
-This is a **revision checkpoint**, not yet the final DCG submission package.
+The `main_dcg_revision_checkpoint` and `main_dcg_revision_points_1_3_closed` files are earlier drafts. `manuscript/current/` at the repository root is the public-release manuscript, not this revision.
 
-- Reviewer Points 4 and 5 are analytically closed.
-- Point 2 has a successful direct-MPFR assistant preflight and awaits the author's official-header replay.
-- Points 1 and 3 have complete proof drafts integrated into a 12-page revision manuscript and await independent human proofreading.
+The corrected closeout source is `manuscript/main_dcg_closeout_review.tex`, with required input `manuscript/generated_enclosure_reconciliation_closeout.tex`. Its build and preview-font details are in `manuscript/README.md`. The current gate is `python3 review/dcg-five-points/python/validate_current_closeout.py --repo-root .` from the repository root. See `closeout/CLOSEOUT_REPORT.md` for its exact scope and remaining submission gates.
 
-See `REVIEW_PROGRESS_LEDGER.md` for the standing status and `LOCAL_REPLAY.md` for the mandatory MPFR replay.
+## Exact reviewer status
 
-## Revision manuscript
+| Point | Status in the recorded checkpoint | Remaining work |
+|---|---|---|
+| 1: Full-parameter geometry and Gauss partition | Closed internally; corrected construction and cap-cone arguments supplied | External source-convention or convex-geometer proofreading remains recommended |
+| 2: Rigorous-arithmetic provenance | Closed by the archived Arb/FLINT replay and completed enclosure reconciliation | Final editorial consistency audit |
+| 3: Formula derivation and branch control | Closed internally; complete derivations and exact identity audits supplied | External line-by-line proofreading remains recommended |
+| 4: Parabolic endpoint regularity | Closed analytically | Final editorial review |
+| 5: Orientation classes, equality, and seam nullity | Closed analytically | Final editorial review |
 
-`manuscript/main_dcg_revision_checkpoint.pdf` integrates all five reviewer responses at draft level.  It is not yet a submission version: Point 2 still requires the official-header replay, and Points 1 and 3 still require independent human proofreading.
+See `REVIEW_PROGRESS_LEDGER.md` and `data/reviewer_point_progress.json`. The package contains internal proofreading notes and a draft referee response. It does not contain an identifiable external reviewer response or confirmation from the source authors. A statement in a draft response about correspondence is not evidence that the external review was completed.
+
+This remains a review package; final submission approval has not been recorded.
+
+## Proof authority and completed reconciliation
+
+The revised manuscript uses the independently implemented Arb/FLINT certifier and the conservative scalar bounds
+
+$$
+\Phi(1)>\frac1{4000},\qquad
+\Phi''(e)<-\frac1{100000}\quad(0<e<1).
+$$
+
+The archived authoritative replay comprises 384-bit and 512-bit forward runs, a 384-bit reverse run, exact-rational partition coverage, and rejected under-resolution and sign-mutation controls. Its data are under `results/arb/`. `ARB_NO_BREW_REPLAY.md` documents the supported replay and trust boundary.
+
+The bounded reconciliation is complete in `results/enclosure-reconciliation/enclosure_reconciliation.json`, with classification `PEABODY_ENCLOSURE_RECONCILIATION_PASS`. It records the 32-by-10, 64-by-20, and 128-by-20 Arb comparison and 4-, 8-, and 16-panel endpoint calculations. At the frozen 32-by-10 partition, all 32 direct-MPFR intervals contain their legacy `mpmath.iv` counterparts. Arb's coarse enclosures are wider, and the bounded refinements tighten them. This did not show the older calculation false and does not change the published conservative targets.
+
+Direct-MPFR runtime-only preflight data, legacy `mpmath.iv`, Mathematica, and R are supporting audits. An official-header MPFR run is not an outstanding prerequisite for the Arb-based manuscript. `LOCAL_REPLAY.md`, the original MPFR trust note, and the MPFR preflight README describe the superseded initial promotion route.
+
+## Historical manifest scope
+
+`CHECKPOINT_MANIFEST.json`, `SHA256SUMS.txt`, and `python/validate_checkpoint_package.py` describe the initial 51-file checkpoint, before the Arb promotion, proof corrections, and reconciliation. They are preserved as history, not a checksum claim for this expanded directory. In particular, the old validator requires Point 2 to remain open, so its failure on the current closed review state is expected and must not be presented as a theorem failure.
+
+The immutable root theorem package and analytical-compression manifests retain their original scopes. The historical `release_audit/` layer likewise predates this DCG revision. Current closeout checks must use a separately scoped current manifest and audit report rather than rewriting those historical records.

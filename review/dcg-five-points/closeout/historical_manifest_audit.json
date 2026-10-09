@@ -1,0 +1,123 @@
+{
+  "input_checkpoint": "ab320cf",
+  "method": "stdlib SHA-256 and file byte-size check; not arithmetic replay",
+  "records": [
+    {
+      "manifest": "PACKAGE_MANIFEST.json",
+      "count": 50,
+      "passing": 50,
+      "failures": []
+    },
+    {
+      "manifest": "release_audit/RELEASE_AUDIT_MANIFEST.json",
+      "count": 102,
+      "passing": 101,
+      "failures": [
+        {
+          "path": "results/release_audit_manifest_transcript.txt",
+          "exists": true,
+          "hash_ok": false,
+          "size_ok": false
+        }
+      ]
+    },
+    {
+      "manifest": "research/confocal_peabody_analytic_compression/PACKAGE_MANIFEST.json",
+      "count": 38,
+      "passing": 38,
+      "failures": []
+    },
+    {
+      "manifest": "review/dcg-five-points/CHECKPOINT_MANIFEST.json",
+      "count": 51,
+      "passing": 47,
+      "failures": [
+        {
+          "path": "REVIEW_PROGRESS_LEDGER.md",
+          "exists": true,
+          "hash_ok": false,
+          "size_ok": false
+        },
+        {
+          "path": "data/reviewer_point_progress.json",
+          "exists": true,
+          "hash_ok": false,
+          "size_ok": false
+        },
+        {
+          "path": "notes/01_full_parameter_geometry_and_gauss_partition.md",
+          "exists": true,
+          "hash_ok": false,
+          "size_ok": false
+        },
+        {
+          "path": "notes/03_formula_derivation_and_branch_control.md",
+          "exists": true,
+          "hash_ok": false,
+          "size_ok": false
+        }
+      ]
+    },
+    {
+      "checksums": "SHA256SUMS.txt",
+      "count": 51,
+      "passing": 51,
+      "failures": []
+    },
+    {
+      "checksums": "release_audit/SHA256SUMS.txt",
+      "count": 42,
+      "passing": 39,
+      "failures": [
+        {
+          "path": "R/peabody_release_semantic_audit.R",
+          "exists": true,
+          "hash_ok": false
+        },
+        {
+          "path": "RELEASE_AUDIT_MANIFEST.json",
+          "exists": true,
+          "hash_ok": false
+        },
+        {
+          "path": "scripts/run_R_release_audit.sh",
+          "exists": true,
+          "hash_ok": false
+        }
+      ]
+    },
+    {
+      "checksums": "research/confocal_peabody_analytic_compression/SHA256SUMS.txt",
+      "count": 38,
+      "passing": 38,
+      "failures": []
+    },
+    {
+      "checksums": "review/dcg-five-points/SHA256SUMS.txt",
+      "count": 52,
+      "passing": 48,
+      "failures": [
+        {
+          "path": "REVIEW_PROGRESS_LEDGER.md",
+          "exists": true,
+          "hash_ok": false
+        },
+        {
+          "path": "data/reviewer_point_progress.json",
+          "exists": true,
+          "hash_ok": false
+        },
+        {
+          "path": "notes/01_full_parameter_geometry_and_gauss_partition.md",
+          "exists": true,
+          "hash_ok": false
+        },
+        {
+          "path": "notes/03_formula_derivation_and_branch_control.md",
+          "exists": true,
+          "hash_ok": false
+        }
+      ]
+    }
+  ]
+}

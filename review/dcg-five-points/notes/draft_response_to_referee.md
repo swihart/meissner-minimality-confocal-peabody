@@ -4,7 +4,7 @@ We thank the reviewer for the careful second audit and for verifying the load-be
 
 ## Why the restricted theorem is not automatic
 
-We added a paragraph to the introduction explaining that the result is not a consequence of the Bonnesen--Fenchel conjecture, since that conjecture remains open.  The fully tetrahedrally symmetric Robert endpoint is a natural competing shape, whereas the Meissner bodies break full tetrahedral symmetry.  A high-precision evaluation places the Robert endpoint only about 0.27% above the Meissner volume.  The exact disappearance of all mixed terms between the three opposite-edge deformations and the positivity of the one-pair scalar increment are therefore substantive parts of the theorem.
+We added a paragraph to the introduction explaining that the restricted result is proved independently, without assuming the still-open Bonnesen--Fenchel conjecture.  The fully tetrahedrally symmetric Robert endpoint is a natural competing shape, whereas the Meissner bodies break full tetrahedral symmetry.  A high-precision evaluation places the Robert endpoint only about 0.27% above the Meissner volume.  The exact disappearance of all mixed terms between the three opposite-edge deformations and the positivity of the one-pair scalar increment are therefore substantive parts of the theorem.
 
 We did **not** adopt two qualitative statements from the review:
 
@@ -41,14 +41,18 @@ At the same nominal 32-by-10 partition, the archived endpoint-interval implement
 
 A slabwise audit shows that the direct-MPFR intervals contain the corresponding `mpmath.iv` intervals on all 32 slabs.  The endpoint enclosures agree to the displayed precision.  Accordingly, the revision does **not** claim that the older `mpmath.iv` calculation was shown false.  Instead, it states plainly that the Arb midpoint-radius evaluation is wider on the coarse partition and that only the conservative Arb result is used for publication.
 
-A bounded refinement audit is included in the revision package.  It reruns Arb on 32-by-10, 64-by-20, and 128-by-20 partitions and evaluates the parabolic endpoint with 4, 8, and 16 panels.  The audit is designed to distinguish enclosure-width or wrapping effects from arithmetic precision without changing the formula, theorem, or proof target.
+The completed bounded refinement audit is archived with classification `PEABODY_ENCLOSURE_RECONCILIATION_PASS`. It ran Arb on 32-by-10, 64-by-20, and 128-by-20 partitions and evaluates the parabolic endpoint with 4, 8, and 16 panels.  The audit is designed to distinguish enclosure-width or wrapping effects from arithmetic precision without changing the formula, theorem, or proof target.
 
 The former sentence that the enclosures merely "overlap" has been removed.
 
 ## Remaining source-level review
 
-The cap--cone converse and the invocation of the source global assembly theorem remain deliberately tied to the cited Peabody construction.  We have sent the full-parameter geometry note and revised manuscript to the source authors for an external construction-level review.  These are now citation-depth and expert-proofreading questions rather than omitted calculations.
+The cap--cone converse and the invocation of the source global assembly theorem remain deliberately tied to the cited Peabody construction.  External source-convention and formula proofreading remain recommended before submission. No completed external-review response or correspondence confirming delivery is archived in this checkpoint.  These are now citation-depth and expert-proofreading questions rather than omitted calculations.
 
 ## Scope
 
 The theorem remains restricted to regular-tetrahedron confocal Peabodies.  We make no claim of global Meissner extremality, no universal lower-bound improvement, and no extension to arbitrary semi-regular tetrahedral bases.
+
+## Closeout audit of the recorded revision
+
+The closeout review of source checkpoint `ab320cf` independently checks the archived exact binary endpoints, all 96 authoritative concavity slabs, all 224 diagnostic refinement slabs, and the associated input hashes. It does not claim a fresh Arb replay or completed external human review. The revised table rounds lower bounds downward and upper bounds upward and states every partition explicitly. Historical initial-checkpoint manifests are preserved under their original scope; the current closeout has a separate manifest and validator.
