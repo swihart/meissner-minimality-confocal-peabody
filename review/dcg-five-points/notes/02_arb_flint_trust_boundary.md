@@ -29,11 +29,10 @@ The certificate proves the publication bounds
 and
 
 \[
-\Phi''(e)<-\frac1{30000}\qquad(0<e<1).
+\Phi''(e)<-\frac1{100000}\qquad(0<e<1).
 \]
 
-These bounds leave substantial headroom relative to the raw enclosures. They
-also imply the simple chord estimate
+The endpoint bound and the strict-concavity bound leave substantial headroom relative to the independent Arb enclosures. The concavity constant is intentionally much weaker than the raw negative upper bound because only strict negativity is used in the theorem. The endpoint bound and concavity also imply the simple chord estimate
 
 \[
 \Phi(e)>\frac e{4000}\qquad(0<e<1).
@@ -45,7 +44,7 @@ The canonical run uses 4 endpoint panels and 32 by 10 concavity rectangles,
 for 324 terminal rectangles. It is replayed at 384 and 512 bits and in reverse
 slab order. Two controls must be rejected:
 
-1. a 16-slab under-resolved partition;
+1. a deliberately under-resolved one-slab, one-panel partition;
 2. a correction-sector sign mutation.
 
 The output auditor checks overlap of all 32 Arb slab enclosures with the

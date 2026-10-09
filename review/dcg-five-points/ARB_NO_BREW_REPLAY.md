@@ -17,7 +17,7 @@ The proof targets are deliberately conservative:
 \[
 \Phi(1)>\frac1{4000},
 \qquad
-\Phi''(e)<-\frac1{30000}\quad(0<e<1).
+\Phi''(e)<-\frac1{100000}\quad(0<e<1).
 \]
 
 The canonical certificate uses:
@@ -43,7 +43,7 @@ The runner:
 3. installs exactly `python-flint==0.9.0` from a binary wheel;
 4. archives the pip install report and module provenance;
 5. runs 384-bit, 512-bit, and reverse-order certificates;
-6. requires an under-resolved partition and a correction-sign mutation to fail;
+6. requires a deliberately under-resolved one-slab, one-panel partition and a correction-sign mutation to fail;
 7. compares every Arb slab with the archived direct-MPFR preflight enclosure;
 8. checks every generated-output hash;
 9. emits `PEABODY_ARB_NO_BREW_REPLAY_PASS` only if every gate passes.

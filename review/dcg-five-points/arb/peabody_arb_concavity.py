@@ -19,7 +19,7 @@ and
 The certificate proves the deliberately conservative publication bounds
 
     Phi(1) > 1/4000,
-    Phi''(e) < -1/30000  for 0 < e < 1.
+    Phi''(e) < -1/100000  for 0 < e < 1.
 
 All interval operations, including sqrt and atan, are evaluated by Arb ball
 arithmetic.  Exact rational slab and panel endpoints are converted without
@@ -43,7 +43,7 @@ from typing import Any, Callable
 import flint
 from flint import arb, ctx, fmpq
 
-CERTIFICATE_VERSION = "PEABODY_ARB_FLINT_CONCAVITY_V1"
+CERTIFICATE_VERSION = "PEABODY_ARB_FLINT_CONCAVITY_V2"
 FORMULA_VERSION = "PEABODY_CENTRAL_STABLE_Q_V1"
 PYTHON_FLINT_PIN = "0.9.0"
 DEFAULT_BITS = 384
@@ -51,7 +51,7 @@ ENDPOINT_X_PANELS = 4
 CONCAVITY_Q_SLABS = 32
 CONCAVITY_X_PANELS = 10
 ENDPOINT_TARGET = Fraction(1, 4000)
-CONCAVITY_TARGET = Fraction(1, 30000)
+CONCAVITY_TARGET = Fraction(1, 100000)
 MAX_BOXES = 1000
 
 

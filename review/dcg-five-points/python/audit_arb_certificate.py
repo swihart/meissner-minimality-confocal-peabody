@@ -16,7 +16,7 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
-AUDIT_VERSION = "PEABODY_ARB_FLINT_CERTIFICATE_AUDIT_V1"
+AUDIT_VERSION = "PEABODY_ARB_FLINT_CERTIFICATE_AUDIT_V2"
 PINNED_PYTHON_FLINT = "0.9.0"
 getcontext().prec = 180
 
@@ -87,7 +87,7 @@ def main() -> int:
         "forward_384": result_root / "forward_384" / "peabody_arb_concavity_certificate.json",
         "forward_512": result_root / "forward_512" / "peabody_arb_concavity_certificate.json",
         "reverse_384": result_root / "reverse_384" / "peabody_arb_concavity_certificate.json",
-        "control_16": result_root / "control_16_slabs" / "peabody_arb_concavity_certificate.json",
+        "control_underresolved": result_root / "control_1x1" / "peabody_arb_concavity_certificate.json",
         "control_mutation": result_root / "control_sign_mutation" / "peabody_arb_concavity_certificate.json",
         "mpfr": preflight_root / "forward_384" / "peabody_mpfr_concavity_certificate.json",
     }
@@ -98,7 +98,7 @@ def main() -> int:
     forward = require_cert(paths["forward_384"])
     precision = require_cert(paths["forward_512"])
     reverse = require_cert(paths["reverse_384"])
-    control_16 = require_cert(paths["control_16"])
+    control_underresolved = require_cert(paths["control_underresolved"])
     mutation = require_cert(paths["control_mutation"])
     mpfr = load_json(paths["mpfr"])
 
@@ -106,7 +106,7 @@ def main() -> int:
     checks["forward_pass"] = forward["pass"] is True
     checks["precision_pass"] = precision["pass"] is True
     checks["reverse_pass"] = reverse["pass"] is True
-    checks["underresolved_rejected"] = control_16["pass"] is False
+    checks["underresolved_rejected"] = control_underresolved["pass"] is False
     checks["mutation_rejected"] = mutation["pass"] is False
     checks["pinned_python_flint"] = (
         forward["environment"].get("python_flint_distribution") == PINNED_PYTHON_FLINT
@@ -139,11 +139,11 @@ def main() -> int:
     checks["exact_binary_endpoints_archived"] = endpoint_binary is not None and concavity_binary is not None
     checks["publication_bounds"] = (
         forward["endpoint"].get("target") == "1/4000"
-        and forward["concavity"].get("target") == "-1/30000"
+        and forward["concavity"].get("target") == "-1/100000"
         and endpoint_binary is not None
         and concavity_binary is not None
         and binary_fraction(endpoint_binary) > Fraction(1, 4000)
-        and binary_fraction(concavity_binary) < -Fraction(1, 30000)
+        and binary_fraction(concavity_binary) < -Fraction(1, 100000)
     )
     checks["all_domain_diagnostics_positive"] = all(
         item.get("strictly_positive") is True

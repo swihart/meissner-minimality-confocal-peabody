@@ -7,7 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
-PROMOTION_VERSION = "PEABODY_DCG_ARB_FLINT_PROMOTION_V1"
+PROMOTION_VERSION = "PEABODY_DCG_ARB_FLINT_PROMOTION_V2"
 
 
 def sha256(path: Path) -> str:
@@ -48,7 +48,7 @@ def main() -> int:
     old_fragments = [
         (
             "| 2 | Interval-arithmetic trust boundary | **DIRECT-MPFR PREFLIGHT PASS — 85%** | "
-            "Independent C implementation; 384/512-bit and reverse-order passes; under-resolved and sign-mutation controls rejected; high-headroom bounds `Phi(1)>1/4000` and `Phi''<-1/30000` | "
+            "Independent C implementation; 384/512-bit and reverse-order passes; under-resolved and sign-mutation controls rejected; high-headroom bounds `Phi(1)>1/4000` and `Phi''<-1/100000` | "
             "Author's local replay compiled with official `mpfr.h`; archive compiler/MPFR transcript and generated results. Optional Arb replay is no longer mandatory if official MPFR replay passes |"
         ),
         (
@@ -59,7 +59,7 @@ def main() -> int:
     ]
     new_fragment = (
         "| 2 | Interval-arithmetic trust boundary | **CLOSED — INDEPENDENT ARB/FLINT REPLAY PASS — 100%** | "
-        "Independent `python-flint` 0.9.0 implementation; rigorous Arb balls for arithmetic, `sqrt`, and `atan`; 384/512-bit and reverse-order passes; under-resolved and sign-mutation controls rejected; overlap with the archived direct-MPFR preflight; high-headroom bounds `Phi(1)>1/4000` and `Phi''<-1/30000` | "
+        "Independent `python-flint` 0.9.0 implementation; rigorous Arb balls for arithmetic, `sqrt`, and `atan`; 384/512-bit and reverse-order passes; under-resolved and sign-mutation controls rejected; overlap with the archived direct-MPFR preflight; high-headroom bounds `Phi(1)>1/4000` and `Phi''<-1/100000` | "
         "Final editorial integration into the DCG manuscript and release-response letter only |"
     )
     ledger = ledger_path.read_text(encoding="utf-8")

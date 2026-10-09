@@ -9,7 +9,7 @@ import json
 import subprocess
 from pathlib import Path
 
-VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V1"
+VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V2"
 
 
 def sha256(path: Path) -> str:
@@ -32,6 +32,7 @@ def main() -> int:
         root / "python" / "validate_arb_gate_scaffold.py",
         root / "scripts" / "run_arb_no_brew_replay.sh",
         root / "notes" / "02_arb_flint_trust_boundary.md",
+        root / "notes" / "02a_arb_initial_target_calibration.md",
         root / "ARB_NO_BREW_REPLAY.md",
         root / "REVIEW_PROGRESS_LEDGER.md",
         root / "data" / "reviewer_point_progress.json",
@@ -58,7 +59,7 @@ def main() -> int:
     checks["python_flint_pin_present"] = 'PYTHON_FLINT_PIN = "0.9.0"' in certifier
     checks["publication_targets_present"] = (
         "ENDPOINT_TARGET = Fraction(1, 4000)" in certifier
-        and "CONCAVITY_TARGET = Fraction(1, 30000)" in certifier
+        and "CONCAVITY_TARGET = Fraction(1, 100000)" in certifier
     )
     checks["independent_no_principal_import"] = not any(
         token in certifier
@@ -76,7 +77,7 @@ def main() -> int:
         marker in runner_text
         for marker in (
             "forward_384", "forward_512", "reverse_384",
-            "control_16_slabs", "control_sign_mutation",
+            "control_1x1", "control_sign_mutation",
         )
     )
 

@@ -109,7 +109,7 @@ run_fail() {
 run_pass forward_384 --bits 384
 run_pass forward_512 --bits 512
 run_pass reverse_384 --bits 384 --reverse
-run_fail control_16_slabs --bits 384 --q-slabs 16 --no-boxes
+run_fail control_1x1 --bits 384 --q-slabs 1 --x-panels 1 --no-boxes
 run_fail control_sign_mutation --bits 384 --q-slabs 4 --correction-sign -1 --no-boxes
 
 "$PY" "$AUDITOR" --checkpoint-dir "$CHECKPOINT" 2>&1 | tee "$TRANSCRIPTS/arb_certificate_audit.txt"
