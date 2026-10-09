@@ -1,0 +1,23 @@
+{
+  "promotion_version": "PEABODY_DCG_ARB_FLINT_PROMOTION_V2",
+  "classification": "PEABODY_DCG_POINT_2_ARB_FLINT_PROMOTION_PASS",
+  "pass": true,
+  "reviewer_point": 2,
+  "status": {
+    "status": "CLOSED_INDEPENDENT_ARB_FLINT_REPLAY_PASS",
+    "percent": 100,
+    "closed": true
+  },
+  "python_flint_distribution": "0.9.0",
+  "endpoint_lower": "0.0002951409916769718631415784748725175136179614226967354383939942259628075765432973626751247280310937312123062403513694364395449447074",
+  "endpoint_target": "1/4000",
+  "worst_phi_second_upper": "-1.792861784830678225909602673707867153755716361096718434897114891181498250877176707817152067574704703357304726379738515612113840778e-5",
+  "concavity_target": "-1/100000",
+  "hashes": {
+    "local_replay_summary": "a3c3b8b35da1e2c6bf5862791b052e848df8ab109d53d2f6915d22836a1629c8",
+    "arb_certificate_audit": "b454883359d3fd29eeae23056d8aff172e534eb92a03f24df88bbadcd916cda0",
+    "forward_384_certificate": "fd603f35bdb22862548ced4569b337f93eeae8fd317a0c476b1828dd78506e7d"
+  },
+  "homebrew_used": false,
+  "system_package_manager_used": false
+}

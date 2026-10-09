@@ -1,0 +1,2 @@
+Looking in links: /var/folders/vg/px_k0j5556qcc3l39cm0z4s1dyvn_8/T/tmp5xs14rn7
+Requirement already satisfied: pip in /Users/swihartbj/.cache/peabody-arb/python-flint-0.9.0-py3.14/lib/python3.14/site-packages (26.2.1)

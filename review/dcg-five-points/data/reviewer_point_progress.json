@@ -9,9 +9,9 @@
       "closed": false
     },
     "2": {
-      "status": "ARB_FLINT_NO_BREW_REPLAY_READY",
-      "percent": 90,
-      "closed": false
+      "status": "CLOSED_INDEPENDENT_ARB_FLINT_REPLAY_PASS",
+      "percent": 100,
+      "closed": true
     },
     "3": {
       "status": "DERIVATION_AND_MANUSCRIPT_INTEGRATION_COMPLETE",

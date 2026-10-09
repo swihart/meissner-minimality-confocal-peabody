@@ -1,0 +1,11 @@
+{
+  "classification": "PEABODY_DCG_ARB_NO_BREW_REPLAY_PASS",
+  "pass": true,
+  "audit_sha256": "b454883359d3fd29eeae23056d8aff172e534eb92a03f24df88bbadcd916cda0",
+  "python_flint_environment_sha256": "c47bb861ce5162cd4583bc49b74f9d2c1b91c50817ba99092664314a22608e66",
+  "venv": "/Users/swihartbj/.cache/peabody-arb/python-flint-0.9.0-py3.14",
+  "base_python": "/usr/local/bin/python3.14",
+  "python_flint_pin": "0.9.0",
+  "homebrew_used": false,
+  "system_package_manager_used": false
+}
