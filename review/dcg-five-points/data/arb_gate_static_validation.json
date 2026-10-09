@@ -1,0 +1,32 @@
+{
+  "validator_version": "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V1",
+  "classification": "PEABODY_ARB_GATE_SCAFFOLD_PASS",
+  "pass": true,
+  "checks": {
+    "all_expected_files_present": true,
+    "python_ast_parse": true,
+    "shell_syntax": true,
+    "python_flint_pin_present": true,
+    "publication_targets_present": true,
+    "independent_no_principal_import": true,
+    "no_homebrew_in_runner": true,
+    "binary_wheel_policy": true,
+    "isolated_venv": true,
+    "three_replays_and_two_controls": true,
+    "progress_ledger_ready": true
+  },
+  "actual_arb_runtime_executed_in_builder_environment": false,
+  "reason": "python-flint was unavailable in the builder environment; local wheel replay remains mandatory",
+  "file_hashes": {
+    "arb/peabody_arb_concavity.py": "d5cc4e6ea89df7c2fdc6d4e2b873eeedcee4b666c9a7267408eee29cf2b6a624",
+    "arb/requirements-arb.txt": "4cef508304e84c21f73cf412712165dc26e40978cb784bc08a876948b559d90d",
+    "python/audit_arb_certificate.py": "b47c8b53182286abd55fc674a64538f51ac8ff5a19c7c9f0449458fde093d07e",
+    "python/promote_arb_replay.py": "0fab1e5f55061a87b9e215ad81e86ceaf3a5031634e6e4323a4334752616a94f",
+    "python/validate_arb_gate_scaffold.py": "ff545b1914f38680c220ed99c696bdbd8550bd688f3019c48ba78262e00d168d",
+    "scripts/run_arb_no_brew_replay.sh": "6df4b16ddf5a1cbfe748dba72bb0e47c4034113aeac04d8fcc1b0bee00b53440",
+    "notes/02_arb_flint_trust_boundary.md": "7213f36dbe00631b43b6c8d083894b33986270c923d7b9eaf9db34956e145849",
+    "ARB_NO_BREW_REPLAY.md": "1b4208b5ea0312d23d70b54f23846682f00384073dbf9f06bcba397efe15f2c4",
+    "REVIEW_PROGRESS_LEDGER.md": "a1b0f67083dfb3d9a171cfdc52c340e2058d9b28748fe7894ad3801c5b3eab6c",
+    "data/reviewer_point_progress.json": "98b9b7fba2cd6d7e2fd10832c21a11d6c6f76b7ab43cee5bd2e19ab8a659fb1e"
+  }
+}
