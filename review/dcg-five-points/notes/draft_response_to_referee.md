@@ -1,50 +1,54 @@
-# Draft response to the five-point review
+# Draft response to the follow-up review
 
-We thank the reviewer for a careful and constructive report. The revision has been organized around the five requested points. The theorem statement and its scope are unchanged.
+We thank the reviewer for the careful second audit and for verifying the load-bearing geometric and algebraic identities independently.  We have adopted the substantive recommendations and made the interval-certificate provenance explicit.
 
-## 1. Convexity, constant width, and the normal-sphere tiling
+## Why the restricted theorem is not automatic
 
-We expanded Section 2 substantially.
+We added a paragraph to the introduction explaining that the result is not a consequence of the Bonnesen--Fenchel conjecture, since that conjecture remains open.  The fully tetrahedrally symmetric Robert endpoint is a natural competing shape, whereas the Meissner bodies break full tetrahedral symmetry.  A high-precision evaluation places the Robert endpoint only about 0.27% above the Meissner volume.  The exact disappearance of all mixed terms between the three opposite-edge deformations and the positivity of the one-pair scalar increment are therefore substantive parts of the theorem.
 
-- The explicit eccentricity chart is now matched to the source definition of a **convex confocal** pea-pod pair, including the principal-circle centers, the two bulb centers, and the ordering inequalities selecting the principal circles.
-- We prove that the four beam endpoints have all six mutual distances equal to two and hence form the prescribed regular tetrahedron.
-- We cite the source construction precisely for independent choices on all three opposite-edge pairs and both orientations.
-- We state and prove a normal-sphere partition lemma, a seam-nullity lemma, and the cap-cone duality needed for the area bookkeeping.
-- We corrected the degenerate case: the collapsed Meissner arc has zero physical area but a nonzero normal cone. The additive identity is extended to mixed zero-parameter tuples by continuous degeneration, not by deleting that normal contribution.
+We did **not** adopt two qualitative statements from the review:
 
-## 2. Trust boundary of the interval arithmetic
+1. Robert's body is not a "second-smallest" member of the family, because nonzero parameters can approach zero and hence produce volumes arbitrarily close to the Meissner value.
+2. Strict concavity and a positive initial derivative do not by themselves imply that `Phi` attains an interior maximum and decreases afterward.  The manuscript therefore makes no global monotonicity claim.
 
-The original `mpmath.iv` calculation is no longer the sole proof authority. We added an independently written Arb/FLINT implementation through `python-flint`, reconstructed from the stable formula without importing the original certifier. It was replayed at 384 and 512 bits and in reverse slab order. Deliberately under-resolved and sign-mutated controls produce semantic no-go certificates. The paper now uses the conservative bounds
+The revised wording retains the valid point: strict concavity alone would not prevent a negative parabolic endpoint, so the independent certification of `Phi(1)>0` is essential.
+
+## Reconciliation of the reported interval bounds
+
+The manuscript now uses Arb/FLINT as the sole proof authority and states only the conservative bounds
 
 \[
- \Phi(1)>\frac1{4000},
- \qquad
- \Phi''(e)<-\frac1{100000}.
+\Phi(1)>\frac1{4000},
+\qquad
+\Phi''(e)<-\frac1{100000}<0.
 \]
 
-The Arb outputs overlap the independent MPFR preflight and the earlier interval calculation.
+The decimal in the endpoint lemma has been changed to the Arb lower endpoint
 
-## 3. Formula derivation and branch control
+\[
+0.0002951409916769718\ldots,
+\]
 
-We replaced the `direct calculation` steps by a complete derivation.
+so it now agrees with the certificate described in the appendix.
 
-- The center distance, normal chart, conformal Gauss area element, and wedge Jacobians are worked out.
-- The `xi`-integration is shown explicitly.
-- The exact value `Psi(0)` is derived.
-- The change to the fixed interval is displayed.
-- A complete substitution table derives the stable `q`-chart and the coefficients `P_1,P_2,Q_0`.
-- The principal arctangent branch is proved globally for `q>0`; the parabolic endpoint is handled by analytic continuation of the positive stable expression.
+At the same nominal 32-by-10 partition, the archived endpoint-interval implementations give
 
-A separate exact symbolic audit reduces every algebraic identity used in this derivation to zero.
+| implementation | lower bound for `Phi(1)` | weakest upper bound for `Phi''` |
+|---|---:|---:|
+| direct MPFR with explicit directed rounding | `0.000307652868249034...` | `-0.000041649190336146...` |
+| legacy `mpmath.iv` | `0.000307652868249034...` | `-0.000041679824171374...` |
+| Arb/FLINT balls | `0.000295140991676972...` | `-0.000017928617848307...` |
 
-## 4. Smoothness at the parabolic endpoint
+A slabwise audit shows that the direct-MPFR intervals contain the corresponding `mpmath.iv` intervals on all 32 slabs.  The endpoint enclosures agree to the displayed precision.  Accordingly, the revision does **not** claim that the older `mpmath.iv` calculation was shown false.  Instead, it states plainly that the Arb midpoint-radius evaluation is wider on the coarse partition and that only the conservative Arb result is used for publication.
 
-The revised appendix proves uniform lower bounds for every radicand and denominator on the closed square `0<=q,x<=1`. The stable formula contains no negative power of `q`, so it is real analytic in a neighborhood of the closed square. This justifies differentiation under the fixed integral on slabs meeting `q=0`.
+A bounded refinement audit is included in the revision package.  It reruns Arb on 32-by-10, 64-by-20, and 128-by-20 partitions and evaluates the parabolic endpoint with 4, 8, and 16 panels.  The audit is designed to distinguish enclosure-width or wrapping effects from arithmetic precision without changing the formula, theorem, or proof target.
 
-## 5. Equality orientations and seams
+The former sentence that the enclosures merely "overlap" has been removed.
 
-We now state explicitly that the eight zero-parameter choices are the four vertex stars and the four face boundaries, giving exactly two tetrahedral congruence classes. The seam set is a finite union of piecewise-smooth curves; the common normal map sends it to a one-dimensional subset of the unit sphere, hence a set of spherical area zero.
+## Remaining source-level review
+
+The cap--cone converse and the invocation of the source global assembly theorem remain deliberately tied to the cited Peabody construction.  We have sent the full-parameter geometry note and revised manuscript to the source authors for an external construction-level review.  These are now citation-depth and expert-proofreading questions rather than omitted calculations.
 
 ## Scope
 
-The result remains restricted to regular-tetrahedron confocal Peabodies. We make no claim of global Meissner extremality, no universal lower-bound improvement, and no global construction theorem for arbitrary semi-regular tetrahedral bases.
+The theorem remains restricted to regular-tetrahedron confocal Peabodies.  We make no claim of global Meissner extremality, no universal lower-bound improvement, and no extension to arbitrary semi-regular tetrahedral bases.

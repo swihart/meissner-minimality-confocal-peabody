@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+implementation & endpoint lower bound & weakest upper bound for $\Phi''$ \\
+\midrule
+legacy \texttt{mpmath.iv} & $3.076528682490E-4$ & $-4.167982417137E-5$ \\
+direct MPFR & $3.076528682490E-4$ & $-4.164919033615E-5$ \\
+Arb refinement & $3.766645104929E-4$ & $-1.793709947801E-4$ \\
+\bottomrule
+\end{tabular}
+\caption{Enclosure comparison.  The endpoint-interval implementations are retained only as redundant audits; Arb is the proof authority.}
+\label{tab:enclosure-reconciliation}
+\end{table}

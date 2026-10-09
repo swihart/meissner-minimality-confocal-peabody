@@ -1,0 +1,31 @@
+{
+  "classification": "PEABODY_BASELINE_ENDPOINT_INTERVAL_COMPARISON_PASS",
+  "pass": true,
+  "partition": {
+    "q_slabs": 32,
+    "x_panels_per_slab": 10,
+    "endpoint_x_panels": 4
+  },
+  "mpmath": {
+    "worst_slab": 0,
+    "worst_phi_second_upper": "-0.00004167982417137394325188325473514976021999002632822283817858577490261279731662898708614648563040938478",
+    "endpoint_lower": "0.0003076528682490342052053580258083025767746844551546306131012521277485666954987900549957199363968911780",
+    "endpoint_upper": "0.0004451561703065328614450093652302713314564605971833944131037152358001308284940441316438098859473649918"
+  },
+  "direct_mpfr": {
+    "worst_slab": 0,
+    "worst_phi_second_upper": "-0.0000416491903361455479929355233265745234200069534569929412061647452811590899089586396050494003939865",
+    "endpoint_lower": "3.076528682490342052053580258083025767746844551546306131012521277485666954988220774673169767e-04",
+    "endpoint_upper": "4.451561703065328614450093652302713314564605971833944131037152358001308284940118589205760390e-04"
+  },
+  "comparison": {
+    "all_slabs_intersect": true,
+    "all_mpmath_contains_mpfr": false,
+    "all_mpfr_contains_mpmath": true,
+    "max_absolute_lower_endpoint_difference": "0.000002763924237862441990344543570949243241469235661096328926944288912834003616274975235853678254947116",
+    "max_absolute_upper_endpoint_difference": "0.000002697647163163905212864398174760274495651393360718004112166722317811995702846144456967160977371197",
+    "endpoint_lower_difference": "3.20224715970403031088220E-80",
+    "endpoint_upper_difference": "3.22727232338469473649918E-80"
+  },
+  "interpretation": "At the frozen 32x10 partition, the legacy mpmath.iv and direct directed-rounding MPFR endpoint-interval implementations agree very closely.  The wider Arb result must therefore be discussed as a difference in enclosure representation or wrapping, not silently attributed to arithmetic precision alone."
+}
