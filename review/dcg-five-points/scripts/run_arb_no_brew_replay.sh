@@ -103,6 +103,22 @@ run_fail() {
   if [ "$status" -eq 0 ]; then
     fail "adversarial control unexpectedly passed: $label"
   fi
+  local certificate="$RESULTS/$label/peabody_arb_concavity_certificate.json"
+  [ -f "$certificate" ] || fail "adversarial control crashed before emitting a semantic certificate: $label"
+  "$PY" - "$certificate" "$label" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+label = sys.argv[2]
+data = json.loads(path.read_text(encoding="utf-8"))
+if data.get("pass") is not False:
+    raise SystemExit(f"{label}: expected pass=false in the control certificate")
+if data.get("classification") != "NO_GO_PEABODY_ARB_FLINT_CERTIFICATE":
+    raise SystemExit(f"{label}: unexpected control classification {data.get('classification')!r}")
+print(f"PEABODY_ARB_CONTROL_SEMANTIC_NO_GO_PASS: {label}")
+PY
   printf '%s\n' "$status" > "$RESULTS/$label/EXPECTED_FAILURE_EXIT_CODE.txt"
 }
 

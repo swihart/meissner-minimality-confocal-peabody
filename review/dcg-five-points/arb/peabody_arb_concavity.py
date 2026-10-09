@@ -85,25 +85,63 @@ def rational_interval(lo: Fraction, hi: Fraction) -> arb:
     return arb(fracstr(midpoint), fracstr(radius))
 
 
+def point_text(value: arb, digits: int = 90) -> str:
+    """Render a finite or nonfinite Arb point without raising.
+
+    Canonical proof runs have finite exact directed endpoints. Deliberately
+    under-resolved or sign-mutated controls can instead produce unbounded or
+    indeterminate balls. Those controls still need a semantic NO-GO JSON
+    certificate, so diagnostic serialization must not call ``man_exp`` on a
+    nonfinite value.
+    """
+    try:
+        return value.str(digits, radius=False)
+    except Exception:  # pragma: no cover - diagnostic fallback only
+        return str(value)
+
+
 def lower_text(value: arb, digits: int = 90) -> str:
-    return value.lower().str(digits, radius=False)
+    try:
+        return point_text(value.lower(), digits)
+    except Exception:  # pragma: no cover - diagnostic fallback only
+        return str(value)
 
 
 def upper_text(value: arb, digits: int = 90) -> str:
-    return value.upper().str(digits, radius=False)
+    try:
+        return point_text(value.upper(), digits)
+    except Exception:  # pragma: no cover - diagnostic fallback only
+        return str(value)
 
 
-def exact_binary_point(value: arb) -> dict[str, int | str]:
+def exact_binary_point(value: arb) -> dict[str, int | str] | None:
+    """Serialize an exact finite Arb point, or return ``None``.
+
+    Python-FLINT's ``man_exp`` is defined only for exact finite values. The
+    authoritative runs must have such endpoints; negative controls are allowed
+    to produce nonfinite diagnostic bounds and are serialized with null binary
+    endpoints instead of crashing before their expected NO-GO certificate is
+    written.
+    """
+    if not bool(value.is_finite()) or not bool(value.is_exact()):
+        return None
     mantissa, exponent = value.man_exp()
     return {"mantissa": str(mantissa), "exponent": int(exponent)}
 
 
 def enclosure(value: arb, digits: int = 90) -> dict[str, Any]:
-    lower = value.lower()
-    upper = value.upper()
+    try:
+        lower = value.lower()
+    except Exception:  # pragma: no cover - diagnostic fallback only
+        lower = value
+    try:
+        upper = value.upper()
+    except Exception:  # pragma: no cover - diagnostic fallback only
+        upper = value
     return {
-        "lower": lower.str(digits, radius=False),
-        "upper": upper.str(digits, radius=False),
+        "lower": point_text(lower, digits),
+        "upper": point_text(upper, digits),
+        "finite": bool(value.is_finite()),
         "lower_binary": exact_binary_point(lower),
         "upper_binary": exact_binary_point(upper),
     }
@@ -505,12 +543,19 @@ def normalize_row(row: dict[str, Any], digits: int) -> dict[str, Any]:
     for key, value in row.items():
         if isinstance(value, arb):
             interval = enclosure(value, digits)
+            lower_binary = interval["lower_binary"]
+            upper_binary = interval["upper_binary"]
+            if lower_binary is None or upper_binary is None:
+                raise RuntimeError(
+                    f"authoritative terminal-box field {key!r} has a nonfinite "
+                    "or nonexact directed endpoint"
+                )
             output[key + "_lower"] = interval["lower"]
             output[key + "_upper"] = interval["upper"]
-            output[key + "_lower_mantissa"] = interval["lower_binary"]["mantissa"]
-            output[key + "_lower_exponent"] = interval["lower_binary"]["exponent"]
-            output[key + "_upper_mantissa"] = interval["upper_binary"]["mantissa"]
-            output[key + "_upper_exponent"] = interval["upper_binary"]["exponent"]
+            output[key + "_lower_mantissa"] = lower_binary["mantissa"]
+            output[key + "_lower_exponent"] = lower_binary["exponent"]
+            output[key + "_upper_mantissa"] = upper_binary["mantissa"]
+            output[key + "_upper_exponent"] = upper_binary["exponent"]
         else:
             output[key] = value
     return output
@@ -666,7 +711,9 @@ def run(output_dir: Path, bits: int, reverse: bool = False,
             "x_panels_per_slab": x_panels,
             "target": f"-{fracstr(CONCAVITY_TARGET)}",
             "worst_phi_second_upper": upper_text(worst_upper, digits) if worst_upper else None,
-            "worst_phi_second_upper_binary": exact_binary_point(worst_upper) if worst_upper else None,
+            "worst_phi_second_upper_binary": (
+                exact_binary_point(worst_upper) if worst_upper is not None else None
+            ),
             "pass": all_concave,
         },
         "terminal_rectangles": terminal_rectangles,

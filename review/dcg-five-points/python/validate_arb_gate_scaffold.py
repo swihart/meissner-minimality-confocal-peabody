@@ -9,7 +9,7 @@ import json
 import subprocess
 from pathlib import Path
 
-VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V2"
+VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V3"
 
 
 def sha256(path: Path) -> str:
@@ -33,6 +33,7 @@ def main() -> int:
         root / "scripts" / "run_arb_no_brew_replay.sh",
         root / "notes" / "02_arb_flint_trust_boundary.md",
         root / "notes" / "02a_arb_initial_target_calibration.md",
+        root / "notes" / "02b_arb_control_serialization.md",
         root / "ARB_NO_BREW_REPLAY.md",
         root / "REVIEW_PROGRESS_LEDGER.md",
         root / "data" / "reviewer_point_progress.json",
@@ -61,6 +62,10 @@ def main() -> int:
         "ENDPOINT_TARGET = Fraction(1, 4000)" in certifier
         and "CONCAVITY_TARGET = Fraction(1, 100000)" in certifier
     )
+    checks["nonfinite_control_serialization_guard"] = (
+        "if not bool(value.is_finite()) or not bool(value.is_exact())" in certifier
+        and "return None" in certifier
+    )
     checks["independent_no_principal_import"] = not any(
         token in certifier
         for token in (
@@ -73,6 +78,10 @@ def main() -> int:
     checks["no_homebrew_in_runner"] = "brew install" not in runner_text.lower() and "command -v brew" not in runner_text.lower()
     checks["binary_wheel_policy"] = "--only-binary=:all:" in runner_text
     checks["isolated_venv"] = ".cache/peabody-arb" in runner_text
+    checks["control_json_gate"] = (
+        "adversarial control crashed before emitting a semantic certificate" in runner_text
+        and "PEABODY_ARB_CONTROL_SEMANTIC_NO_GO_PASS" in runner_text
+    )
     checks["three_replays_and_two_controls"] = all(
         marker in runner_text
         for marker in (

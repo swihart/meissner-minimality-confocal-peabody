@@ -1,5 +1,5 @@
 {
-  "validator_version": "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V2",
+  "validator_version": "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V3",
   "classification": "PEABODY_ARB_GATE_SCAFFOLD_PASS",
   "pass": true,
   "checks": {
@@ -8,25 +8,28 @@
     "shell_syntax": true,
     "python_flint_pin_present": true,
     "publication_targets_present": true,
+    "nonfinite_control_serialization_guard": true,
     "independent_no_principal_import": true,
     "no_homebrew_in_runner": true,
     "binary_wheel_policy": true,
     "isolated_venv": true,
+    "control_json_gate": true,
     "three_replays_and_two_controls": true,
     "progress_ledger_ready": true
   },
   "actual_arb_runtime_executed_in_builder_environment": false,
   "reason": "python-flint was unavailable in the builder environment; local wheel replay remains mandatory",
   "file_hashes": {
-    "arb/peabody_arb_concavity.py": "c092f3cb5c3fc2301578181e0cc47c7aa39fbcc431cd361e485296cd6d221179",
+    "arb/peabody_arb_concavity.py": "c4300f832bf3f51d380076c7051abcb2098615de303b4ec550ec7218c1fa6cae",
     "arb/requirements-arb.txt": "4cef508304e84c21f73cf412712165dc26e40978cb784bc08a876948b559d90d",
-    "python/audit_arb_certificate.py": "c1cf29329ae38474d7e24c553009658ea055041c7124061582784009cdb1fa9c",
+    "python/audit_arb_certificate.py": "2cab489bb368d53541627ad3f1c0a89856558b379e73f08431a5cfc26a1b8ef5",
     "python/promote_arb_replay.py": "74d4e6c7e4cfe19144f2b5e6ca86d9a32a3d87f7747796af7d7109a841c7df3b",
-    "python/validate_arb_gate_scaffold.py": "82cdb2f061c2985f1c20e5e5527fef7b8f24844902e37441754435fa644d42e3",
-    "scripts/run_arb_no_brew_replay.sh": "a1214be7867cc693de23cca6a63d8ab816470cf869c478a3cd54c7b93efb63e6",
+    "python/validate_arb_gate_scaffold.py": "6ca0b815aaf38d06aecff88a29af6ed9b91bda5dba23d21c5c4f916e41956885",
+    "scripts/run_arb_no_brew_replay.sh": "925e92fadb3266b55a823f0941aa3c7125834514f502993d2ad95dedfd3405f8",
     "notes/02_arb_flint_trust_boundary.md": "9310dc254a01c35ce1ed326b3fccf920a983d336d4c37a1cd5b140ae47e7b79d",
     "notes/02a_arb_initial_target_calibration.md": "00c6888e2964f721ccc994aa3785f4d00bd38a7ead111df17feb71d043d4f4ed",
-    "ARB_NO_BREW_REPLAY.md": "10a9ff2caa41350b83785daa8bdcd0accd8be7108bd60b9b3fa527e59ae04816",
+    "notes/02b_arb_control_serialization.md": "11b7e9c1a5f02070627ee8db5550e46b643fa3181b0889f5a08eef2c07960c1a",
+    "ARB_NO_BREW_REPLAY.md": "7f80b780071d700a7a3df5d1c4a7a48c5d9485a15b3d95f150bd10ac31479fdc",
     "REVIEW_PROGRESS_LEDGER.md": "a1b0f67083dfb3d9a171cfdc52c340e2058d9b28748fe7894ad3801c5b3eab6c",
     "data/reviewer_point_progress.json": "98b9b7fba2cd6d7e2fd10832c21a11d6c6f76b7ab43cee5bd2e19ab8a659fb1e"
   }

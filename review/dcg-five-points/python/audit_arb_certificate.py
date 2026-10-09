@@ -16,7 +16,7 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
-AUDIT_VERSION = "PEABODY_ARB_FLINT_CERTIFICATE_AUDIT_V2"
+AUDIT_VERSION = "PEABODY_ARB_FLINT_CERTIFICATE_AUDIT_V3"
 PINNED_PYTHON_FLINT = "0.9.0"
 getcontext().prec = 180
 
@@ -108,6 +108,12 @@ def main() -> int:
     checks["reverse_pass"] = reverse["pass"] is True
     checks["underresolved_rejected"] = control_underresolved["pass"] is False
     checks["mutation_rejected"] = mutation["pass"] is False
+    checks["controls_emit_semantic_no_go"] = (
+        control_underresolved.get("classification") == "NO_GO_PEABODY_ARB_FLINT_CERTIFICATE"
+        and control_underresolved.get("proof_status") == "NOT_CERTIFIED"
+        and mutation.get("classification") == "NO_GO_PEABODY_ARB_FLINT_CERTIFICATE"
+        and mutation.get("proof_status") == "NOT_CERTIFIED"
+    )
     checks["pinned_python_flint"] = (
         forward["environment"].get("python_flint_distribution") == PINNED_PYTHON_FLINT
         and precision["environment"].get("python_flint_distribution") == PINNED_PYTHON_FLINT

@@ -43,10 +43,11 @@ The runner:
 3. installs exactly `python-flint==0.9.0` from a binary wheel;
 4. archives the pip install report and module provenance;
 5. runs 384-bit, 512-bit, and reverse-order certificates;
-6. requires a deliberately under-resolved one-slab, one-panel partition and a correction-sign mutation to fail;
-7. compares every Arb slab with the archived direct-MPFR preflight enclosure;
-8. checks every generated-output hash;
-9. emits `PEABODY_ARB_NO_BREW_REPLAY_PASS` only if every gate passes.
+6. requires a deliberately under-resolved one-slab, one-panel partition and a correction-sign mutation to emit semantic `NO_GO` certificates;
+7. permits those deliberately broken controls to archive nonfinite diagnostic balls with null binary endpoints, while authoritative terminal-box endpoints remain exact and finite;
+8. compares every Arb slab with the archived direct-MPFR preflight enclosure;
+9. checks every generated-output hash;
+10. emits `PEABODY_ARB_NO_BREW_REPLAY_PASS` only if every gate passes.
 
 If corporate networking blocks pip, download a matching wheel in a browser and
 run:
