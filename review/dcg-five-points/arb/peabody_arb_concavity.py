@@ -567,7 +567,11 @@ def write_csv(path: Path, rows: list[dict[str, Any]], digits: int) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     normalized = [normalize_row(row, digits) for row in rows]
     with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(normalized[0].keys()))
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=list(normalized[0].keys()),
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(normalized)
 
@@ -660,7 +664,11 @@ def run(output_dir: Path, bits: int, reverse: bool = False,
                 "phi_second_lower", "phi_second_upper",
                 "below_negative_target",
             ]
-            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer = csv.DictWriter(
+                stream,
+                fieldnames=fields,
+                lineterminator="\n",
+            )
             writer.writeheader()
             for record in slab_records:
                 writer.writerow({

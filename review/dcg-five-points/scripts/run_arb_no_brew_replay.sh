@@ -128,6 +128,20 @@ run_pass reverse_384 --bits 384 --reverse
 run_fail control_1x1 --bits 384 --q-slabs 1 --x-panels 1 --no-boxes
 run_fail control_sign_mutation --bits 384 --q-slabs 4 --correction-sign -1 --no-boxes
 
+"$PY" - "$RESULTS" <<'PY'
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+bad = []
+for path in sorted(root.rglob("*.csv")):
+    if b"\r" in path.read_bytes():
+        bad.append(str(path.relative_to(root)))
+if bad:
+    raise SystemExit("CSV files contain carriage returns: " + ", ".join(bad))
+print("PEABODY_ARB_CSV_LF_ONLY_PASS")
+PY
+
 "$PY" "$AUDITOR" --checkpoint-dir "$CHECKPOINT" 2>&1 | tee "$TRANSCRIPTS/arb_certificate_audit.txt"
 
 RESULTS_DIR="$RESULTS" VENV_PATH="$VENV" BASE_PYTHON_PATH="$BASE_PYTHON" "$PY" - <<'PY'

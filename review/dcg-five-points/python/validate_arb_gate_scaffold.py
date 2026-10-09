@@ -9,7 +9,7 @@ import json
 import subprocess
 from pathlib import Path
 
-VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V3"
+VERSION = "PEABODY_ARB_GATE_SCAFFOLD_VALIDATOR_V4"
 
 
 def sha256(path: Path) -> str:
@@ -34,6 +34,7 @@ def main() -> int:
         root / "notes" / "02_arb_flint_trust_boundary.md",
         root / "notes" / "02a_arb_initial_target_calibration.md",
         root / "notes" / "02b_arb_control_serialization.md",
+        root / "notes" / "02c_arb_csv_line_endings.md",
         root / "ARB_NO_BREW_REPLAY.md",
         root / "REVIEW_PROGRESS_LEDGER.md",
         root / "data" / "reviewer_point_progress.json",
@@ -66,6 +67,7 @@ def main() -> int:
         "if not bool(value.is_finite()) or not bool(value.is_exact())" in certifier
         and "return None" in certifier
     )
+    checks["lf_only_csv_writer"] = certifier.count('lineterminator="\\n"') >= 2
     checks["independent_no_principal_import"] = not any(
         token in certifier
         for token in (
@@ -82,6 +84,7 @@ def main() -> int:
         "adversarial control crashed before emitting a semantic certificate" in runner_text
         and "PEABODY_ARB_CONTROL_SEMANTIC_NO_GO_PASS" in runner_text
     )
+    checks["csv_cr_guard"] = "PEABODY_ARB_CSV_LF_ONLY_PASS" in runner_text
     checks["three_replays_and_two_controls"] = all(
         marker in runner_text
         for marker in (

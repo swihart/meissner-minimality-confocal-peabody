@@ -47,7 +47,8 @@ The runner:
 7. permits those deliberately broken controls to archive nonfinite diagnostic balls with null binary endpoints, while authoritative terminal-box endpoints remain exact and finite;
 8. compares every Arb slab with the archived direct-MPFR preflight enclosure;
 9. checks every generated-output hash;
-10. emits `PEABODY_ARB_NO_BREW_REPLAY_PASS` only if every gate passes.
+10. requires all generated CSV files to use LF line endings with no carriage returns; and
+11. emits `PEABODY_ARB_NO_BREW_REPLAY_PASS` only if every gate passes.
 
 If corporate networking blocks pip, download a matching wheel in a browser and
 run:
